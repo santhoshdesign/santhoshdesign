@@ -1,0 +1,11 @@
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 100px; /* Adjust the width of the line as needed */
+  height: 2px; /* Adjust the height of the line as needed */
+  background-color: #333; /* Adjust the color of the line as needed */
+  border-radius: 50%; /* Use border-radius to create a curved line */
+  transform: translateY(-50%) translateX(50%) rotate(45deg); /* Adjust the rotation and positioning */
+}

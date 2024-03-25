@@ -1,11 +1,10 @@
 import "./App.css";
+import AppRoutes from "./routes";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <p>santhosh page</p>
-      </header>
+      <AppRoutes />
     </div>
   );
 }
