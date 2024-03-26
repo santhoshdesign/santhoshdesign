@@ -15,13 +15,29 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { themeConfig } from "../../theme/theme";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
-const navItems = ["Home", "About", "Get my CV"];
+const navItems = [
+  { id: 0, title: "Home" },
+  { id: 1, title: "About" },
+  { id: 2, title: "Get my CV" },
+];
 
 function DrawerAppBar(props) {
   const { window } = props;
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleNavigate = (data) => {
+    if (data?.id === 0) {
+      navigate("/", { state: data });
+    } else if (data?.id === 1) {
+      navigate("/", { state: data });
+    } else if (data?.id === 2) {
+      navigate("/", { state: data });
+    }
+  };
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
@@ -30,6 +46,7 @@ function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <svg
+        onClick={() => navigate("/")}
         xmlns="http://www.w3.org/2000/svg"
         width="48"
         height="47"
@@ -74,7 +91,7 @@ function DrawerAppBar(props) {
                 fontWeight: 600,
               }}
             >
-              <ListItemText primary={item} />
+              <ListItemText primary={item?.title} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -109,6 +126,7 @@ function DrawerAppBar(props) {
           boxShadow: "none",
           fontFamily: "Cabin",
           backdropFilter: "blur(2px)",
+          paddingInline: 6,
         }}
       >
         <Toolbar>
@@ -134,6 +152,8 @@ function DrawerAppBar(props) {
             }}
           >
             <svg
+              style={{ cursor: "pointer" }}
+              onClick={() => navigate("/")}
               xmlns="http://www.w3.org/2000/svg"
               width="48"
               height="47"
@@ -170,6 +190,7 @@ function DrawerAppBar(props) {
             {navItems.map((item) => (
               <Button
                 key={item}
+                onClick={() => handleNavigate(item)}
                 sx={{
                   color: themeConfig.palette.primaryColor,
                   textTransform: "capitalize",
@@ -177,7 +198,7 @@ function DrawerAppBar(props) {
                   paddingInline: 4,
                 }}
               >
-                {item}
+                {item?.title}
               </Button>
             ))}
             <Button
@@ -189,6 +210,10 @@ function DrawerAppBar(props) {
                 width: 130,
                 textTransform: "capitalize",
                 fontSize: themeConfig.typography.p1,
+                "&:hover": {
+                  background: themeConfig.palette.ternaryColor,
+                  color: themeConfig.palette.whiteColor,
+                },
               }}
             >
               Email me

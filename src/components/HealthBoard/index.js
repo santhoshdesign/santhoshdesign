@@ -52,7 +52,7 @@ const patientGoals = [
   },
 ];
 
-const About = () => {
+const Healthboard = () => {
   const location = useLocation();
   const data = location.state;
   console.log("dsta", data);
@@ -1294,4 +1294,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Healthboard;

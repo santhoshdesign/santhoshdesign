@@ -4,12 +4,16 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "../components/Home/index";
 import About from "../components/About/index";
+import Healthboard from "../components/HealthBoard";
+import PatientDashboard from "../components/PatientDashboard";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
+      <Route path="/microsite" element={<About />} />
+      <Route path="/healthboard" element={<Healthboard />} />
+      <Route path="/patientdashboard" element={<PatientDashboard />} />
     </Routes>
   );
 };

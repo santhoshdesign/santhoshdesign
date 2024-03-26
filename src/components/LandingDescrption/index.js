@@ -12,7 +12,7 @@ const LandingDescrption = () => {
         height: "90vh",
         background: "#F5F7FD",
         marginBlockStart: 2,
-        paddingInline: 3,
+        paddingInline: 8,
       }}
       className="image-container"
     >
@@ -47,7 +47,7 @@ const LandingDescrption = () => {
         <Stack
           width={"50%"}
           //  sx={{ height: 750 }}
-          alignItems={"center"}
+          alignItems={"flex-end"}
           justifyContent={"center"}
         >
           <img

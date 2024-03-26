@@ -2,6 +2,8 @@ import { Box, Typography } from "@mui/material";
 import React from "react";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import { themeConfig } from "../../theme/theme";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const cardList = [
   {
@@ -42,6 +44,16 @@ const cardList = [
 ];
 
 const HomePageCard = () => {
+  const navigate = useNavigate();
+  const handleClick = (data) => {
+    if (data?.id === 0) {
+      navigate("/microsite", { state: data });
+    } else if (data?.id === 1) {
+      navigate("/healthboard", { state: data });
+    } else if (data?.id === 2) {
+      navigate("/patientdashboard", { state: data });
+    }
+  };
   return (
     <Box
       sx={{
@@ -64,10 +76,25 @@ const HomePageCard = () => {
             sx={{
               boxShadow: " 0px 0px 10px 0px rgba(0, 0, 0, 0.10)",
               background: "#E2FAFF",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
               padding: 1,
+              cursor: "pointer",
             }}
+            onClick={() => handleClick(item)}
           >
-            <img src={item?.image} alt="card_image" width={500} height={330} />
+            <motion.div
+              whileHover={{ scale: 1.1, transition: ".5s ease-in-out" }}
+            >
+              <img
+                src={item?.image}
+                alt="card_image"
+                width={400}
+                height={330}
+                style={{ objectFit: "contain" }}
+              />
+            </motion.div>
           </Box>
           <Box sx={{ marginBlockStart: 4 }}>
             <Typography
@@ -86,7 +113,9 @@ const HomePageCard = () => {
             >
               {item?.title}
             </Typography>
+
             <Typography
+              onClick={() => handleClick(item)}
               sx={{
                 fontSize: themeConfig.typography.p1,
                 color: themeConfig.palette.primaryColor,
@@ -95,6 +124,11 @@ const HomePageCard = () => {
                 gap: 1,
                 position: "absolute",
                 bottom: 1,
+                "&:hover": {
+                  cursor: "pointer",
+                  opacity: 0.3,
+                  transition: "0.3s ease-in-out",
+                },
               }}
             >
               {item?.status} <TrendingFlatIcon />

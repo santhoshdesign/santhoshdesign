@@ -11,7 +11,7 @@ const Home = () => {
     <div>
       <DrawerAppBar />
       <LandingDescrption />
-      <Box sx={{ padding: 3 }}>
+      <Box sx={{ paddingInline: 8, paddingBlock: 3 }}>
         <Typography sx={{ fontSize: themeConfig.typography.h2 }}>
           How do I solve business & user problems?
         </Typography>

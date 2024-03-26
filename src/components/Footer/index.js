@@ -1,6 +1,7 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
 import { themeConfig } from "../../theme/theme";
+import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
@@ -40,43 +41,56 @@ const Footer = () => {
           marginBlockEnd: 2,
         }}
       >
-        hi@santhosh.design
+        hi<span style={{ fontFamily: "Inter" }}>@</span>
+        santhosh.design
       </Typography>
       <Stack direction={"row"} gap={2}>
-        <Button
-          sx={{
-            width: 240,
-            height: 40,
-            border: "1px solid #BCB2B2",
-            background: themeConfig.palette.whiteColor,
-            borderRadius: 30,
-            textTransform: "capitalize",
-            fontSize: themeConfig.typography.p1,
-            color: themeConfig.palette.primaryColor,
-          }}
-        >
-          Get my CV
-        </Button>
-        <Button
-          sx={{
-            width: 240,
-            height: 40,
-            border: "1px solid #BCB2B2",
-            background: themeConfig.palette.whiteColor,
-            borderRadius: 30,
-            textTransform: "capitalize",
-            fontSize: themeConfig.typography.p1,
-            color: themeConfig.palette.primaryColor,
-            display: "flex",
-            gap: 1,
-          }}
-        >
-          <img
-            src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/linkedin.svg"
-            alt="linkedin"
-          />{" "}
-          @santhoshdesign
-        </Button>
+        <motion.div whileTap={{ scale: 0.95, transition: "0.3s ease" }}>
+          <Button
+            sx={{
+              width: 240,
+              height: 40,
+              border: "1px solid #BCB2B2",
+              background: themeConfig.palette.whiteColor,
+              borderRadius: 30,
+              textTransform: "capitalize",
+              fontSize: themeConfig.typography.p1,
+              color: themeConfig.palette.primaryColor,
+              "&:hover": {
+                background: themeConfig.palette.whiteColor,
+                color: themeConfig.palette.primaryColor,
+              },
+            }}
+          >
+            Get my CV
+          </Button>
+        </motion.div>
+        <motion.div whileTap={{ scale: 0.95, transition: "0.3s ease" }}>
+          <Button
+            sx={{
+              width: 240,
+              height: 40,
+              border: "1px solid #BCB2B2",
+              background: themeConfig.palette.whiteColor,
+              borderRadius: 30,
+              textTransform: "capitalize",
+              fontSize: themeConfig.typography.p1,
+              color: themeConfig.palette.primaryColor,
+              display: "flex",
+              "&:hover": {
+                background: themeConfig.palette.whiteColor,
+                color: themeConfig.palette.primaryColor,
+              },
+            }}
+          >
+            <img
+              style={{ marginInlineEnd: 4 }}
+              src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/linkedin.svg"
+              alt="linkedin"
+            />
+            <span style={{ fontFamily: "Inter" }}>@</span>santhoshdesign
+          </Button>
+        </motion.div>
       </Stack>
     </Box>
   );
