@@ -4,6 +4,9 @@ import { themeConfig } from "../../theme/theme";
 import { motion } from "framer-motion";
 
 const Footer = () => {
+  const handleLinkedInClick = () => {
+    window.open("https://www.linkedin.com/in/santhoshdesign/", "_blank");
+  };
   return (
     <Box
       sx={{
@@ -67,6 +70,7 @@ const Footer = () => {
         </motion.div>
         <motion.div whileTap={{ scale: 0.95, transition: "0.3s ease" }}>
           <Button
+            onClick={() => handleLinkedInClick()}
             sx={{
               width: 240,
               height: 40,

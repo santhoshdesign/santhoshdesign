@@ -6,52 +6,6 @@ import { themeConfig } from "../../theme/theme";
 import SwiperComponent from "./Swiper";
 import Footer from "../Footer";
 
-const doctorGoals = [
-  {
-    id: 0,
-    content: "Improve appointment scheduling efficiency",
-    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/1.svg",
-  },
-  {
-    id: 1,
-    content: "Enhance patient experience",
-    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/2.svg",
-  },
-  {
-    id: 2,
-    content: "Optimize staff productivity",
-    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/3.svg",
-  },
-  {
-    id: 3,
-    content: "Strengthen clinic quality of service",
-    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/4.svg",
-  },
-];
-
-const patientGoals = [
-  {
-    id: 0,
-    content: "Check the availability of clinic and doctor",
-    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/5.svg",
-  },
-  {
-    id: 1,
-    content: "Book appointments easier and faster",
-    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/6.svg",
-  },
-  {
-    id: 2,
-    content: "Reduce waiting times for patients",
-    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/7.svg",
-  },
-  {
-    id: 3,
-    content: "Maintain a good reputation for the clinic",
-    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/8.svg",
-  },
-];
-
 const Healthboard = () => {
   const location = useLocation();
   const data = location.state;
@@ -113,7 +67,7 @@ const Healthboard = () => {
             }}
           >
             <Stack direction={"row"}>
-              <Stack sx={{ width: 150 }} gap={1}>
+              <Stack sx={{ width: 180 }} gap={1}>
                 <Typography
                   sx={{
                     fontSize: themeConfig.typography.p1,
@@ -128,7 +82,7 @@ const Healthboard = () => {
                     color: themeConfig.palette.primaryColor,
                   }}
                 >
-                  Oct - Nov 2023
+                  Dec 2023 - Jan 2024
                 </Typography>
               </Stack>
               <Stack sx={{ width: 200 }} gap={1}>
@@ -240,7 +194,7 @@ const Healthboard = () => {
                 lineHeight: 2,
               }}
             >
-              As a Product Designer, I have taken the lead for the design team.
+              I lead the design team as the product designer, with{" "}
               <a
                 style={{
                   color: themeConfig.palette.primaryColor,
@@ -250,9 +204,9 @@ const Healthboard = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                Praveenkumar
+                Aravithkumar
               </a>{" "}
-              (Product Designer),{" "}
+              serving as a Jr. Product Designer,
               <a
                 style={{
                   color: themeConfig.palette.primaryColor,
@@ -276,9 +230,8 @@ const Healthboard = () => {
               >
                 Sathishkumar
               </a>{" "}
-              Business Analyst, and the founder of LYFnGO have been involved
-              throughout the implementation process of this feature in our
-              product.
+              all actively involved throughout the implementation process of
+              this feature in our product, LYFnGO.
             </Typography>
             <Typography
               sx={{
@@ -287,7 +240,8 @@ const Healthboard = () => {
                 lineHeight: 3,
               }}
             >
-              Works: Research plan, wireframe, prototyping, Interaction design.
+              Works: User & Health data research, Wireframe, Prototypes &
+              Usability testing.
             </Typography>
           </Box>
 
@@ -304,17 +258,7 @@ const Healthboard = () => {
                 marginBlockEnd: 2,
               }}
             >
-              Real Problem
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: themeConfig.typography.p1,
-                fontWeight: "300",
-                lineHeight: 3,
-              }}
-            >
-              Our team identified this problem while the doctor managed the
-              clinic.
+              Problem Statement
             </Typography>
             <Typography
               sx={{
@@ -323,13 +267,46 @@ const Healthboard = () => {
                 lineHeight: 2,
               }}
             >
-              In a <b>busy clinic, appointments</b> often overlapped, and{" "}
-              <b>patients</b>
-              showed up without warning, making schedules messy. The{" "}
-              <b>doctor, nurse,</b> and <b>receptionist</b> had to manage
-              multiple tasks simultaneously, and patients had to wait longer or
-              have hurried <b>appointments.</b> Things needed to change to bring
-              order back to the <b>confusion.</b>
+              Managing and monitoring precious customer health data, including
+              vital metrics such as sugar levels, blood glucose, heart rate, and
+              calories burned and gained, presents significant challenges for
+              hospitals and nutrition centers, especially for high-risk
+              individuals in the healthcare industry. This requires the
+              allocation of specific specialists and nurses for validation and
+              monitoring, leading to increased healthcare management costs and
+              causing worry for customers when they are outside hospital
+              facility.
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              maxWidth: 730,
+              paddingBlockStart: 4,
+            }}
+          >
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.h2,
+                fontWeight: 600,
+                marginBlockEnd: 2,
+              }}
+            >
+              Solution Overview
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
+                lineHeight: 2,
+              }}
+            >
+              To address these challenges, LYFnGO <b>partnered</b> with
+              <b>Spike,</b> a B2B Generative AI and Data tech startup for the
+              <b> Digital Health industry.</b> Spike provides health and fitness
+              data interpretation-as-a-service on top of user-generated data
+              from
+              <b>Wearables</b> and IoT devices.
             </Typography>
           </Box>
 
@@ -341,27 +318,16 @@ const Healthboard = () => {
           >
             <img
               src={
-                "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/problem.png"
+                "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Solution_overview.png"
               }
+              style={{ width: 770, height: 370, objectFit: "contain" }}
               alt="bannerImage"
             />
-            <Typography
-              sx={{
-                fontSize: themeConfig.typography.h3,
-                textAlign: "center",
-                fontWeight: 600,
-                paddingBlockStart: 4,
-                fontStyle: "italic",
-              }}
-            >
-              Disorganized appointment scheduling leads to
-              <br /> longer waits and rushed appointments in the clinic.
-            </Typography>
           </Box>
 
           <Box
             sx={{
-              minWidth: 730,
+              maxWidth: 730,
               paddingBlockStart: 4,
             }}
           >
@@ -369,10 +335,10 @@ const Healthboard = () => {
               sx={{
                 fontSize: themeConfig.typography.h2,
                 fontWeight: 600,
-                marginBlockEnd: 1,
+                marginBlockEnd: 2,
               }}
             >
-              Goals
+              How did I research to collect health data?
             </Typography>
             <Typography
               sx={{
@@ -381,7 +347,46 @@ const Healthboard = () => {
                 lineHeight: 2,
               }}
             >
-              Goals that our team considered to create a microsite feature.
+              To gather health data, I followed a structured approach.
+              Initially, I reviewed the spike shared by our founder and product
+              lead collaborating closely with the design team and business
+              analysts. <b>My first step</b> involved collecting{" "}
+              <b>health data metrics</b> in line with healthcare{" "}
+              <b>industry standards.</b> For nutrition centers, I tailored the
+              data collection process to meet their specific requirements,
+              confirming its importance to customer needs.
+            </Typography>
+          </Box>
+
+          <Box
+            sx={{
+              maxWidth: 730,
+              paddingBlockStart: 4,
+            }}
+          >
+            <img
+              src={
+                "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/research_healthdata.png"
+              }
+              style={{ width: 770, height: 370, objectFit: "contain" }}
+              alt="bannerImage"
+            />
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
+                lineHeight: 2,
+                marginBlockStart: 4,
+              }}
+            >
+              After gathering the data, I <b>carefully cross-checked</b> it
+              against the metrics outlined in the spike to ensure alignment.
+              Afterwards, I validated our findings across supported platforms
+              and engaged in discussions with the business analysts and product
+              lead to confirm the <b>accuracy</b> and relevance of the collected
+              data. Additionally, to ensure the strength of our data, we looked
+              for validation from <b>healthcare industry experts,</b>{" "}
+              incorporating their feedback into our process.
             </Typography>
           </Box>
 
@@ -395,231 +400,117 @@ const Healthboard = () => {
               sx={{
                 fontSize: themeConfig.typography.h2,
                 fontWeight: 600,
-                marginBlockEnd: 1,
+                marginBlockEnd: 2,
               }}
             >
-              Doctor’s Goals
+              Challenges Faced
             </Typography>
-            <Stack direction={"row"} gap={4}>
-              {doctorGoals.map((item) => (
-                <Stack gap={3}>
-                  <img
-                    src={item?.image}
-                    alt={item?.id}
-                    style={{ height: 60, width: 60 }}
-                  />
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.p1,
-                      lineHeight: 2,
-                      fontWeight: 400,
-                    }}
-                  >
-                    {item?.content}
-                  </Typography>
-                </Stack>
-              ))}
-            </Stack>
-          </Box>
-
-          <Box
-            sx={{
-              maxWidth: 770,
-              paddingBlockStart: 4,
-            }}
-          >
             <Typography
               sx={{
                 fontSize: themeConfig.typography.h2,
                 fontWeight: 600,
-                marginBlockEnd: 1,
+                marginBlockEnd: 2,
               }}
             >
-              Patient’s Goals
+              How can we share health data with selective specialists?
             </Typography>
-            <Stack direction={"row"} gap={4}>
-              {patientGoals.map((item) => (
-                <Stack gap={3}>
-                  <img
-                    src={item?.image}
-                    alt={item?.id}
-                    style={{ height: 60, width: 60 }}
-                  />
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.p1,
-                      lineHeight: 2,
-                      fontWeight: 400,
-                    }}
-                  >
-                    {item?.content}
-                  </Typography>
-                </Stack>
-              ))}
-            </Stack>
-          </Box>
-
-          <Box
-            sx={{
-              minWidth: 770,
-              paddingBlockStart: 4,
-            }}
-          >
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
+                lineHeight: 2,
+                marginBlockEnd: 2,
+              }}
+            >
+              We've faced the challenge of securely and efficiently{" "}
+              <b>sharing health data</b> with <b>specific specialists.</b>{" "}
+              Ensuring the confidentiality of sensitive information while
+              enabling targeted access for specialists was a significant
+              obstacle.
+            </Typography>
             <Typography
               sx={{
                 fontSize: themeConfig.typography.h2,
                 fontWeight: 600,
-                marginBlockEnd: 1,
+                marginBlockEnd: 2,
               }}
             >
-              Impacts
+              How can customers integrate with wearables?
             </Typography>
-            <Stack direction={"row"} gap={2} alignItems={"center"}>
-              <Stack>
-                <img
-                  src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/LYFnGO_Logo.svg"
-                  alt="lyfngo"
-                />
-              </Stack>
-              <Stack>
-                <Typography
-                  sx={{
-                    fontSize: themeConfig.typography.p1,
-                    fontStyle: "italic",
-                    fontWeight: 400,
-                  }}
-                >
-                  “Our founder and marketing team have stated.”
-                </Typography>
-              </Stack>
-            </Stack>
-          </Box>
-
-          <Box
-            sx={{
-              minWidth: 770,
-              paddingBlockStart: 4,
-            }}
-          >
-            <Stack direction={"row"} gap={2} alignItems={"center"}>
-              <Stack>
-                <img
-                  src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/doctor.png"
-                  alt="doctor"
-                  style={{ height: 90, width: 90, objectFit: "contain" }}
-                />
-              </Stack>
-              <Stack gap={2}>
-                <Stack direction={"row"} alignItems={"center"} gap={2}>
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.h2,
-                      fontWeight: 400,
-                    }}
-                  >
-                    90%
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.p1,
-                      fontWeight: 400,
-                    }}
-                  >
-                    <b>Patient retention</b> has increased, and doctors are
-                    really happy with our microsite.
-                  </Typography>
-                </Stack>
-
-                <Stack direction={"row"} alignItems={"center"} gap={2}>
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.h2,
-                      fontWeight: 400,
-                    }}
-                  >
-                    95%
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.p1,
-                      fontWeight: 400,
-                    }}
-                  >
-                    We've increased the Clinic team's <b>efficiency</b> and{" "}
-                    <b>revenue</b> with LYFnGO.
-                  </Typography>
-                </Stack>
-              </Stack>
-            </Stack>
-          </Box>
-          <Box
-            sx={{
-              maxWidth: 770,
-              paddingBlockStart: 4,
-            }}
-          >
             <Typography
-              sx={{ fontSize: themeConfig.typography.h2, textAlign: "center" }}
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
+                lineHeight: 2,
+                marginBlockEnd: 2,
+              }}
             >
-              Patients engagements
+              Another challenge was facilitating seamless integration with
+              wearables for customers. This involved creating a{" "}
+              <b>user-friendly interface</b> that allows users to effortlessly{" "}
+              <b>connect</b> their wearable devices to our platform, ensuring a
+              smooth flow of data for personalized health insights.
+            </Typography>
+
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.h2,
+                fontWeight: 600,
+                marginBlockEnd: 2,
+              }}
+            >
+              Decision Point
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
+                lineHeight: 2,
+                marginBlockEnd: 2,
+              }}
+            >
+              Our team and business analysts verified all the gathered data and
+              insights and created the use cases and discussed with the product
+              lead and the stakeholders.
+            </Typography>
+
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.h2,
+                fontWeight: 600,
+                marginBlockEnd: 2,
+              }}
+            >
+              How spike connects with LYFnGO to Healthcare providers?
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
+                lineHeight: 2,
+                marginBlockEnd: 2,
+              }}
+            >
+              In the <b>LYFnGO B2C application,</b> users can easily integrate
+              their wearable devices, including well-known brands like Apple
+              HealthKit, Fitbit, Google Fit, Garmin, Samsung Health, Bio Starp,
+              and more.
             </Typography>
           </Box>
 
           <Box
             sx={{
-              minWidth: 770,
+              maxWidth: 880,
               paddingBlockStart: 4,
             }}
           >
-            <Stack direction={"row"} gap={2} alignItems={"center"}>
-              <Stack>
-                <img
-                  src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/customer.png"
-                  alt="customer"
-                  style={{ height: 90, width: 90, objectFit: "contain" }}
-                />
-              </Stack>
-              <Stack gap={2}>
-                <Stack direction={"row"} alignItems={"center"} gap={2}>
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.h2,
-                      fontWeight: 400,
-                    }}
-                  >
-                    80%
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.p1,
-                      fontWeight: 400,
-                    }}
-                  >
-                    of the patients using the microsite via <b>mobile,</b> we've
-                    seen excellent performance.
-                  </Typography>
-                </Stack>
-
-                <Stack direction={"row"} alignItems={"center"} gap={2}>
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.h2,
-                      fontWeight: 400,
-                    }}
-                  >
-                    20%
-                  </Typography>
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.p1,
-                      fontWeight: 400,
-                    }}
-                  >
-                    are using it on web/tab.
-                  </Typography>
-                </Stack>
-              </Stack>
-            </Stack>
+            <img
+              src={
+                "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Lyfngo_to_healthcareproviders.png"
+              }
+              style={{ width: 880, height: 320, objectFit: "contain" }}
+              alt="bannerImage"
+            />
           </Box>
 
           <Box
@@ -631,21 +522,29 @@ const Healthboard = () => {
             <Typography
               sx={{
                 fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
                 lineHeight: 2,
+                marginBlockEnd: 2,
               }}
             >
-              Now, many clients, not only on the clinic side but also{" "}
-              <b>therapy centers</b> and <b>wellness centers,</b> are asking for
-              the microsite for their business needs.
+              Customers have the flexibility to control which health data they
+              share and which they keep private. They can also set a{" "}
+              <b>validity period for sharing</b> their health data and{" "}
+              <b>choose</b> specific doctors or specialists who are authorized
+              to monitor and validate their information.
             </Typography>
             <Typography
               sx={{
-                fontSize: themeConfig.typography.h3,
-                lineHeight: 3,
-                fontWeight: 600,
+                fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
+                lineHeight: 2,
+                marginBlockEnd: 2,
               }}
             >
-              Boosted LYFnGO sales 10x with a microsite!
+              This feature allows for <b>greater privacy</b> and{" "}
+              <b>security,</b> giving users peace of mind while still allowing
+              them to benefit from monitoring their health with wearable
+              devices.
             </Typography>
           </Box>
 
@@ -662,7 +561,7 @@ const Healthboard = () => {
                 marginBlockEnd: 2,
               }}
             >
-              Design Process
+              Collaborated with LYFnGO Developers
             </Typography>
             <Typography
               sx={{
@@ -671,12 +570,13 @@ const Healthboard = () => {
                 lineHeight: 2,
               }}
             >
-              We conducted our <b>daily meetings</b> to facilitate collaboration
-              across departments. Along with the product lead, business analyst,
-              and sometimes the founders and co-founders, we <b>contributed</b>{" "}
-              fresh ideas to the discussion. The <b>purpose</b> of these daily
-              meetings is to align everyone toward the same goal: improving our
-              client experience by solving <b>users' problems.</b>
+              After finalizing the use cases, I engaged with the LYFnGO Python
+              and React JS teams to discuss the health data we are obtaining,
+              ensuring that their functionality was thoroughly tested. We also
+              exchanged researched health data that could potentially be
+              integrated into the <b>first MVP</b> for this feature.
+              Additionally, I communicated with the business analysts to gather
+              feedback and ensure alignment with <b>project goals.</b>
             </Typography>
           </Box>
 
@@ -693,7 +593,7 @@ const Healthboard = () => {
                 marginBlockEnd: 2,
               }}
             >
-              Competitor analysis
+              Research Methodologies
             </Typography>
             <Typography
               sx={{
@@ -702,129 +602,17 @@ const Healthboard = () => {
                 lineHeight: 2,
               }}
             >
-              Our team, including the Product Lead, Business Analyst, and
-              Founder, conducted a thorough analysis of industry competitors.
-              While I'm unable to disclose specific details due to
-              non-disclosure agreements, this analysis helped us gain valuable
-              insights.
+              The research methodologies that I followed included the design
+              team and business analysts conducting <b>competitor analysis</b>{" "}
+              for <b>B2C wearable integration,</b> along with spike guidelines
+              and their client applications. For the <b>B2B client profile,</b>{" "}
+              I conducted a small research on all wearable health data
+              providers, including well known brands like Apple HealthKit,
+              Fitbit, Google Fit, Garmin, Samsung Health, Biostrap, and more.
+              This research focused on <b>analyzing health data graphs,</b> how
+              they showcased health data to end customers, and an analysis of
+              key features along with user feedback.
             </Typography>
-          </Box>
-
-          <Box
-            sx={{
-              minWidth: 770,
-              paddingBlockStart: 4,
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: themeConfig.typography.h2,
-                fontWeight: 600,
-                marginBlockEnd: 2,
-              }}
-            >
-              Insights gained while analysis
-            </Typography>
-            <Stack direction={"row"} gap={6}>
-              <Stack>
-                <img
-                  src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/insights1.png"
-                  style={{ width: 350, height: 150 }}
-                  alt="insights1"
-                />
-              </Stack>
-              <Stack>
-                <img
-                  src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/insights2.png"
-                  style={{ width: 350, height: 150 }}
-                  alt="insights2"
-                />
-              </Stack>
-            </Stack>
-          </Box>
-
-          <Box
-            sx={{
-              minWidth: 770,
-              paddingBlockStart: 4,
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: themeConfig.typography.h2,
-                fontWeight: 600,
-                marginBlockEnd: 2,
-              }}
-            >
-              Initial UX Challenge
-            </Typography>
-            <Stack direction={"row"} gap={18}>
-              <Stack>
-                <Typography
-                  sx={{
-                    fontSize: themeConfig.typography.h3,
-                    fontWeight: 600,
-                    marginBlockEnd: 2,
-                  }}
-                >
-                  For Clinic Owner’s
-                </Typography>
-                <li
-                  style={{
-                    fontSize: themeConfig.typography.p1,
-                    fontFamily: "Cabin",
-                    marginBlockEnd: 8,
-                  }}
-                >
-                  Instant create & publish microsite
-                </li>
-                <li
-                  style={{
-                    fontSize: themeConfig.typography.p1,
-                    fontFamily: "Cabin",
-                  }}
-                >
-                  Staff easy approval process
-                </li>
-              </Stack>
-              <Stack>
-                <Typography
-                  sx={{
-                    fontSize: themeConfig.typography.h3,
-                    fontWeight: 600,
-                    marginBlockEnd: 2,
-                  }}
-                >
-                  For Patient’s : Accessing microsite
-                </Typography>
-                <li
-                  style={{
-                    fontSize: themeConfig.typography.p1,
-                    fontFamily: "Cabin",
-                    marginBlockEnd: 8,
-                  }}
-                >
-                  Optimize microsite for all devices, favoring mobile.
-                </li>
-                <li
-                  style={{
-                    fontSize: themeConfig.typography.p1,
-                    fontFamily: "Cabin",
-                    marginBlockEnd: 8,
-                  }}
-                >
-                  Must be a user friendly with quick steps
-                </li>
-                <li
-                  style={{
-                    fontSize: themeConfig.typography.p1,
-                    fontFamily: "Cabin",
-                  }}
-                >
-                  Design should be simple for 18-60 years age group
-                </li>
-              </Stack>
-            </Stack>
           </Box>
 
           <Box
@@ -840,7 +628,7 @@ const Healthboard = () => {
                 marginBlockEnd: 2,
               }}
             >
-              Conceptualization
+              From Paper to Perfected: Design Iteration Journey
             </Typography>
             <Typography
               sx={{
@@ -849,19 +637,29 @@ const Healthboard = () => {
                 lineHeight: 2,
               }}
             >
-              Started creating the <b>rough sketches</b> and <b>4 times</b> gets{" "}
-              <b>iterated.</b> Then, I started creating the user-flow and low-fi
-              concepts for primary use cases. After having a go-ahead from the
-              Product Lead, Developers, and Stakeholders on the mockups, we
-              began to conduct usability tests internally with the low-fidelity
-              mockups. Once we had confidence in the design, we began
-              digitalizing designs.
+              We began with paper wireframes, <b>facilitating</b> iterative
+              discussions with stakeholders to refine the design. Through{" "}
+              <b>three iterations</b> on the B2C application for wearable
+              integration and two iterations on the Client Profile Health Board
+              for web design, we finalized the designs based on feedback and
+              usability testing.
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
+                lineHeight: 2,
+                marginTop: 4,
+              }}
+            >
+              Finally, after the wireframe iteration, we finalized the paper
+              wireframes.
             </Typography>
           </Box>
 
           <Box
             sx={{
-              maxWidth: 770,
+              maxWidth: 900,
               paddingBlockStart: 4,
             }}
           >
@@ -881,7 +679,7 @@ const Healthboard = () => {
                 marginBlockEnd: 2,
               }}
             >
-              We made it
+              Design Iterations
             </Typography>
             <Typography
               sx={{
@@ -890,8 +688,8 @@ const Healthboard = () => {
                 lineHeight: 2,
               }}
             >
-              <b>- 4 iterations</b> on the Microsite Setup & Doctor profile
-              setup.
+              <b>- 3 iterations</b> on the B2C Application : Wearable
+              Integration setup.
             </Typography>
             <Typography
               sx={{
@@ -900,8 +698,8 @@ const Healthboard = () => {
                 lineHeight: 2,
               }}
             >
-              <b>- 5 iterations</b> to finalize the web & mobile designs for the
-              patient’s microsite.
+              <b>- 2 iterations</b> on the Client Profile Health Board : Web
+              Design
             </Typography>
             <Typography
               sx={{
@@ -912,7 +710,7 @@ const Healthboard = () => {
             >
               These iterations were directly provided by the founder, product
               lead, business analyst, along with usability testing. Finally, we
-              have completed the Microsite.
+              have completed the Wearable Integration and the Healthboard.
             </Typography>
           </Box>
 
@@ -938,7 +736,7 @@ const Healthboard = () => {
                 marginBlockEnd: 2,
               }}
             >
-              Microsite Creation in 3 Steps{" "}
+              Customer Wearable Integration
             </Typography>
             <Typography
               sx={{
@@ -947,23 +745,24 @@ const Healthboard = () => {
                 lineHeight: 2,
               }}
             >
-              Enable clinic owners to effortlessly create microsites on our
-              platform with an intuitive interface, requiring minimal technical
-              expertise. Once configured, clinic owners can swiftly publish
-              their microsites with just a few clicks, simplifying
-              accessibility.
+              High-risk patients or nutritionist clients can easily connect
+              their wearable devices through the LYFnGO B2C Application. The
+              process involves quick and straightforward steps, allowing
+              customers to instantly connect their devices. They can select the
+              duration of time for data sharing and even choose which custom
+              health data to share and with which doctors/specialists.
             </Typography>
           </Box>
           <Box
             sx={{
-              maxWidth: 770,
+              maxWidth: 990,
               paddingBlockStart: 4,
             }}
           >
             <img
-              src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Setupmicrosite_final.png"
-              alt="microsite"
-              style={{ width: 800, height: 640, objectFit: "contain" }}
+              src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Customer_wearable_integration.png"
+              alt="Customer_wearable_integration"
+              style={{ width: 990, height: 640, objectFit: "contain" }}
             />
           </Box>
         </Box>
@@ -972,7 +771,7 @@ const Healthboard = () => {
       <Box
         sx={{
           paddingBlockStart: 4,
-          background: "#EbF8FF",
+          background: "#FFF6F8",
         }}
       >
         <Box
@@ -980,7 +779,7 @@ const Healthboard = () => {
             display: "flex",
             flexDirection: "column",
             // maxWidth: 770,
-            height: 850,
+            // height: 940,
             alignItems: "center",
             justifyContent: "center",
           }}
@@ -992,7 +791,7 @@ const Healthboard = () => {
               marginBlockEnd: 2,
             }}
           >
-            Doctor Profile Creation & Approval Process
+            Business Healthboard
           </Typography>
           <Typography
             sx={{
@@ -1004,86 +803,17 @@ const Healthboard = () => {
               lineHeight: 2,
             }}
           >
-            Doctors can create their profiles and set their availability times
-            on the calendar system, which can sync easily to the microsite. Once
-            created, a streamlined approval process by clinic owners is
-            implemented for doctor profiles. This ensures quality control and
-            maintains the integrity of the platform.
+            Once the customer has provided access to share their health data, it
+            will be displayed as shown in the images below. This view allows
+            doctors and nutritionists to track progress easily without
+            hesitation.
           </Typography>
           <img
-            src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/doctorprofilecreation_final.png"
-            alt="microsite"
-            style={{ width: 800, height: 640, objectFit: "contain" }}
+            src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Buisness_healthboard.png"
+            alt="Buisness_healthboard"
+            style={{ width: 1185, height: 900, objectFit: "contain" }}
           />
         </Box>
-      </Box>
-
-      <Box
-        sx={{
-          // maxWidth: 770,
-          paddingBlockStart: 4,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Typography
-          sx={{
-            fontSize: themeConfig.typography.h2,
-            fontWeight: 600,
-            marginBlockEnd: 2,
-          }}
-        >
-          <Box
-            sx={{
-              maxWidth: 770,
-              paddingBlockStart: 4,
-            }}
-          >
-            <Typography
-              sx={{
-                fontSize: themeConfig.typography.h2,
-                fontWeight: 600,
-                marginBlockEnd: 2,
-              }}
-            >
-              Let’s Jump into a microsite the final solution
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: themeConfig.typography.p1,
-                fontWeight: "300",
-                lineHeight: 2,
-              }}
-            >
-              The microsite serves as a pivotal solution connecting doctors to
-              patients instantly, enhancing the overall healthcare experience.
-            </Typography>
-          </Box>
-        </Typography>
-        <img
-          src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/micrositelanding_final.png"
-          alt="creation"
-          style={{ width: 1280, height: 800, objectFit: "contain" }}
-        />
-      </Box>
-      <Box
-        sx={{
-          // maxWidth: 770,
-          paddingBlockStart: 4,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          background: "#Dff0E6",
-        }}
-      >
-        <img
-          src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/micrositeapp_final.png"
-          alt="creation"
-          style={{ width: 1280, height: 800, objectFit: "contain" }}
-        />
       </Box>
 
       <Box
@@ -1126,12 +856,14 @@ const Healthboard = () => {
                 marginBlockEnd: 2,
               }}
             >
-              Our team started the handoff process, Once all preparations are
-              completed, we have scheduled meetings with Product Leads and
-              Business Analysts to recheck all aspects. Additionally, we will
-              present to the Developer, QA Testers, and Backend Team. Any
-              improvements and technical flaws noted will be redesigned by our
-              team. Finally, we will provide a design handoff including assets.
+              Our team started the handoff process, Once all <b>preparations</b>{" "}
+              are completed, we have <b>scheduled meetings</b> with Product
+              Leads and Business Analysts to recheck all aspects. Additionally,
+              we will present to the Developer, QA Testers, and Backend Team.
+              Any
+              <b>improvements</b> and <b>technical flaws</b> noted will be
+              redesigned by our team. Finally, we will provide a design handoff
+              including assets.
             </Typography>
 
             <Typography
@@ -1151,21 +883,11 @@ const Healthboard = () => {
                 marginBlockEnd: 2,
               }}
             >
-              Our team has been closely monitoring the development team to
-              ensure better quality. We've been identifying any necessary
-              improvements as the developers work. Once all processes are
-              completed, the product is deployed to the secondary testing
-              environment for further evaluation.
-            </Typography>
-
-            <Typography
-              sx={{
-                fontSize: themeConfig.typography.h2,
-                fontWeight: 600,
-                marginBlockEnd: 2,
-              }}
-            >
-              Gathering User feedback
+              Our team has been <b>closely monitoring</b> the development team
+              to ensure better <b>quality.</b> We've been identifying any
+              necessary improvements as the developers work. Once all processes
+              are completed, the product is deployed to the{" "}
+              <b>secondary testing environment</b> for further evaluation.
             </Typography>
             <Typography
               sx={{
@@ -1175,39 +897,10 @@ const Healthboard = () => {
                 marginBlockEnd: 2,
               }}
             >
-              This action will be carried out by the Product Lead and the
-              Business Analyst. Once they have gathered client feedback, we will
-              enhance the user experience. Remember, user experience is an
-              ongoing process. Finally, the Microsite feature has been launched
-              live.
+              Finally, with the permission of CEO we have launched the Wearable
+              Integration & Healthboard.
             </Typography>
-          </Box>
-        </Typography>
-      </Box>
 
-      <Box
-        sx={{
-          // maxWidth: 770,
-          paddingBlockStart: 4,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <Typography
-          sx={{
-            fontSize: themeConfig.typography.h2,
-            fontWeight: 600,
-            marginBlockEnd: 2,
-          }}
-        >
-          <Box
-            sx={{
-              maxWidth: 770,
-              paddingBlockStart: 4,
-            }}
-          >
             <Typography
               sx={{
                 fontSize: themeConfig.typography.h2,
@@ -1215,34 +908,73 @@ const Healthboard = () => {
                 marginBlockEnd: 2,
               }}
             >
-              Insights gained
+              Impacts
             </Typography>
-            <Stack direction={"row"} gap={8}>
-              <Stack>
-                {" "}
-                <img
-                  src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/design_approach.svg"
-                  alt="microsite"
-                  style={{ width: 350, height: 350, objectFit: "contain" }}
-                />
-              </Stack>
-              <Stack>
-                {" "}
-                <img
-                  src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/collaboration.svg"
-                  alt="microsite"
-                  style={{ width: 350, height: 350, objectFit: "contain" }}
-                />
-              </Stack>
-            </Stack>
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
+                lineHeight: 2,
+                marginBlockEnd: 2,
+              }}
+            >
+              Our CEO and the marketing teams showcased this new feature to our
+              clients and new leads. In the healthcare industry, our CEO pitched
+              the feature and received <b>98% positive feedback.</b> By
+              introducing Wearable Integrations and Healthboard, we boosted our
+              sales by <b>10x.</b>
+            </Typography>
+
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.h2,
+                fontWeight: 600,
+                marginBlockEnd: 2,
+              }}
+            >
+              Reflection and Learning
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
+                lineHeight: 2,
+                marginBlockEnd: 2,
+              }}
+            >
+              This project provided valuable insights into the importance of
+              collaboration and iterative design. It showcased our ability to
+              adapt to <b>new technologies</b> and deliver impactful solutions
+              to complex problems.
+            </Typography>
+
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.h2,
+                fontWeight: 600,
+                marginBlockEnd: 2,
+              }}
+            >
+              Insights
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                fontWeight: "300",
+                lineHeight: 2,
+                marginBlockEnd: 2,
+              }}
+            >
+              This project was a different approach for me, as we{" "}
+              <b>started from scratch</b> and collaborated with all the teams,
+              making impactful decisions along the way.
+            </Typography>
           </Box>
         </Typography>
       </Box>
 
       <Box
         sx={{
-          // maxWidth: 770,
-          paddingBlockStart: 4,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

@@ -33,7 +33,7 @@ function DrawerAppBar(props) {
     if (data?.id === 0) {
       navigate("/", { state: data });
     } else if (data?.id === 1) {
-      navigate("/", { state: data });
+      navigate("/about", { state: data });
     } else if (data?.id === 2) {
       navigate("/", { state: data });
     }

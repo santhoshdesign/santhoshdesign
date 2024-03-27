@@ -9,23 +9,15 @@ import { Box } from "@mui/material";
 const swiperImages = [
   {
     id: 0,
-    image:
-      "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Setup%20your%20microsite.svg",
+    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/11.png",
   },
   {
     id: 1,
-    image:
-      "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Setup%20your%20profile.svg",
+    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/22.png",
   },
   {
     id: 2,
-    image:
-      "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Microsite%20landing.svg",
-  },
-  {
-    id: 3,
-    image:
-      "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Doctor%20Profile.svg",
+    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/33.png",
   },
 ];
 
@@ -54,7 +46,7 @@ const SwiperComponent = () => {
             <Box>
               <img
                 src={item?.image}
-                width={750}
+                width={900}
                 height={500}
                 priority={true}
                 alt="swiper_images"
