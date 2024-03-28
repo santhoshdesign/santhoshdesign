@@ -1,5 +1,5 @@
-import { Box, Typography } from "@mui/material";
-import React from "react";
+import { Box, Button, Modal, TextField, Typography } from "@mui/material";
+import React, { useState } from "react";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import { themeConfig } from "../../theme/theme";
 import { motion } from "framer-motion";
@@ -13,6 +13,7 @@ const cardList = [
     image:
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Microsite_banner_image_.png",
     Author: "LYFnGO",
+    background: "#DFF3FF",
     status: "Read the case study",
   },
   {
@@ -23,6 +24,7 @@ const cardList = [
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Healthboardbanner_image_s.png",
     Author: "LYFnGO",
     status: "Read the case study",
+    background: "#D8E9FF",
   },
   {
     id: 2,
@@ -32,14 +34,7 @@ const cardList = [
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/LYFnGO_patient_management.png",
     Author: "LYFnGO",
     status: "Read the case study",
-  },
-  {
-    id: 3,
-    title: "Instant checkout",
-    image:
-      "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Microsite_banner_image_.png",
-    Author: "Blinkit",
-    status: "Comming Soon",
+    background: "#E2FAFF",
   },
 ];
 
@@ -54,12 +49,47 @@ const HomePageCard = () => {
       navigate("/patientdashboard", { state: data });
     }
   };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [selectedItem, setSelectedItem] = useState({});
+
+  const handleMoalClick = (data) => {
+    setIsModalOpen(true);
+    setSelectedItem(data);
+  };
+
+  const handlePasswordSubmit = () => {
+    // Check if the password is correct
+    // For demonstration purposes, let's assume the correct password is "password"
+    if (password === "password") {
+      setError("");
+      // Navigate to the desired page
+      // You can modify this to navigate to different pages based on the card clicked
+      // navigate("/microsite");
+      if (selectedItem?.id === 0) {
+        navigate("/microsite", { state: selectedItem });
+      } else if (selectedItem?.id === 1) {
+        navigate("/healthboard", { state: selectedItem });
+      } else if (selectedItem?.id === 2) {
+        navigate("/patientdashboard", { state: selectedItem });
+      }
+    } else {
+      setError("Incorrect password. Please try again.");
+    }
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setPassword("");
+    setError("");
+  };
   return (
     <Box
       sx={{
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
-        columnGap: 2,
+        columnGap: 4,
         rowGap: 4,
         marginBlock: 6,
       }}
@@ -67,7 +97,7 @@ const HomePageCard = () => {
       {cardList.map((item, index) => (
         <Box
           sx={{
-            width: 500,
+            // width: 500,
             height: 550,
             position: "relative",
           }}
@@ -75,11 +105,12 @@ const HomePageCard = () => {
           <Box
             sx={{
               boxShadow: " 0px 0px 10px 0px rgba(0, 0, 0, 0.10)",
-              background: "#E2FAFF",
+              background: item?.background,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               padding: 1,
+              borderRadius: 4,
               cursor: "pointer",
             }}
             onClick={() => handleClick(item)}
@@ -90,7 +121,7 @@ const HomePageCard = () => {
               <img
                 src={item?.image}
                 alt="card_image"
-                width={400}
+                width={500}
                 height={330}
                 style={{ objectFit: "contain" }}
               />
@@ -109,13 +140,15 @@ const HomePageCard = () => {
               sx={{
                 fontSize: themeConfig.typography.h3,
                 color: themeConfig.palette.primaryColor,
+                fontWeight: 700,
+                maxWidth: 550,
               }}
             >
               {item?.title}
             </Typography>
 
             <Typography
-              onClick={() => handleClick(item)}
+              onClick={() => handleMoalClick(item)}
               sx={{
                 fontSize: themeConfig.typography.p1,
                 color: themeConfig.palette.primaryColor,
@@ -136,6 +169,40 @@ const HomePageCard = () => {
           </Box>
         </Box>
       ))}
+
+      <Modal open={isModalOpen} onClose={handleModalClose}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 300,
+            bgcolor: "background.paper",
+            border: "2px solid #000",
+            boxShadow: 24,
+            p: 4,
+            textAlign: "center",
+          }}
+        >
+          <Typography variant="h6" gutterBottom>
+            Enter Password
+          </Typography>
+          <TextField
+            label="Password"
+            variant="outlined"
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <Button variant="contained" onClick={handlePasswordSubmit}>
+            Submit
+          </Button>
+          {error && (
+            <Typography sx={{ color: "red", marginTop: 1 }}>{error}</Typography>
+          )}
+        </Box>
+      </Modal>
     </Box>
   );
 };

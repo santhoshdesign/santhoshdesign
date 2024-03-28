@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        height: 300,
+        height: 500,
         background: "#F5F7FD",
         padding: 3,
         display: "flex",
@@ -32,6 +32,7 @@ const Footer = () => {
         sx={{
           fontSize: themeConfig.typography.h2,
           color: themeConfig.palette.primaryColor,
+          fontWeight: 600,
           marginBlockEnd: 2,
         }}
       >
@@ -41,6 +42,7 @@ const Footer = () => {
         sx={{
           fontSize: themeConfig.typography.h2,
           color: themeConfig.palette.ternaryColor,
+          fontWeight: 600,
           marginBlockEnd: 2,
         }}
       >
@@ -50,9 +52,15 @@ const Footer = () => {
       <Stack direction={"row"} gap={2}>
         <motion.div whileTap={{ scale: 0.95, transition: "0.3s ease" }}>
           <Button
+            onClick={() => {
+              window.open(
+                "https://drive.google.com/file/d/1YujcuAg1XW3oMvKMmzT8RvjwMHPX-0pW/view?usp=sharing",
+                "_blank"
+              );
+            }}
             sx={{
               width: 240,
-              height: 40,
+              height: 45,
               border: "1px solid #BCB2B2",
               background: themeConfig.palette.whiteColor,
               borderRadius: 30,
@@ -73,7 +81,7 @@ const Footer = () => {
             onClick={() => handleLinkedInClick()}
             sx={{
               width: 240,
-              height: 40,
+              height: 45,
               border: "1px solid #BCB2B2",
               background: themeConfig.palette.whiteColor,
               borderRadius: 30,

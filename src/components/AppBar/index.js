@@ -15,32 +15,37 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { themeConfig } from "../../theme/theme";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 const navItems = [
-  { id: 0, title: "Home" },
-  { id: 1, title: "About" },
-  { id: 2, title: "Get my CV" },
+  { id: 0, title: "Home", path: "/" },
+  { id: 1, title: "About", path: "/about" },
+  { id: 2, title: "Get my CV", path: "/get-cv" }, // Assuming "/get-cv" is the path for the CV page
 ];
 
 function DrawerAppBar(props) {
   const { window } = props;
   const navigate = useNavigate();
+  const location = useLocation();
+  const [isActiveTab, setIsActiveTab] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  console.log(isActiveTab);
 
   const handleNavigate = (data) => {
     if (data?.id === 0) {
       navigate("/", { state: data });
     } else if (data?.id === 1) {
       navigate("/about", { state: data });
-    } else if (data?.id === 2) {
-      navigate("/", { state: data });
     }
   };
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
+  };
+  const isActive = (path) => {
+    console.log(location.pathname === path);
+    setIsActiveTab(location.pathname === path?.path);
   };
 
   const drawer = (
@@ -83,10 +88,12 @@ function DrawerAppBar(props) {
         {navItems.map((item) => (
           <ListItem key={item} disablePadding>
             <ListItemButton
+              onClick={() => isActive(item.path)}
               sx={{
                 textAlign: "center",
-                color: themeConfig.palette.primaryColor,
+                color: isActiveTab ? "red" : themeConfig.palette.primaryColor,
                 textTransform: "capitalize",
+
                 fontSize: themeConfig.typography.p1,
                 fontWeight: 600,
               }}
@@ -102,7 +109,7 @@ function DrawerAppBar(props) {
             borderRadius: 100,
             height: 40,
             width: 130,
-            textTransform: "capitalize",
+            textTransform: "lowercase",
             fontSize: themeConfig.typography.p1,
           }}
         >
@@ -190,18 +197,39 @@ function DrawerAppBar(props) {
             {navItems.map((item) => (
               <Button
                 key={item}
-                onClick={() => handleNavigate(item)}
+                onClick={() => {
+                  handleNavigate(item);
+                  isActive(item);
+                }}
+                component="a"
+                disableTouchRipple={true}
+                href={
+                  item?.id === 2 &&
+                  "https://drive.google.com/file/d/1YujcuAg1XW3oMvKMmzT8RvjwMHPX-0pW/view?usp=sharing"
+                }
+                target="_blank"
+                rel="noopener noreferrer"
                 sx={{
-                  color: themeConfig.palette.primaryColor,
+                  color: isActiveTab
+                    ? themeConfig.palette.ternaryColor
+                    : themeConfig.palette.primaryColor,
                   textTransform: "capitalize",
                   fontSize: themeConfig.typography.p1,
-                  paddingInline: 4,
+                  fontWeight: 600,
+                  paddingInline: 2,
+                  "&:hover": {
+                    background: "transparent",
+                  },
                 }}
               >
                 {item?.title}
               </Button>
             ))}
             <Button
+              component="a"
+              href="mailto:hi@santhosh.design"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{
                 background: themeConfig.palette.ternaryColor,
                 color: themeConfig.palette.whiteColor,

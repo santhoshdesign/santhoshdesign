@@ -17,10 +17,20 @@ const AboutPage = () => {
       >
         <DrawerAppBar />
       </Box>
-      <Box sx={{ maxWidth: 1280, height: 600 }}>
+      <Box
+        sx={{
+          position: "relative",
+          height: "70vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <Box
           sx={{
-            paddingBlockStart: 4,
+            // paddingBlockStart: 18,
+            maxWidth: 1350,
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -32,7 +42,7 @@ const AboutPage = () => {
               fontSize: themeConfig.typography.h1,
               color: themeConfig.palette.primaryColor,
               fontWeight: 700,
-              marginBlockEnd: 2,
+              marginBlockEnd: 4,
             }}
           >
             Let’s talk
@@ -41,7 +51,8 @@ const AboutPage = () => {
             sx={{
               fontSize: themeConfig.typography.h2,
               color: themeConfig.palette.primaryColor,
-              marginBlockEnd: 2,
+              marginBlockEnd: 4,
+              fontWeight: 600,
             }}
           >
             I am always happy to discuss new ideas and opportunities.Let’s talk
@@ -49,8 +60,9 @@ const AboutPage = () => {
           <Typography
             sx={{
               fontSize: themeConfig.typography.h2,
-              color: themeConfig.palette.ternaryColor,
-              marginBlockEnd: 2,
+              color: themeConfig.palette.primaryColor,
+              fontWeight: 700,
+              marginBlockEnd: 4,
             }}
           >
             hi<span style={{ fontFamily: "Inter" }}>@</span>
@@ -60,6 +72,12 @@ const AboutPage = () => {
           <Stack direction={"row"} gap={2}>
             <motion.div whileTap={{ scale: 0.95, transition: "0.3s ease" }}>
               <Button
+                onClick={() => {
+                  window.open(
+                    "https://drive.google.com/file/d/1YujcuAg1XW3oMvKMmzT8RvjwMHPX-0pW/view?usp=sharing",
+                    "_blank"
+                  );
+                }}
                 sx={{
                   width: 240,
                   height: 40,
@@ -107,9 +125,11 @@ const AboutPage = () => {
             </motion.div>
           </Stack>
         </Box>
-        <Box>
+        <Box sx={{ paddingInline: 6, position: "absolute", top: 250, left: 0 }}>
           <img
-            src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/About.png"
+            src={
+              "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Santhosh_Profile.png"
+            }
             alt="santosh"
             style={{ width: 300, height: 300, objectFit: "cover" }}
           ></img>

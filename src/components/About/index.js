@@ -79,8 +79,8 @@ const About = () => {
             src={data?.image}
             alt="bannerImage"
             style={{
-              width: 900,
-              height: 450,
+              width: 1024,
+              height: 600,
               paddingBlock: 24,
               objectFit: "contain",
               background: "#DEF3FF",
@@ -96,7 +96,7 @@ const About = () => {
             justifyContent: "center",
           }}
         >
-          <Box sx={{ maxWidth: 730, paddingBlockStart: 4 }}>
+          <Box sx={{ maxWidth: 770, paddingBlockStart: 4 }}>
             <Typography
               sx={{
                 fontSize: themeConfig.typography.h1,
@@ -108,7 +108,7 @@ const About = () => {
           </Box>
           <Box
             sx={{
-              maxWidth: 730,
+              maxWidth: 770,
               paddingBlockStart: 4,
             }}
           >
@@ -189,7 +189,7 @@ const About = () => {
           </Box>
           <Box
             sx={{
-              maxWidth: 730,
+              maxWidth: 770,
               paddingBlockStart: 4,
             }}
           >
@@ -220,7 +220,7 @@ const About = () => {
 
           <Box
             sx={{
-              maxWidth: 730,
+              maxWidth: 770,
               paddingBlockStart: 4,
             }}
           >
@@ -293,7 +293,7 @@ const About = () => {
 
           <Box
             sx={{
-              maxWidth: 730,
+              maxWidth: 770,
               paddingBlockStart: 4,
             }}
           >
@@ -335,7 +335,7 @@ const About = () => {
 
           <Box
             sx={{
-              maxWidth: 730,
+              maxWidth: 770,
               paddingBlockStart: 4,
             }}
           >
@@ -361,7 +361,7 @@ const About = () => {
 
           <Box
             sx={{
-              minWidth: 730,
+              minWidth: 770,
               paddingBlockStart: 4,
             }}
           >
@@ -387,7 +387,7 @@ const About = () => {
 
           <Box
             sx={{
-              maxWidth: 730,
+              maxWidth: 770,
               paddingBlockStart: 4,
             }}
           >
@@ -400,25 +400,11 @@ const About = () => {
             >
               Doctor’s Goals
             </Typography>
-            <Stack direction={"row"} gap={4}>
-              {doctorGoals.map((item) => (
-                <Stack gap={3}>
-                  <img
-                    src={item?.image}
-                    alt={item?.id}
-                    style={{ height: 60, width: 60 }}
-                  />
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.p1,
-                      lineHeight: 2,
-                      fontWeight: 400,
-                    }}
-                  >
-                    {item?.content}
-                  </Typography>
-                </Stack>
-              ))}
+            <Stack direction={"row"}>
+              <img
+                src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Goal1.svg"
+                alt="docterlogo"
+              />
             </Stack>
           </Box>
 
@@ -438,24 +424,10 @@ const About = () => {
               Patient’s Goals
             </Typography>
             <Stack direction={"row"} gap={4}>
-              {patientGoals.map((item) => (
-                <Stack gap={3}>
-                  <img
-                    src={item?.image}
-                    alt={item?.id}
-                    style={{ height: 60, width: 60 }}
-                  />
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.p1,
-                      lineHeight: 2,
-                      fontWeight: 400,
-                    }}
-                  >
-                    {item?.content}
-                  </Typography>
-                </Stack>
-              ))}
+              <img
+                src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Goal2.svg"
+                alt="Patient’s"
+              />
             </Stack>
           </Box>
 
@@ -956,14 +928,13 @@ const About = () => {
           </Box>
           <Box
             sx={{
-              maxWidth: 770,
               paddingBlockStart: 4,
             }}
           >
             <img
               src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Setupmicrosite_final.png"
               alt="microsite"
-              style={{ width: 800, height: 640, objectFit: "contain" }}
+              style={{ width: 1140, height: 640, objectFit: "contain" }}
             />
           </Box>
         </Box>
@@ -1013,7 +984,7 @@ const About = () => {
           <img
             src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/doctorprofilecreation_final.png"
             alt="microsite"
-            style={{ width: 800, height: 640, objectFit: "contain" }}
+            style={{ width: 1140, height: 640, objectFit: "contain" }}
           />
         </Box>
       </Box>
@@ -1082,7 +1053,7 @@ const About = () => {
         <img
           src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/micrositeapp_final.png"
           alt="creation"
-          style={{ width: 1280, height: 800, objectFit: "contain" }}
+          style={{ width: 1280, height: 640, objectFit: "contain" }}
         />
       </Box>
 
