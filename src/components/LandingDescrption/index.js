@@ -7,22 +7,22 @@ const LandingDescrption = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const CurvedLine = () => (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="278"
-      height="12"
-      viewBox="0 0 278 12"
-      fill="none"
-      style={{ position: "absolute", top: 280, left: 230 }}
-    >
-      <path
-        d="M1 10C74.8452 3.96301 233.542 -4.48877 277.567 10"
-        stroke="#4169E1"
-        stroke-width="2.4"
-      />
-    </svg>
-  );
+  // const CurvedLine = () => (
+  //   <svg
+  //     xmlns="http://www.w3.org/2000/svg"
+  //     width="278"
+  //     height="12"
+  //     viewBox="0 0 278 12"
+  //     fill="none"
+  //     style={{ position: "absolute", top: 280, left: 230 }}
+  //   >
+  //     <path
+  //       d="M1 10C74.8452 3.96301 233.542 -4.48877 277.567 10"
+  //       stroke="#4169E1"
+  //       stroke-width="2.4"
+  //     />
+  //   </svg>
+  // );
   return (
     <Box
       sx={{
@@ -69,7 +69,7 @@ const LandingDescrption = () => {
               , a Product Designer Focused on minimizing risks<br></br> for both
               businesses and users.
             </Typography>
-            <CurvedLine />
+            {/* <CurvedLine /> */}
             <Typography
               sx={{ fontSize: themeConfig.typography.p1, marginBlockStart: 3 }}
             >

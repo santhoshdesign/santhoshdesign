@@ -1,0 +1,113 @@
+import {
+  Box,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
+import React, { useState } from "react";
+import EastIcon from "@mui/icons-material/East";
+import { themeConfig } from "../../../theme/theme";
+import { motion } from "framer-motion";
+
+const PasswordPage = ({ setIsAuth }) => {
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [shake, setShake] = useState(false);
+  console.log("shake", shake);
+  const handlePasswordSubmit = () => {
+    if (password === "password") {
+      setError("");
+      setIsAuth(true);
+    } else {
+      setError("Incorrect password. Please try again.");
+      setShake(true); // Trigger shake animation
+      setTimeout(() => {
+        setShake(false);
+        setError("");
+      }, 3000);
+      setPassword("");
+    }
+  };
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handlePasswordSubmit();
+    }
+  };
+  return (
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        gap: 3,
+      }}
+    >
+      <img
+        src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Lock.svg"
+        alt="lock"
+      />
+      <Typography sx={{ fontSize: themeConfig.typography.h1, fontWeight: 700 }}>
+        This content is producted.
+      </Typography>
+      <Typography sx={{ fontSize: themeConfig.typography.h2, fontWeight: 600 }}>
+        To view, please enter the password.
+      </Typography>
+      <motion.div
+        animate={{ x: shake ? [-10, 10, -10, 10, 0] : 0 }} // Shake animation
+      >
+        <TextField
+          placeholder="Enter password"
+          variant="outlined"
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexDirection: "column",
+            "& input": {
+              width: 450,
+              height: 54,
+              marginInlineStart: 8,
+              borderRadius: 30,
+              background: themeConfig.palette.whiteColor,
+              fontSize: themeConfig.typography.p1,
+              paddingInlineStart: 3,
+            },
+            "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+              border: "none", // Remove border
+            },
+            "&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+              border: "none", // Remove border on hover
+            },
+            "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+              {
+                border: "none", // Remove border when focused
+              },
+          }}
+          size="small"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          onKeyPress={handleKeyPress}
+          InputProps={{
+            endAdornment: (
+              <InputAdornment
+                position="end"
+                sx={{ position: "relative", left: -60 }}
+              >
+                <EastIcon />
+              </InputAdornment>
+            ),
+          }}
+        />
+      </motion.div>
+      {error && (
+        <Typography sx={{ color: "red", fontSize: themeConfig.typography.p1 }}>
+          {error}
+        </Typography>
+      )}
+    </Box>
+  );
+};
+
+export default PasswordPage;

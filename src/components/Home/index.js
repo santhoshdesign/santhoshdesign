@@ -43,16 +43,16 @@ const Home = () => {
           </Typography>
           <HomePageCard />
         </Box>
-        <Box>
-          <Box
-            sx={{
-              width: "100%",
-              minWidth: 1380,
-              marginBlockStart: 2,
-            }}
-          >
-            <Footer />
-          </Box>
+      </Box>
+      <Box>
+        <Box
+          sx={{
+            width: "100%",
+            // minWidth: 1380,
+            marginBlockStart: 2,
+          }}
+        >
+          <Footer />
         </Box>
       </Box>
     </div>

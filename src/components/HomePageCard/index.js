@@ -1,5 +1,5 @@
-import { Box, Button, Modal, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { Box, Typography } from "@mui/material";
+import React from "react";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import { themeConfig } from "../../theme/theme";
 import { motion } from "framer-motion";
@@ -48,41 +48,6 @@ const HomePageCard = () => {
     } else if (data?.id === 2) {
       navigate("/patientdashboard", { state: data });
     }
-  };
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [selectedItem, setSelectedItem] = useState({});
-
-  const handleMoalClick = (data) => {
-    setIsModalOpen(true);
-    setSelectedItem(data);
-  };
-
-  const handlePasswordSubmit = () => {
-    // Check if the password is correct
-    // For demonstration purposes, let's assume the correct password is "password"
-    if (password === "password") {
-      setError("");
-      // Navigate to the desired page
-      // You can modify this to navigate to different pages based on the card clicked
-      // navigate("/microsite");
-      if (selectedItem?.id === 0) {
-        navigate("/microsite", { state: selectedItem });
-      } else if (selectedItem?.id === 1) {
-        navigate("/healthboard", { state: selectedItem });
-      } else if (selectedItem?.id === 2) {
-        navigate("/patientdashboard", { state: selectedItem });
-      }
-    } else {
-      setError("Incorrect password. Please try again.");
-    }
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-    setPassword("");
-    setError("");
   };
   return (
     <Box
@@ -148,7 +113,7 @@ const HomePageCard = () => {
             </Typography>
 
             <Typography
-              onClick={() => handleMoalClick(item)}
+              onClick={() => handleClick(item)}
               sx={{
                 fontSize: themeConfig.typography.p1,
                 color: themeConfig.palette.primaryColor,
@@ -169,40 +134,6 @@ const HomePageCard = () => {
           </Box>
         </Box>
       ))}
-
-      <Modal open={isModalOpen} onClose={handleModalClose}>
-        <Box
-          sx={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            width: 300,
-            bgcolor: "background.paper",
-            border: "2px solid #000",
-            boxShadow: 24,
-            p: 4,
-            textAlign: "center",
-          }}
-        >
-          <Typography variant="h6" gutterBottom>
-            Enter Password
-          </Typography>
-          <TextField
-            label="Password"
-            variant="outlined"
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <Button variant="contained" onClick={handlePasswordSubmit}>
-            Submit
-          </Button>
-          {error && (
-            <Typography sx={{ color: "red", marginTop: 1 }}>{error}</Typography>
-          )}
-        </Box>
-      </Modal>
     </Box>
   );
 };
