@@ -3,6 +3,7 @@ import React from "react";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import { themeConfig } from "../../theme/theme";
 import { motion } from "framer-motion";
+import PageFadeEffect from "../FramerMotion/PageFadeEffect";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/system";
 
@@ -15,7 +16,7 @@ const cardList = [
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Microsite_banner_image_.png",
     Author: "LYFnGO",
     background: "#DFF3FF",
-    status: "Read the case study",
+    status: "Enter password",
   },
   {
     id: 1,
@@ -24,7 +25,7 @@ const cardList = [
     image:
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Healthboardbanner_image_s.png",
     Author: "LYFnGO",
-    status: "Read the case study",
+    status: "Enter password",
     background: "#D8E9FF",
   },
   {
@@ -34,7 +35,7 @@ const cardList = [
     image:
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/LYFnGO_patient_management.png",
     Author: "LYFnGO",
-    status: "Read the case study",
+    status: "Enter password",
     background: "#E2FAFF",
   },
 ];
@@ -69,7 +70,9 @@ const HomePageCard = () => {
             // width: 500,
             height: isMobile ? 450 : 550,
             position: "relative",
+            cursor: "pointer",
           }}
+          onClick={() => handleClick(item)}
         >
           <Box
             sx={{
@@ -80,65 +83,66 @@ const HomePageCard = () => {
               justifyContent: "center",
               padding: 1,
               borderRadius: 4,
-              cursor: "pointer",
             }}
-            onClick={() => handleClick(item)}
           >
             <motion.div
-              whileHover={{ scale: 1.1, transition: ".5s ease-in-out" }}
+              whileHover={{
+                scale: 1.1,
+                transition: ".5s ease-in-out",
+              }}
             >
               <img
                 src={item?.image}
                 alt="card_image"
                 width={isMobile ? 320 : 500}
                 height={isMobile ? 200 : 330}
-                style={{ objectFit: "contain" }}
+                style={{ objectFit: "contain", padding: 12 }}
               />
             </motion.div>
           </Box>
-          <Box sx={{ marginBlockStart: 4 }}>
-            <Typography
-              sx={{
-                fontSize: themeConfig.typography.p1,
-                color: themeConfig.palette.secondaryColor,
-              }}
-            >
-              {item?.Author}
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: isMobile
-                  ? themeConfig.typography.h2
-                  : themeConfig.typography.h3,
-                color: themeConfig.palette.primaryColor,
-                fontWeight: 700,
-                maxWidth: 550,
-              }}
-            >
-              {item?.title}
-            </Typography>
+          <PageFadeEffect>
+            <Box sx={{ marginBlockStart: 4 }}>
+              <Typography
+                sx={{
+                  fontSize: themeConfig.typography.p1,
+                  color: themeConfig.palette.secondaryColor,
+                }}
+              >
+                {item?.Author}
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: isMobile
+                    ? themeConfig.typography.h2
+                    : themeConfig.typography.h3,
+                  color: themeConfig.palette.primaryColor,
+                  fontWeight: 700,
+                  maxWidth: 550,
+                }}
+              >
+                {item?.title}
+              </Typography>
 
-            <Typography
-              onClick={() => handleClick(item)}
-              sx={{
-                fontSize: themeConfig.typography.p1,
-                color: themeConfig.palette.primaryColor,
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                position: "absolute",
-                bottom: isTablet && 1,
-                marginTop: isMobile && 1,
-                "&:hover": {
-                  cursor: "pointer",
-                  opacity: 0.3,
-                  transition: "0.3s ease-in-out",
-                },
-              }}
-            >
-              {item?.status} <TrendingFlatIcon />
-            </Typography>
-          </Box>
+              <Typography
+                onClick={() => handleClick(item)}
+                sx={{
+                  fontSize: themeConfig.typography.p1,
+                  color: themeConfig.palette.primaryColor,
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  marginTop: isMobile ? 1 : 3,
+                  "&:hover": {
+                    cursor: "pointer",
+                    opacity: 0.3,
+                    transition: "0.3s ease-in-out",
+                  },
+                }}
+              >
+                {item?.status} <TrendingFlatIcon />
+              </Typography>
+            </Box>
+          </PageFadeEffect>
         </Box>
       ))}
     </Box>

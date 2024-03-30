@@ -34,6 +34,9 @@ function DrawerAppBar(props) {
   const location = useLocation();
   const [isActiveTab, setIsActiveTab] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const handleLinkedInClick = () => {
+    window.open("https://www.linkedin.com/in/santhoshdesign/", "_blank");
+  };
   console.log(isActiveTab);
 
   const handleNavigate = (data) => {
@@ -47,10 +50,10 @@ function DrawerAppBar(props) {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-  const isActive = (path) => {
-    console.log(location.pathname === path);
-    setIsActiveTab(location.pathname === path?.path);
-  };
+  // const isActive = (path) => {
+  //   console.log(location.pathname === path);
+  //   setIsActiveTab(location.pathname === path?.path);
+  // };
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
@@ -94,11 +97,11 @@ function DrawerAppBar(props) {
             <ListItemButton
               onClick={() => {
                 handleNavigate(item);
-                isActive(item.path);
+                // isActive(item.path);
               }}
               href={
                 item?.id === 2 &&
-                "https://drive.google.com/file/d/1YujcuAg1XW3oMvKMmzT8RvjwMHPX-0pW/view?usp=sharing"
+                "https://drive.google.com/file/d/1E-yC9mU3vct3o6oE-s8t1IghSjsYBEiI/view?usp=sharing"
               }
               target="_blank"
               sx={{
@@ -117,7 +120,7 @@ function DrawerAppBar(props) {
         ))}
         <Button
           component="a"
-          href="mailto:hi@santhosh.design"
+          href="https://www.linkedin.com/in/santhoshdesign/"
           target="_blank"
           rel="noopener noreferrer"
           sx={{
@@ -126,7 +129,7 @@ function DrawerAppBar(props) {
             borderRadius: 100,
             height: 40,
             width: 130,
-            textTransform: "lowercase",
+            textTransform: "capitalize",
             fontSize: themeConfig.typography.p1,
             "&:hover": {
               background: themeConfig.palette.ternaryColor,
@@ -134,7 +137,7 @@ function DrawerAppBar(props) {
             },
           }}
         >
-          Email me
+          linkedin
         </Button>
       </List>
     </Box>
@@ -265,13 +268,13 @@ function DrawerAppBar(props) {
                 key={item}
                 onClick={() => {
                   handleNavigate(item);
-                  isActive(item);
+                  // isActive(item);
                 }}
                 component="a"
                 disableTouchRipple={true}
                 href={
                   item?.id === 2 &&
-                  "https://drive.google.com/file/d/1YujcuAg1XW3oMvKMmzT8RvjwMHPX-0pW/view?usp=sharing"
+                  "https://drive.google.com/file/d/1E-yC9mU3vct3o6oE-s8t1IghSjsYBEiI/view?usp=sharing"
                 }
                 target="_blank"
                 rel="noopener noreferrer"
@@ -293,7 +296,7 @@ function DrawerAppBar(props) {
             ))}
             <Button
               component="a"
-              href="mailto:hi@santhosh.design"
+              href="https://www.linkedin.com/in/santhoshdesign/"
               target="_blank"
               rel="noopener noreferrer"
               sx={{
@@ -301,6 +304,7 @@ function DrawerAppBar(props) {
                 color: themeConfig.palette.whiteColor,
                 borderRadius: 100,
                 height: 40,
+                marginInlineStart: 2,
                 width: 130,
                 textTransform: "capitalize",
                 fontSize: themeConfig.typography.p1,
@@ -310,7 +314,7 @@ function DrawerAppBar(props) {
                 },
               }}
             >
-              Email me
+              linkedin
             </Button>
           </Box>
         </Toolbar>

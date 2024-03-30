@@ -4,7 +4,8 @@ import EastIcon from "@mui/icons-material/East";
 import { themeConfig } from "../../../theme/theme";
 import { motion } from "framer-motion";
 import { useMediaQuery, useTheme } from "@mui/system";
-import secureLocalStorage from "react-secure-storage";
+import PageFadeEffect from "../../FramerMotion/PageFadeContent";
+import PageFade from "../../FramerMotion/PageFade";
 
 const PasswordPage = ({ setIsAuth }) => {
   const theme = useTheme();
@@ -16,7 +17,6 @@ const PasswordPage = ({ setIsAuth }) => {
   const handlePasswordSubmit = () => {
     if (password === "Assured") {
       setError("");
-      secureLocalStorage.setItem("isAuth", true);
       setIsAuth(true);
     } else {
       setError("Incorrect password. Please try again.");
@@ -43,30 +43,36 @@ const PasswordPage = ({ setIsAuth }) => {
         gap: 3,
       }}
     >
-      <img
-        src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Lock.svg"
-        alt="lock"
-      />
-      <Typography
-        sx={{
-          fontSize: isMobile
-            ? themeConfig.typography.h2
-            : themeConfig.typography.h1,
-          fontWeight: 700,
-        }}
-      >
-        This content is producted.
-      </Typography>
-      <Typography
-        sx={{
-          fontSize: isMobile
-            ? themeConfig.typography.h3
-            : themeConfig.typography.h2,
-          fontWeight: 600,
-        }}
-      >
-        To view, please enter the password.
-      </Typography>
+      <PageFade>
+        <img
+          src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Lock.svg"
+          alt="lock"
+        />
+      </PageFade>
+      <PageFadeEffect>
+        <Typography
+          sx={{
+            fontSize: isMobile
+              ? themeConfig.typography.h2
+              : themeConfig.typography.h1,
+            fontWeight: 700,
+          }}
+        >
+          This content is producted.
+        </Typography>
+      </PageFadeEffect>
+      <PageFadeEffect>
+        <Typography
+          sx={{
+            fontSize: isMobile
+              ? themeConfig.typography.h3
+              : themeConfig.typography.h2,
+            fontWeight: 600,
+          }}
+        >
+          To view, please enter the password.
+        </Typography>
+      </PageFadeEffect>
       <motion.div
         animate={{ x: shake ? [-10, 10, -10, 10, 0] : 0 }} // Shake animation
       >
