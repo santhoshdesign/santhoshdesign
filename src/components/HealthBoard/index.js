@@ -8,6 +8,8 @@ import SwiperComponent from "./Swiper";
 import Footer from "../Footer";
 import PasswordPage from "../About/PasswordPage";
 import { motion } from "framer-motion";
+import { useMediaQuery, useTheme } from "@mui/system";
+import secureLocalStorage from "react-secure-storage";
 
 const cardList = [
   {
@@ -42,11 +44,30 @@ const cardList = [
   },
 ];
 
+const swiperImages = [
+  {
+    id: 0,
+    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/11.png",
+  },
+  {
+    id: 1,
+    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/22.png",
+  },
+  {
+    id: 2,
+    image: "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/33.png",
+  },
+];
+
 const Healthboard = () => {
   const location = useLocation();
   const data = location.state;
-  const [isAuth, setIsAuth] = useState(false);
+  const iAuthVerified = secureLocalStorage.getItem("isAuth");
+  const [isAuth, setIsAuth] = useState(iAuthVerified || false);
   const cardListFiltered = cardList.filter((card) => card.id !== data?.id);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.up("sm"));
 
   const navigate = useNavigate();
   const handleClick = (data) => {
@@ -58,7 +79,7 @@ const Healthboard = () => {
       navigate("/patientdashboard", { state: data });
     }
   };
-  
+
   return (
     <>
       {isAuth === false && (
@@ -110,9 +131,10 @@ const Healthboard = () => {
                 src={data?.image}
                 alt="bannerImage"
                 style={{
-                  width: 1024,
-                  height: 600,
+                  width: isMobile ? 320 : 1024,
+                  height: isMobile ? 250 : 600,
                   paddingBlock: 24,
+                  padding: isMobile && 12,
                   objectFit: "contain",
                   background: "#DEF3FF",
                   borderRadius: 6,
@@ -127,10 +149,18 @@ const Healthboard = () => {
                 justifyContent: "center",
               }}
             >
-              <Box sx={{ maxWidth: 840, paddingBlockStart: 4 }}>
+              <Box
+                sx={{
+                  maxWidth: 840,
+                  paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
+                }}
+              >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h1,
+                    fontSize: isMobile
+                      ? themeConfig.typography.h2
+                      : themeConfig.typography.h1,
                     fontWeight: 700,
                   }}
                 >
@@ -143,90 +173,176 @@ const Healthboard = () => {
                   paddingBlockStart: 4,
                 }}
               >
-                <Stack direction={"row"}>
-                  <Stack sx={{ width: 210 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      TIMELINE
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      Dec 2023 - Jan 2024
-                    </Typography>
+                {isTablet && (
+                  <Stack direction={"row"}>
+                    <Stack sx={{ width: 210 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        TIMELINE
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        Dec 2023 - Jan 2024
+                      </Typography>
+                    </Stack>
+                    <Stack sx={{ width: 210 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        PLATFORM
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        Web & Mobile Friendly
+                      </Typography>
+                    </Stack>
+                    <Stack sx={{ width: 210 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        MY ROLE
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        Product Designer
+                      </Typography>
+                    </Stack>
+                    <Stack sx={{ width: 210 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        Industry
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        HealthTech
+                      </Typography>
+                    </Stack>
                   </Stack>
-                  <Stack sx={{ width: 210 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      PLATFORM
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      Web & Mobile Friendly
-                    </Typography>
+                )}
+
+                {isMobile && (
+                  <Stack direction="column" spacing={2}>
+                    <Stack direction="row" spacing={2}>
+                      <Stack sx={{ width: 150 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          TIMELINE
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          Dec 2023 - Jan 2024
+                        </Typography>
+                      </Stack>
+                      <Stack sx={{ width: 200 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          PLATFORM
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          Web & Mobile Friendly
+                        </Typography>
+                      </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                      <Stack sx={{ width: 150 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          MY ROLE
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          Product Designer
+                        </Typography>
+                      </Stack>
+                      <Stack sx={{ width: 200 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          INDUSTRY
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          HealthTech
+                        </Typography>
+                      </Stack>
+                    </Stack>
                   </Stack>
-                  <Stack sx={{ width: 210 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      MY ROLE
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      Product Designer
-                    </Typography>
-                  </Stack>
-                  <Stack sx={{ width: 210 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      Industry
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      HealthTech
-                    </Typography>
-                  </Stack>
-                </Stack>
+                )}
               </Box>
               <Box
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -253,11 +369,14 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -326,11 +445,14 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -360,11 +482,14 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -398,7 +523,11 @@ const Healthboard = () => {
                   src={
                     "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Solution_overview.png"
                   }
-                  style={{ width: 800, height: 370, objectFit: "contain" }}
+                  style={{
+                    width: isMobile ? 300 : 800,
+                    height: isMobile ? 300 : 370,
+                    objectFit: "contain",
+                  }}
                   alt="bannerImage"
                 />
               </Box>
@@ -407,11 +536,14 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -440,13 +572,18 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <img
                   src={
                     "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/research_healthdata.png"
                   }
-                  style={{ width: 770, height: 370, objectFit: "contain" }}
+                  style={{
+                    width: isMobile ? 300 : 770,
+                    height: isMobile ? 300 : 370,
+                    objectFit: "contain",
+                  }}
                   alt="bannerImage"
                 />
                 <Typography
@@ -473,11 +610,14 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -486,7 +626,9 @@ const Healthboard = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -509,7 +651,9 @@ const Healthboard = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -534,7 +678,9 @@ const Healthboard = () => {
 
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -556,7 +702,9 @@ const Healthboard = () => {
 
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -588,7 +736,11 @@ const Healthboard = () => {
                   src={
                     "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Lyfngo_to_healthcareproviders.png"
                   }
-                  style={{ width: 970, height: 320, objectFit: "contain" }}
+                  style={{
+                    width: isMobile ? 300 : 970,
+                    height: isMobile ? 200 : 320,
+                    objectFit: "contain",
+                  }}
                   alt="bannerImage"
                 />
               </Box>
@@ -597,6 +749,7 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -632,11 +785,14 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -665,11 +821,14 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -702,11 +861,14 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -746,18 +908,33 @@ const Healthboard = () => {
                   paddingBlockStart: 4,
                 }}
               >
-                <SwiperComponent />
+                {isTablet && <SwiperComponent />}
+                {isMobile && (
+                  <Stack direction={"column"} gap={2}>
+                    {swiperImages?.map((data) => (
+                      <img
+                        src={data?.image}
+                        alt="iamge"
+                        width={300}
+                        height={200}
+                      />
+                    ))}
+                  </Stack>
+                )}
               </Box>
 
               <Box
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -802,11 +979,14 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -815,7 +995,9 @@ const Healthboard = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -847,7 +1029,11 @@ const Healthboard = () => {
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Customer_wearable_integration.png"
                   alt="Customer_wearable_integration"
-                  style={{ width: 990, height: 640, objectFit: "contain" }}
+                  style={{
+                    width: isMobile ? 300 : 990,
+                    height: isMobile ? 300 : 640,
+                    objectFit: "contain",
+                  }}
                 />
               </Box>
             </Box>
@@ -856,6 +1042,7 @@ const Healthboard = () => {
             sx={{
               paddingBlockStart: 4,
               background: "#FFF6F8",
+              paddingInline: isMobile && 2,
             }}
           >
             <Box
@@ -864,8 +1051,8 @@ const Healthboard = () => {
                 flexDirection: "column",
                 // maxWidth: 770,
                 // height: 940,
-                alignItems: "center",
-                justifyContent: "center",
+                alignItems: isTablet && "center",
+                justifyContent: isTablet && "center",
               }}
             >
               <Typography
@@ -882,7 +1069,7 @@ const Healthboard = () => {
                   fontSize: themeConfig.typography.p1,
                   fontWeight: 500,
                   marginBlockEnd: 2,
-                  textAlign: "center",
+                  textAlign: isTablet && "center",
                   maxWidth: 840,
                   lineHeight: 2,
                 }}
@@ -895,7 +1082,11 @@ const Healthboard = () => {
               <img
                 src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Buisness_healthboard.png"
                 alt="Buisness_healthboard"
-                style={{ width: 1185, height: 900, objectFit: "contain" }}
+                style={{
+                  width: isMobile ? 300 : 1185,
+                  height: isMobile ? 300 : 900,
+                  objectFit: "contain",
+                }}
               />
             </Box>
           </Box>
@@ -911,7 +1102,9 @@ const Healthboard = () => {
           >
             <Typography
               sx={{
-                fontSize: themeConfig.typography.h2,
+                fontSize: isMobile
+                ? themeConfig?.typography.h3
+                : themeConfig.typography.h2,
                 fontWeight: 600,
                 marginBlockEnd: 2,
               }}
@@ -920,11 +1113,14 @@ const Healthboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -951,7 +1147,9 @@ const Healthboard = () => {
 
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -986,7 +1184,9 @@ const Healthboard = () => {
 
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -1010,7 +1210,9 @@ const Healthboard = () => {
 
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig?.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -1033,7 +1235,9 @@ const Healthboard = () => {
 
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                  ? themeConfig?.typography.h3
+                  : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -1065,7 +1269,7 @@ const Healthboard = () => {
           >
             <Box
               sx={{
-                minWidth: 980,
+                minWidth: isTablet && 980,
               }}
             >
               <Divider />
@@ -1073,6 +1277,7 @@ const Healthboard = () => {
             <Box
               sx={{
                 maxWidth: 840,
+                paddingInline: isMobile && 2,
                 paddingBlockStart: 4,
               }}
             >
@@ -1105,12 +1310,14 @@ const Healthboard = () => {
           <Box
             sx={{
               paddingBlockStart: 4,
-              paddingInline: 8,
+              paddingInline: isMobile ? 2 : 8,
             }}
           >
             <Typography
               sx={{
-                fontSize: themeConfig.typography.h2,
+                fontSize: isMobile
+                ? themeConfig?.typography.h3
+                : themeConfig.typography.h2,
                 fontWeight: 400,
                 marginBlockEnd: 2,
               }}
@@ -1121,7 +1328,7 @@ const Healthboard = () => {
             <Box
               sx={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
+                gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
                 columnGap: 4,
                 rowGap: 4,
                 marginBlock: 6,
@@ -1131,7 +1338,7 @@ const Healthboard = () => {
                 <Box
                   sx={{
                     // width: 500,
-                    height: 550,
+                    height: isMobile ? 450 : 550,
                     position: "relative",
                   }}
                 >
@@ -1154,8 +1361,8 @@ const Healthboard = () => {
                       <img
                         src={item?.image}
                         alt="card_image"
-                        width={500}
-                        height={330}
+                        width={isMobile ? 320 : 500}
+                        height={isMobile ? 200 : 330}
                         style={{ objectFit: "contain" }}
                       />
                     </motion.div>
@@ -1171,7 +1378,9 @@ const Healthboard = () => {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: themeConfig.typography.h3,
+                        fontSize: isMobile
+                          ? themeConfig.typography.h2
+                          : themeConfig.typography.h3,
                         color: themeConfig.palette.primaryColor,
                         fontWeight: 700,
                         maxWidth: 550,

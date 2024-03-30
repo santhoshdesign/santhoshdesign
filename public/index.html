@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>Santhosh Design</title>
-    <link rel="icon" href=Fav_icon.png />
+    <link rel="icon" href="Fav_icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -35,8 +35,37 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-R36LWSWCMF"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-R36LWSWCMF");
+    </script>
   </head>
   <body>
+    <script>
+      // Function to track button click event
+      function trackButtonClick() {
+        gtag("event", "button_click", {
+          event_category: "Engagement",
+          event_label: "Clicked Button",
+          value: 1,
+        });
+      }
+
+      // Attach event listener to the button
+      document
+        .getElementById("trackButton")
+        .addEventListener("click", trackButtonClick);
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

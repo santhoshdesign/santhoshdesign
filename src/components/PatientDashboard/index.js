@@ -7,6 +7,8 @@ import { themeConfig } from "../../theme/theme";
 import { motion } from "framer-motion";
 import Footer from "../Footer";
 import PasswordPage from "../About/PasswordPage";
+import { useMediaQuery, useTheme } from "@mui/system";
+import secureLocalStorage from "react-secure-storage";
 
 const cardList = [
   {
@@ -44,9 +46,13 @@ const cardList = [
 const PatientDashboard = () => {
   const location = useLocation();
   const data = location.state;
-  const [isAuth, setIsAuth] = useState(false);
+  const iAuthVerified = secureLocalStorage.getItem("isAuth");
+  const [isAuth, setIsAuth] = useState(iAuthVerified || false);
   const navigate = useNavigate();
   const cardListFiltered = cardList.filter((card) => card.id !== data?.id);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.up("sm"));
   const handleClick = (data) => {
     if (data?.id === 0) {
       navigate("/microsite", { state: data });
@@ -106,11 +112,12 @@ const PatientDashboard = () => {
                 src={data?.image}
                 alt="bannerImage"
                 style={{
-                  width: 1024,
-                  height: 600,
+                  width: isMobile ? 320 : 1024,
+                  height: isMobile ? 250 : 600,
                   paddingBlock: 24,
                   objectFit: "contain",
                   background: "#DEF3FF",
+                  padding: isMobile && 12,
                   borderRadius: 6,
                 }}
               />
@@ -123,10 +130,18 @@ const PatientDashboard = () => {
                 justifyContent: "center",
               }}
             >
-              <Box sx={{ maxWidth: 840, paddingBlockStart: 4 }}>
+              <Box
+                sx={{
+                  maxWidth: 840,
+                  paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
+                }}
+              >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h1,
+                    fontSize: isMobile
+                      ? themeConfig.typography.h2
+                      : themeConfig.typography.h1,
                     fontWeight: 700,
                   }}
                 >
@@ -139,85 +154,169 @@ const PatientDashboard = () => {
                   paddingBlockStart: 4,
                 }}
               >
-                <Stack direction={"row"}>
-                  <Stack sx={{ width: 210 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      TIMELINE
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      Sep - Oct 2023
-                    </Typography>
+                {isTablet && (
+                  <Stack direction={"row"}>
+                    <Stack sx={{ width: 210 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        TIMELINE
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        Sep - Oct 2023
+                      </Typography>
+                    </Stack>
+                    <Stack sx={{ width: 210 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        PLATFORM
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        Web & Mobile Friendly
+                      </Typography>
+                    </Stack>
+                    <Stack sx={{ width: 210 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        MY ROLE
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        Product Designer
+                      </Typography>
+                    </Stack>
+                    <Stack sx={{ width: 210 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        Industry
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        HealthTech
+                      </Typography>
+                    </Stack>
                   </Stack>
-                  <Stack sx={{ width: 210 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      PLATFORM
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      Web & Mobile Friendly
-                    </Typography>
+                )}
+
+                {isMobile && (
+                  <Stack direction="column" spacing={2}>
+                    <Stack direction="row" spacing={2}>
+                      <Stack sx={{ width: 150 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          TIMELINE
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          Sep - Oct 2023
+                        </Typography>
+                      </Stack>
+                      <Stack sx={{ width: 200 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          PLATFORM
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          Web & Mobile Friendly
+                        </Typography>
+                      </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                      <Stack sx={{ width: 150 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          MY ROLE
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          Product Designer
+                        </Typography>
+                      </Stack>
+                      <Stack sx={{ width: 200 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          INDUSTRY
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          HealthTech
+                        </Typography>
+                      </Stack>
+                    </Stack>
                   </Stack>
-                  <Stack sx={{ width: 210 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      MY ROLE
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      Product Designer
-                    </Typography>
-                  </Stack>
-                  <Stack sx={{ width: 210 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      Industry
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      HealthTech
-                    </Typography>
-                  </Stack>
-                </Stack>
+                )}
               </Box>
               <Box
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -249,6 +348,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -286,6 +386,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -314,6 +415,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -350,7 +452,11 @@ const PatientDashboard = () => {
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Problem1.png"
                   alt="Problem1"
-                  style={{ width: 1024, height: 350, objectFit: "contain" }}
+                  style={{
+                    width: isMobile ? 320 : 1024,
+                    height: isMobile ? 200 : 350,
+                    objectFit: "contain",
+                  }}
                 />
               </Box>
 
@@ -358,9 +464,14 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
-                <Stack direction={"row"} gap={4} alignItems={"center"}>
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  gap={4}
+                  alignItems={"center"}
+                >
                   <Stack>
                     <Typography
                       sx={{
@@ -377,7 +488,11 @@ const PatientDashboard = () => {
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/problem1.1.png"
                       alt="Problem1"
-                      style={{ width: 500, height: 240, objectFit: "contain" }}
+                      style={{
+                        width: isMobile ? 320 : 500,
+                        height: 240,
+                        objectFit: "contain",
+                      }}
                     />
                   </Stack>
                 </Stack>
@@ -387,6 +502,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -422,7 +538,11 @@ const PatientDashboard = () => {
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Problem2.png"
                   alt="Problem1"
-                  style={{ width: 1024, height: 400, objectFit: "contain" }}
+                  style={{
+                    width: isMobile ? 320 : 1024,
+                    height: isMobile ? 200 : 400,
+                    objectFit: "contain",
+                  }}
                 />
               </Box>
 
@@ -430,6 +550,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -460,6 +581,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -526,6 +648,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -608,10 +731,11 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   marginBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Stack
-                  direction={"row"}
+                  direction={isMobile ? "column" : "row"}
                   // gap={8}
                   alignItems={"center"}
                 >
@@ -619,7 +743,11 @@ const PatientDashboard = () => {
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Impacts1.png"
                       alt="Impacts1"
-                      style={{ height: 450, width: 600, objectFit: "contain" }}
+                      style={{
+                        height: isMobile ? 200 : 450,
+                        width: isMobile ? 320 : 600,
+                        objectFit: "contain",
+                      }}
                     />
                   </Stack>
                   <Stack>
@@ -654,7 +782,7 @@ const PatientDashboard = () => {
                   </Stack>
                 </Stack>
                 <Stack
-                  direction={"row-reverse"}
+                  direction={isMobile ? "column" : "row-reverse"}
                   // gap={8}
                   alignItems={"center"}
                 >
@@ -662,7 +790,11 @@ const PatientDashboard = () => {
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Impact2.png"
                       alt="Impacts1"
-                      style={{ height: 450, width: 600, objectFit: "contain" }}
+                      style={{
+                        height: isMobile ? 250 : 450,
+                        width: isMobile ? 320 : 600,
+                        objectFit: "contain",
+                      }}
                     />
                   </Stack>
                   <Stack>
@@ -684,6 +816,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -741,6 +874,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -807,6 +941,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -832,7 +967,10 @@ const PatientDashboard = () => {
 
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Sketches.png"
-                  style={{ height: 370, width: 770 }}
+                  style={{
+                    height: isMobile ? 250 : 370,
+                    width: isMobile ? 320 : 770,
+                  }}
                   alt="Sketches"
                 />
               </Box>
@@ -841,6 +979,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 840,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -876,12 +1015,16 @@ const PatientDashboard = () => {
 
               <Box
                 sx={{
-                  paddingBlockStart: 4,
+                  paddingBlockStart: isTablet && 4,
                 }}
               >
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/0.png"
-                  style={{ height: 600, width: 1400, objectFit: "contain" }}
+                  style={{
+                    height: isMobile ? 200 : 600,
+                    width: isMobile ? 320 : 1400,
+                    objectFit: "contain",
+                  }}
                   alt="lyfngo_patientmanagement"
                 />
               </Box>
@@ -889,7 +1032,11 @@ const PatientDashboard = () => {
               <Box>
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/1.png"
-                  style={{ height: 640, width: 1380, objectFit: "contain" }}
+                  style={{
+                    height: isMobile ? 200 : 640,
+                    width: isMobile ? 320 : 1380,
+                    objectFit: "contain",
+                  }}
                   alt="lyfngo_patientmanagement"
                 />
               </Box>
@@ -898,6 +1045,7 @@ const PatientDashboard = () => {
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -928,7 +1076,7 @@ const PatientDashboard = () => {
               <Box>
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/3.png"
-                  style={{ width: 1080, objectFit: "contain" }}
+                  style={{ width: isMobile ? 320 : 1080, objectFit: "contain" }}
                   alt="lyfngo_patientmanagement"
                 />
               </Box>
@@ -936,7 +1084,7 @@ const PatientDashboard = () => {
               <Box>
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/4.png"
-                  style={{ width: 1350, objectFit: "contain" }}
+                  style={{ width: isMobile ? 320 : 1350, objectFit: "contain" }}
                   alt="lyfngo_patientmanagement"
                 />
               </Box>
@@ -962,6 +1110,7 @@ const PatientDashboard = () => {
               <Box
                 sx={{
                   maxWidth: 770,
+                  paddingInline: isMobile && 2,
                   paddingBlockStart: 4,
                 }}
               >
@@ -1070,7 +1219,7 @@ const PatientDashboard = () => {
                   sx={{
                     fontSize: themeConfig.typography.p1,
                     fontWeight: "300",
-                    lineHeight: 3,
+                    lineHeight: isMobile ? 2 : 3,
                   }}
                 >
                   Iterative design approach and collaboration with
@@ -1093,6 +1242,7 @@ const PatientDashboard = () => {
               sx={{
                 maxWidth: 770,
                 paddingBlockStart: 4,
+                paddingInline: isMobile && 2,
               }}
             >
               <Typography
@@ -1140,7 +1290,7 @@ const PatientDashboard = () => {
             > */}
             <Box
               sx={{
-                minWidth: 980,
+                minWidth: isMobile ? 320 : 980,
               }}
             >
               <Divider />
@@ -1149,6 +1299,7 @@ const PatientDashboard = () => {
               sx={{
                 maxWidth: 840,
                 paddingBlockStart: 4,
+                paddingInline: isMobile && 2,
               }}
             >
               <Typography
@@ -1170,7 +1321,7 @@ const PatientDashboard = () => {
           <Box
             sx={{
               paddingBlockStart: 4,
-              paddingInline: 8,
+              paddingInline: isMobile ? 2 : 8,
             }}
           >
             <Typography
@@ -1186,7 +1337,7 @@ const PatientDashboard = () => {
             <Box
               sx={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
+                gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
                 columnGap: 4,
                 rowGap: 4,
                 marginBlock: 6,
@@ -1196,7 +1347,7 @@ const PatientDashboard = () => {
                 <Box
                   sx={{
                     // width: 500,
-                    height: 550,
+                    height: isMobile ? 450 : 550,
                     position: "relative",
                   }}
                 >
@@ -1219,8 +1370,8 @@ const PatientDashboard = () => {
                       <img
                         src={item?.image}
                         alt="card_image"
-                        width={500}
-                        height={330}
+                        width={isMobile ? 320 : 500}
+                        height={isMobile ? 200 : 330}
                         style={{ objectFit: "contain" }}
                       />
                     </motion.div>
@@ -1236,7 +1387,9 @@ const PatientDashboard = () => {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: themeConfig.typography.h3,
+                        fontSize: isMobile
+                          ? themeConfig.typography.h2
+                          : themeConfig.typography.h3,
                         color: themeConfig.palette.primaryColor,
                         fontWeight: 700,
                         maxWidth: 550,
@@ -1254,7 +1407,8 @@ const PatientDashboard = () => {
                         alignItems: "center",
                         gap: 1,
                         position: "absolute",
-                        bottom: 1,
+                        bottom: isTablet && 1,
+                        marginTop: isMobile && 1,
                         "&:hover": {
                           cursor: "pointer",
                           opacity: 0.3,

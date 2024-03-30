@@ -4,6 +4,7 @@ import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import { themeConfig } from "../../theme/theme";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery, useTheme } from "@mui/system";
 
 const cardList = [
   {
@@ -39,6 +40,9 @@ const cardList = [
 ];
 
 const HomePageCard = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.up("sm"));
   const navigate = useNavigate();
   const handleClick = (data) => {
     if (data?.id === 0) {
@@ -53,7 +57,7 @@ const HomePageCard = () => {
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr",
+        gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
         columnGap: 4,
         rowGap: 4,
         marginBlock: 6,
@@ -63,7 +67,7 @@ const HomePageCard = () => {
         <Box
           sx={{
             // width: 500,
-            height: 550,
+            height: isMobile ? 450 : 550,
             position: "relative",
           }}
         >
@@ -86,8 +90,8 @@ const HomePageCard = () => {
               <img
                 src={item?.image}
                 alt="card_image"
-                width={500}
-                height={330}
+                width={isMobile ? 320 : 500}
+                height={isMobile ? 200 : 330}
                 style={{ objectFit: "contain" }}
               />
             </motion.div>
@@ -103,7 +107,9 @@ const HomePageCard = () => {
             </Typography>
             <Typography
               sx={{
-                fontSize: themeConfig.typography.h3,
+                fontSize: isMobile
+                  ? themeConfig.typography.h2
+                  : themeConfig.typography.h3,
                 color: themeConfig.palette.primaryColor,
                 fontWeight: 700,
                 maxWidth: 550,
@@ -121,7 +127,8 @@ const HomePageCard = () => {
                 alignItems: "center",
                 gap: 1,
                 position: "absolute",
-                bottom: 1,
+                bottom: isTablet && 1,
+                marginTop: isMobile && 1,
                 "&:hover": {
                   cursor: "pointer",
                   opacity: 0.3,

@@ -3,8 +3,12 @@ import React from "react";
 import DrawerAppBar from "../AppBar";
 import { motion } from "framer-motion";
 import { themeConfig } from "../../theme/theme";
+import { useMediaQuery, useTheme } from "@mui/system";
 
 const AboutPage = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.up("sm"));
   const handleLinkedInClick = () => {
     window.open("https://www.linkedin.com/in/santhoshdesign/", "_blank");
   };
@@ -27,6 +31,17 @@ const AboutPage = () => {
           justifyContent: "center",
         }}
       >
+        {/* {isMobile && (
+          <Box sx={{ paddingInline: 6, marginBlockStart: 8 }}>
+            <img
+              src={
+                "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Santhosh_Profile.png"
+              }
+              alt="santosh"
+              style={{ width: 300, height: 300, objectFit: "cover" }}
+            ></img>
+          </Box>
+        )} */}
         <Box
           sx={{
             // paddingBlockStart: 18,
@@ -49,10 +64,14 @@ const AboutPage = () => {
           </Typography>
           <Typography
             sx={{
-              fontSize: themeConfig.typography.h2,
+              fontSize: isMobile
+                ? themeConfig.typography.h3
+                : themeConfig.typography.h2,
               color: themeConfig.palette.primaryColor,
               marginBlockEnd: 4,
               fontWeight: 600,
+              paddingInline: isMobile && 2,
+              textAlign: isMobile && "center",
             }}
           >
             I am always happy to discuss new ideas and opportunities.Let’s talk
@@ -69,7 +88,7 @@ const AboutPage = () => {
             santhosh.design
           </Typography>
 
-          <Stack direction={"row"} gap={2}>
+          <Stack direction={isMobile ? "column" : "row"} gap={2}>
             <motion.div whileTap={{ scale: 0.95, transition: "0.3s ease" }}>
               <Button
                 onClick={() => {
@@ -125,15 +144,19 @@ const AboutPage = () => {
             </motion.div>
           </Stack>
         </Box>
-        <Box sx={{ paddingInline: 6, position: "absolute", top: 250, left: 0 }}>
-          <img
-            src={
-              "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Santhosh_Profile.png"
-            }
-            alt="santosh"
-            style={{ width: 300, height: 300, objectFit: "cover" }}
-          ></img>
-        </Box>
+        {isTablet && (
+          <Box
+            sx={{ paddingInline: 6, position: "absolute", top: 250, left: 0 }}
+          >
+            <img
+              src={
+                "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Santhosh_Profile.png"
+              }
+              alt="santosh"
+              style={{ width: 300, height: 300, objectFit: "cover" }}
+            ></img>
+          </Box>
+        )}
       </Box>
     </Box>
   );

@@ -5,6 +5,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Box } from "@mui/material";
+import { useMediaQuery, useTheme } from "@mui/system";
 
 const swiperImages = [
   {
@@ -30,6 +31,8 @@ const swiperImages = [
 ];
 
 const SwiperComponent = () => {
+  // const theme = useTheme();
+  // const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Box>
       <Swiper

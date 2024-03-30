@@ -5,8 +5,11 @@ import { Box, Typography } from "@mui/material";
 import { themeConfig } from "../../theme/theme";
 import HomePageCard from "../HomePageCard";
 import Footer from "../Footer";
+import { useMediaQuery, useTheme } from "@mui/system";
 
 const Home = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <div>
       <DrawerAppBar />
@@ -18,7 +21,7 @@ const Home = () => {
           alignItems: "center",
           justifyContent: "center",
           marginBlockStart: 2,
-          paddingInline: 8,
+          paddingInline: isMobile ? 2 : 8,
         }}
       >
         <Box
@@ -29,7 +32,12 @@ const Home = () => {
           }}
         >
           <Typography
-            sx={{ fontSize: themeConfig.typography.h2, fontWeight: 700 }}
+            sx={{
+              fontSize: isMobile
+                ? themeConfig.typography.h3
+                : themeConfig.typography.h2,
+              fontWeight: 700,
+            }}
           >
             How do I solve business & user problems?
           </Typography>

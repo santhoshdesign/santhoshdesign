@@ -1,22 +1,22 @@
-import {
-  Box,
-  InputAdornment,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, InputAdornment, TextField, Typography } from "@mui/material";
 import React, { useState } from "react";
 import EastIcon from "@mui/icons-material/East";
 import { themeConfig } from "../../../theme/theme";
 import { motion } from "framer-motion";
+import { useMediaQuery, useTheme } from "@mui/system";
+import secureLocalStorage from "react-secure-storage";
 
 const PasswordPage = ({ setIsAuth }) => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.up("sm"));
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [shake, setShake] = useState(false);
-  console.log("shake", shake);
   const handlePasswordSubmit = () => {
-    if (password === "password") {
+    if (password === "Assured") {
       setError("");
+      secureLocalStorage.setItem("isAuth", true);
       setIsAuth(true);
     } else {
       setError("Incorrect password. Please try again.");
@@ -47,10 +47,24 @@ const PasswordPage = ({ setIsAuth }) => {
         src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Lock.svg"
         alt="lock"
       />
-      <Typography sx={{ fontSize: themeConfig.typography.h1, fontWeight: 700 }}>
+      <Typography
+        sx={{
+          fontSize: isMobile
+            ? themeConfig.typography.h2
+            : themeConfig.typography.h1,
+          fontWeight: 700,
+        }}
+      >
         This content is producted.
       </Typography>
-      <Typography sx={{ fontSize: themeConfig.typography.h2, fontWeight: 600 }}>
+      <Typography
+        sx={{
+          fontSize: isMobile
+            ? themeConfig.typography.h3
+            : themeConfig.typography.h2,
+          fontWeight: 600,
+        }}
+      >
         To view, please enter the password.
       </Typography>
       <motion.div
@@ -65,8 +79,8 @@ const PasswordPage = ({ setIsAuth }) => {
             justifyContent: "center",
             flexDirection: "column",
             "& input": {
-              width: 450,
-              height: 54,
+              width: isMobile ? 300 : 450,
+              height: isMobile ? 25 : 54,
               marginInlineStart: 8,
               borderRadius: 30,
               background: themeConfig.palette.whiteColor,

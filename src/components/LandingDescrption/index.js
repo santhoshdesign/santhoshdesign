@@ -31,36 +31,34 @@ const LandingDescrption = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        // marginBlockStart: 2,
-        paddingInline: 8,
+        paddingInline: isMobile ? 2 : 8,
       }}
     >
       <Box
         sx={{
-          height: 650,
           background: "#F5F7FD",
           width: "100%",
           maxWidth: 1380,
-          marginBlockStart: 2,
+          marginBlockStart: isMobile ? 12 : 2,
         }}
         className="image-container"
       >
         {/* display: { xs: "block", sm: "none" }, */}
-        <Stack
-          direction={isMobile ? "column" : "row"}
-          gap={14}
-          width={"100%"}
-          height={"90vh"}
-        >
+        <Stack direction={isMobile ? "column-reverse" : "row"} width={"100%"}>
           <Stack
-            width={"60%"}
-            sx={{ height: "90vh" }}
+            width={isMobile ? "100%" : "50%"}
+            sx={{ height: isMobile ? "60vh" : "90vh" }}
             alignItems={"center"}
-            justifyContent={"center"}
+            justifyContent={isMobile ? "start" : "center"}
             position={"relative"}
           >
             <Typography
-              sx={{ fontSize: themeConfig.typography.h1, fontWeight: 700 }}
+              sx={{
+                fontSize: isMobile
+                  ? themeConfig.typography.h2
+                  : themeConfig.typography.h1,
+                fontWeight: 700,
+              }}
             >
               I’m{" "}
               <span style={{ color: themeConfig.palette.ternaryColor }}>
@@ -78,10 +76,10 @@ const LandingDescrption = () => {
             </Typography>
           </Stack>
           <Stack
-            width={"40%"}
+            width={isMobile ? "100%" : "50%"}
             //  sx={{ height: 750 }}
-            alignItems={"flex-end"}
-            justifyContent={"center"}
+            alignItems={isMobile ? "center" : "flex-end"}
+            justifyContent={isMobile ? "start" : "center"}
           >
             <img
               src={

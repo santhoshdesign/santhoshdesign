@@ -8,6 +8,8 @@ import { themeConfig } from "../../theme/theme";
 import SwiperComponent from "./Swiper";
 import { motion } from "framer-motion";
 import Footer from "../Footer";
+import { useMediaQuery, useTheme } from "@mui/system";
+import secureLocalStorage from "react-secure-storage";
 
 const cardList = [
   {
@@ -42,11 +44,38 @@ const cardList = [
   },
 ];
 
+const swiperImages = [
+  {
+    id: 0,
+    image:
+      "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Setup%20your%20microsite.svg",
+  },
+  {
+    id: 1,
+    image:
+      "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Setup%20your%20profile.svg",
+  },
+  {
+    id: 2,
+    image:
+      "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Microsite%20landing.svg",
+  },
+  {
+    id: 3,
+    image:
+      "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Doctor%20Profile.svg",
+  },
+];
+
 const About = () => {
   const location = useLocation();
   const data = location.state;
-  const [isAuth, setIsAuth] = useState(false);
+  const iAuthVerified = secureLocalStorage.getItem("isAuth");
+  const [isAuth, setIsAuth] = useState(iAuthVerified || false);
   const cardListFiltered = cardList.filter((card) => card.id !== data?.id);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isTablet = useMediaQuery(theme.breakpoints.up("sm"));
 
   const navigate = useNavigate();
   const handleClick = (data) => {
@@ -108,9 +137,10 @@ const About = () => {
                 src={data?.image}
                 alt="bannerImage"
                 style={{
-                  width: 1024,
-                  height: 600,
+                  width: isMobile ? 320 : 1024,
+                  height: isMobile ? 250 : 600,
                   paddingBlock: 24,
+                  padding: isMobile && 12,
                   objectFit: "contain",
                   background: "#DEF3FF",
                   borderRadius: 6,
@@ -125,10 +155,18 @@ const About = () => {
                 justifyContent: "center",
               }}
             >
-              <Box sx={{ maxWidth: 770, paddingBlockStart: 4 }}>
+              <Box
+                sx={{
+                  maxWidth: 770,
+                  paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
+                }}
+              >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h1,
+                    fontSize: isMobile
+                      ? themeConfig.typography.h2
+                      : themeConfig.typography.h1,
                     fontWeight: 700,
                   }}
                 >
@@ -141,90 +179,175 @@ const About = () => {
                   paddingBlockStart: 4,
                 }}
               >
-                <Stack direction={"row"}>
-                  <Stack sx={{ width: 150 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      TIMELINE
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      Oct - Nov 2023
-                    </Typography>
+                {isTablet && (
+                  <Stack direction={"row"} gap={2}>
+                    <Stack sx={{ width: 150 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        TIMELINE
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        Oct - Nov 2023
+                      </Typography>
+                    </Stack>
+                    <Stack sx={{ width: 200 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        PLATFORM
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        Web & Mobile Friendly
+                      </Typography>
+                    </Stack>
+                    <Stack sx={{ width: 180 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        MY ROLE
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        Product Designer
+                      </Typography>
+                    </Stack>
+                    <Stack sx={{ width: 150 }} gap={1}>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.secondaryColor,
+                        }}
+                      >
+                        Industry
+                      </Typography>
+                      <Typography
+                        sx={{
+                          fontSize: themeConfig.typography.p1,
+                          color: themeConfig.palette.primaryColor,
+                        }}
+                      >
+                        HealthTech
+                      </Typography>
+                    </Stack>
                   </Stack>
-                  <Stack sx={{ width: 200 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      PLATFORM
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      Web & Mobile Friendly
-                    </Typography>
+                )}
+                {isMobile && (
+                  <Stack direction="column" spacing={2}>
+                    <Stack direction="row" spacing={2}>
+                      <Stack sx={{ width: 150 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          TIMELINE
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          Oct - Nov 2023
+                        </Typography>
+                      </Stack>
+                      <Stack sx={{ width: 200 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          PLATFORM
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          Web & Mobile Friendly
+                        </Typography>
+                      </Stack>
+                    </Stack>
+                    <Stack direction="row" spacing={2}>
+                      <Stack sx={{ width: 150 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          MY ROLE
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          Product Designer
+                        </Typography>
+                      </Stack>
+                      <Stack sx={{ width: 200 }} gap={1}>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.secondaryColor,
+                          }}
+                        >
+                          INDUSTRY
+                        </Typography>
+                        <Typography
+                          sx={{
+                            fontSize: themeConfig.typography.p1,
+                            color: themeConfig.palette.primaryColor,
+                          }}
+                        >
+                          HealthTech
+                        </Typography>
+                      </Stack>
+                    </Stack>
                   </Stack>
-                  <Stack sx={{ width: 180 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      MY ROLE
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      Product Designer
-                    </Typography>
-                  </Stack>
-                  <Stack sx={{ width: 150 }} gap={1}>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.secondaryColor,
-                      }}
-                    >
-                      Industry
-                    </Typography>
-                    <Typography
-                      sx={{
-                        fontSize: themeConfig.typography.p1,
-                        color: themeConfig.palette.primaryColor,
-                      }}
-                    >
-                      HealthTech
-                    </Typography>
-                  </Stack>
-                </Stack>
+                )}
               </Box>
               <Box
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -251,11 +374,14 @@ const About = () => {
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -326,11 +452,14 @@ const About = () => {
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -368,17 +497,23 @@ const About = () => {
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
-                <img
-                  src={
-                    "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/problem.png"
-                  }
-                  alt="bannerImage"
-                />
+                <Stack alignItems={isMobile && "center"}>
+                  <img
+                    src={
+                      "https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/problem.png"
+                    }
+                    alt="bannerImage"
+                    width={isMobile && 320}
+                  />
+                </Stack>
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h3,
+                    fontSize: isMobile
+                      ? themeConfig.typography.p1
+                      : themeConfig.typography.h3,
                     textAlign: "center",
                     fontWeight: 600,
                     paddingBlockStart: 4,
@@ -392,13 +527,16 @@ const About = () => {
 
               <Box
                 sx={{
-                  minWidth: 770,
+                  minWidth: isTablet && 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 1,
                   }}
@@ -424,19 +562,39 @@ const About = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 1,
                   }}
                 >
                   Doctor’s Goals
                 </Typography>
-                <Stack direction={"row"}>
-                  <img
-                    src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Goal1.svg"
-                    alt="docterlogo"
-                  />
-                </Stack>
+                {isTablet && (
+                  <Stack direction={"row"}>
+                    <img
+                      src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Goal1.svg"
+                      alt="docterlogo"
+                    />
+                  </Stack>
+                )}
+                {isMobile && (
+                  <Stack direction={"column"} gap={2}>
+                    <Stack>
+                      <img
+                        src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/m1.svg"
+                        alt="docterlogo"
+                      />
+                    </Stack>
+                    <Stack>
+                      <img
+                        src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/m2.svg"
+                        alt="docterlogo"
+                      />
+                    </Stack>
+                  </Stack>
+                )}
               </Box>
 
               <Box
@@ -447,30 +605,53 @@ const About = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 1,
                   }}
                 >
                   Patient’s Goals
                 </Typography>
-                <Stack direction={"row"} gap={4}>
-                  <img
-                    src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Goal2.svg"
-                    alt="Patient’s"
-                  />
-                </Stack>
+                {isTablet && (
+                  <Stack direction={"row"} gap={4}>
+                    <img
+                      src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Goal2.svg"
+                      alt="Patient’s"
+                    />
+                  </Stack>
+                )}
+
+                {isMobile && (
+                  <Stack direction={"column"} gap={2}>
+                    <Stack>
+                      <img
+                        src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/m3.svg"
+                        alt="docterlogo"
+                      />
+                    </Stack>
+                    <Stack>
+                      <img
+                        src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/m4.svg"
+                        alt="docterlogo"
+                      />
+                    </Stack>
+                  </Stack>
+                )}
               </Box>
 
               <Box
                 sx={{
-                  minWidth: 770,
+                  minWidth: isTablet && 770,
                   paddingBlockStart: 4,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 1,
                   }}
@@ -478,12 +659,14 @@ const About = () => {
                   Impacts
                 </Typography>
                 <Stack direction={"row"} gap={2} alignItems={"center"}>
-                  <Stack>
-                    <img
-                      src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/LYFnGO_Logo.svg"
-                      alt="lyfngo"
-                    />
-                  </Stack>
+                  {isTablet && (
+                    <Stack>
+                      <img
+                        src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/LYFnGO_Logo.svg"
+                        alt="lyfngo"
+                      />
+                    </Stack>
+                  )}
                   <Stack>
                     <Typography
                       sx={{
@@ -500,11 +683,16 @@ const About = () => {
 
               <Box
                 sx={{
-                  minWidth: 770,
+                  minWidth: isTablet && 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
-                <Stack direction={"row"} gap={2} alignItems={"center"}>
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  gap={2}
+                  alignItems={"center"}
+                >
                   <Stack>
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/doctor.png"
@@ -516,7 +704,9 @@ const About = () => {
                     <Stack direction={"row"} alignItems={"center"} gap={2}>
                       <Typography
                         sx={{
-                          fontSize: themeConfig.typography.h2,
+                          fontSize: isMobile
+                            ? themeConfig?.typography.h3
+                            : themeConfig.typography.h2,
                           fontWeight: 400,
                         }}
                       >
@@ -536,7 +726,9 @@ const About = () => {
                     <Stack direction={"row"} alignItems={"center"} gap={2}>
                       <Typography
                         sx={{
-                          fontSize: themeConfig.typography.h2,
+                          fontSize: isMobile
+                            ? themeConfig?.typography.h3
+                            : themeConfig.typography.h2,
                           fontWeight: 400,
                         }}
                       >
@@ -563,7 +755,9 @@ const About = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     textAlign: "center",
                   }}
                 >
@@ -573,11 +767,16 @@ const About = () => {
 
               <Box
                 sx={{
-                  minWidth: 770,
+                  minWidth: isTablet && 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
-                <Stack direction={"row"} gap={2} alignItems={"center"}>
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  gap={2}
+                  alignItems={"center"}
+                >
                   <Stack>
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/customer.png"
@@ -589,7 +788,9 @@ const About = () => {
                     <Stack direction={"row"} alignItems={"center"} gap={2}>
                       <Typography
                         sx={{
-                          fontSize: themeConfig.typography.h2,
+                          fontSize: isMobile
+                            ? themeConfig?.typography.h3
+                            : themeConfig.typography.h2,
                           fontWeight: 400,
                         }}
                       >
@@ -609,7 +810,9 @@ const About = () => {
                     <Stack direction={"row"} alignItems={"center"} gap={2}>
                       <Typography
                         sx={{
-                          fontSize: themeConfig.typography.h2,
+                          fontSize: isMobile
+                            ? themeConfig?.typography.h3
+                            : themeConfig.typography.h2,
                           fontWeight: 400,
                         }}
                       >
@@ -632,6 +835,7 @@ const About = () => {
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
@@ -647,7 +851,7 @@ const About = () => {
                 <Typography
                   sx={{
                     fontSize: themeConfig.typography.h3,
-                    lineHeight: 3,
+                    lineHeight: isMobile ? 1 : 3,
                     fontWeight: 600,
                   }}
                 >
@@ -659,11 +863,14 @@ const About = () => {
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -691,11 +898,14 @@ const About = () => {
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -719,31 +929,33 @@ const About = () => {
 
               <Box
                 sx={{
-                  minWidth: 770,
+                  minWidth: isTablet && 770,
                   paddingBlockStart: 4,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
                 >
                   Insights gained while analysis
                 </Typography>
-                <Stack direction={"row"} gap={6}>
+                <Stack direction={isMobile ? "column" : "row"} gap={6}>
                   <Stack>
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/insights1.png"
-                      style={{ width: 350, height: 150 }}
+                      style={{ width: isMobile ? 300 : 350, height: 150 }}
                       alt="insights1"
                     />
                   </Stack>
                   <Stack>
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/insights2.png"
-                      style={{ width: 350, height: 150 }}
+                      style={{ width: isMobile ? 300 : 350, height: 150 }}
                       alt="insights2"
                     />
                   </Stack>
@@ -752,20 +964,26 @@ const About = () => {
 
               <Box
                 sx={{
-                  minWidth: 770,
+                  minWidth: isTablet && 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
                 >
                   Initial UX Challenge
                 </Typography>
-                <Stack direction={"row"} gap={18}>
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  gap={isMobile ? 2 : 18}
+                >
                   <Stack>
                     <Typography
                       sx={{
@@ -838,11 +1056,14 @@ const About = () => {
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -872,18 +1093,33 @@ const About = () => {
                   paddingBlockStart: 4,
                 }}
               >
-                <SwiperComponent />
+                {isTablet && <SwiperComponent />}
+                {isMobile && (
+                  <Stack direction={"column"}>
+                    {swiperImages?.map((data) => (
+                      <img
+                        src={data?.image}
+                        alt="iamge"
+                        width={300}
+                        height={200}
+                      />
+                    ))}
+                  </Stack>
+                )}
               </Box>
 
               <Box
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -927,11 +1163,14 @@ const About = () => {
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -940,7 +1179,7 @@ const About = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: themeConfig.typography.h3,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -969,7 +1208,11 @@ const About = () => {
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/Setupmicrosite_final.png"
                   alt="microsite"
-                  style={{ width: 1140, height: 640, objectFit: "contain" }}
+                  style={{
+                    width: isMobile ? 320 : 1140,
+                    height: isMobile ? 300 : 640,
+                    objectFit: "contain",
+                  }}
                 />
               </Box>
             </Box>
@@ -986,8 +1229,9 @@ const About = () => {
                 display: "flex",
                 flexDirection: "column",
                 // maxWidth: 770,
-                height: 850,
+                height: isMobile ? 500 : 850,
                 alignItems: "center",
+                paddingInline: isMobile && 2,
                 justifyContent: "center",
               }}
             >
@@ -1005,7 +1249,7 @@ const About = () => {
                   fontSize: themeConfig.typography.p1,
                   fontWeight: 500,
                   marginBlockEnd: 2,
-                  textAlign: "center",
+                  textAlign: isTablet && "center",
                   maxWidth: 770,
                   lineHeight: 2,
                 }}
@@ -1019,7 +1263,11 @@ const About = () => {
               <img
                 src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/doctorprofilecreation_final.png"
                 alt="microsite"
-                style={{ width: 1140, height: 640, objectFit: "contain" }}
+                style={{
+                  width: isMobile ? 320 : 1140,
+                  height: isMobile ? 200 : 640,
+                  objectFit: "contain",
+                }}
               />
             </Box>
           </Box>
@@ -1036,7 +1284,9 @@ const About = () => {
           >
             <Typography
               sx={{
-                fontSize: themeConfig.typography.h2,
+                fontSize: isMobile
+                  ? themeConfig?.typography.h3
+                  : themeConfig.typography.h2,
                 fontWeight: 600,
                 marginBlockEnd: 2,
               }}
@@ -1045,11 +1295,14 @@ const About = () => {
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -1072,7 +1325,11 @@ const About = () => {
             <img
               src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/micrositelanding_final.png"
               alt="creation"
-              style={{ width: 1280, height: 800, objectFit: "contain" }}
+              style={{
+                width: isMobile ? 320 : 1280,
+                height: isMobile ? 220 : 800,
+                objectFit: "contain",
+              }}
             />
           </Box>
           <Box
@@ -1089,7 +1346,11 @@ const About = () => {
             <img
               src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/micrositeapp_final.png"
               alt="creation"
-              style={{ width: 1280, height: 640, objectFit: "contain" }}
+              style={{
+                width: isMobile ? 320 : 1280,
+                height: isMobile ? 220 : 640,
+                objectFit: "contain",
+              }}
             />
           </Box>
 
@@ -1105,7 +1366,9 @@ const About = () => {
           >
             <Typography
               sx={{
-                fontSize: themeConfig.typography.h2,
+                fontSize: isMobile
+                  ? themeConfig?.typography.h3
+                  : themeConfig.typography.h2,
                 fontWeight: 600,
                 marginBlockEnd: 2,
               }}
@@ -1114,11 +1377,14 @@ const About = () => {
                 sx={{
                   maxWidth: 770,
                   paddingBlockStart: 4,
+                  paddingInline: isMobile && 2,
                 }}
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -1144,7 +1410,9 @@ const About = () => {
 
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -1168,7 +1436,9 @@ const About = () => {
 
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -1205,7 +1475,9 @@ const About = () => {
           >
             <Typography
               sx={{
-                fontSize: themeConfig.typography.h2,
+                fontSize: isMobile
+                  ? themeConfig?.typography.h3
+                  : themeConfig.typography.h2,
                 fontWeight: 600,
                 marginBlockEnd: 2,
               }}
@@ -1218,20 +1490,26 @@ const About = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                      ? themeConfig?.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
                 >
                   Insights gained
                 </Typography>
-                <Stack direction={"row"} gap={8}>
+                <Stack direction={isMobile ? "column" : "row"} gap={8}>
                   <Stack>
                     {" "}
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/design_approach.svg"
                       alt="microsite"
-                      style={{ width: 350, height: 350, objectFit: "contain" }}
+                      style={{
+                        width: isMobile ? 300 : 350,
+                        height: isMobile ? 300 : 350,
+                        objectFit: "contain",
+                      }}
                     />
                   </Stack>
                   <Stack>
@@ -1239,7 +1517,11 @@ const About = () => {
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/collaboration.svg"
                       alt="microsite"
-                      style={{ width: 350, height: 350, objectFit: "contain" }}
+                      style={{
+                        width: isMobile ? 300 : 350,
+                        height: isMobile ? 300 : 350,
+                        objectFit: "contain",
+                      }}
                     />
                   </Stack>
                 </Stack>
@@ -1259,7 +1541,7 @@ const About = () => {
           >
             <Box
               sx={{
-                minWidth: 980,
+                minWidth: isTablet && 980,
               }}
             >
               <Divider />
@@ -1268,6 +1550,7 @@ const About = () => {
               sx={{
                 maxWidth: 770,
                 paddingBlockStart: 4,
+                paddingInline: isMobile && 2,
               }}
             >
               <Typography
@@ -1300,12 +1583,14 @@ const About = () => {
           <Box
             sx={{
               paddingBlockStart: 4,
-              paddingInline: 8,
+              paddingInline: isMobile ? 2 : 8,
             }}
           >
             <Typography
               sx={{
-                fontSize: themeConfig.typography.h2,
+                fontSize: isMobile
+                  ? themeConfig?.typography.h3
+                  : themeConfig.typography.h2,
                 fontWeight: 400,
                 marginBlockEnd: 2,
               }}
@@ -1316,7 +1601,7 @@ const About = () => {
             <Box
               sx={{
                 display: "grid",
-                gridTemplateColumns: "1fr 1fr",
+                gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
                 columnGap: 4,
                 rowGap: 4,
                 marginBlock: 6,
@@ -1326,7 +1611,7 @@ const About = () => {
                 <Box
                   sx={{
                     // width: 500,
-                    height: 550,
+                    height: isMobile ? 450 : 550,
                     position: "relative",
                   }}
                 >
@@ -1349,8 +1634,8 @@ const About = () => {
                       <img
                         src={item?.image}
                         alt="card_image"
-                        width={500}
-                        height={330}
+                        width={isMobile ? 320 : 500}
+                        height={isMobile ? 200 : 330}
                         style={{ objectFit: "contain" }}
                       />
                     </motion.div>
@@ -1366,7 +1651,9 @@ const About = () => {
                     </Typography>
                     <Typography
                       sx={{
-                        fontSize: themeConfig.typography.h3,
+                        fontSize: isMobile
+                          ? themeConfig.typography.h2
+                          : themeConfig.typography.h3,
                         color: themeConfig.palette.primaryColor,
                         fontWeight: 700,
                         maxWidth: 550,
@@ -1384,7 +1671,8 @@ const About = () => {
                         alignItems: "center",
                         gap: 1,
                         position: "absolute",
-                        bottom: 1,
+                        bottom: isTablet && 1,
+                        marginTop: isMobile && 1,
                         "&:hover": {
                           cursor: "pointer",
                           opacity: 0.3,

@@ -2,8 +2,11 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
 import { themeConfig } from "../../theme/theme";
 import { motion } from "framer-motion";
+import { useMediaQuery, useTheme } from "@mui/system";
 
 const Footer = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const handleLinkedInClick = () => {
     window.open("https://www.linkedin.com/in/santhoshdesign/", "_blank");
   };
@@ -34,6 +37,7 @@ const Footer = () => {
           color: themeConfig.palette.primaryColor,
           fontWeight: 600,
           marginBlockEnd: 2,
+          textAlign: isMobile && "center",
         }}
       >
         Feel free to reach out for collaborations or just a friendly hi
@@ -49,7 +53,7 @@ const Footer = () => {
         hi<span style={{ fontFamily: "Inter" }}>@</span>
         santhosh.design
       </Typography>
-      <Stack direction={"row"} gap={2}>
+      <Stack direction={isMobile ? "column " : "row"} gap={2}>
         <motion.div whileTap={{ scale: 0.95, transition: "0.3s ease" }}>
           <Button
             onClick={() => {
