@@ -2,7 +2,6 @@ import React from "react";
 import DrawerAppBar from "../AppBar";
 import LandingDescrption from "../LandingDescrption";
 import { Box, Typography } from "@mui/material";
-import PageFadeEffect from "../FramerMotion/PageFadeEffect";
 import { themeConfig } from "../../theme/theme";
 import HomePageCard from "../HomePageCard";
 import Footer from "../Footer";
@@ -32,7 +31,6 @@ const Home = () => {
             marginBlockStart: 2,
           }}
         >
-          <PageFadeEffect>
             <Typography
               sx={{
                 fontSize: isMobile
@@ -51,7 +49,6 @@ const Home = () => {
               <br />
               business & customers -facing products, and a problem solver.
             </Typography>
-          </PageFadeEffect>
           <HomePageCard />
         </Box>
       </Box>

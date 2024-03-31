@@ -4,15 +4,11 @@ import DrawerAppBar from "../AppBar/index";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import { useLocation, useNavigate } from "react-router-dom";
 import { themeConfig } from "../../theme/theme";
-import PageFadeContent from "../FramerMotion/PageFadeContent";
-import PageFade from "../FramerMotion/PageFade";
-import PageFadeEffect from "../FramerMotion/PageFadeEffect";
 import SwiperComponent from "./Swiper";
 import Footer from "../Footer";
 import PasswordPage from "../About/PasswordPage";
 import { motion } from "framer-motion";
 import { useMediaQuery, useTheme } from "@mui/system";
-import secureLocalStorage from "react-secure-storage";
 
 const cardList = [
   {
@@ -23,7 +19,7 @@ const cardList = [
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Microsite_banner_image_.png",
     Author: "LYFnGO",
     background: "#DFF3FF",
-    status: "Read the case study",
+    status: "Enter password",
   },
   {
     id: 1,
@@ -32,7 +28,7 @@ const cardList = [
     image:
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Healthboardbanner_image_s.png",
     Author: "LYFnGO",
-    status: "Read the case study",
+    status: "Enter password",
     background: "#D8E9FF",
   },
   {
@@ -42,7 +38,7 @@ const cardList = [
     image:
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/LYFnGO_patient_management.png",
     Author: "LYFnGO",
-    status: "Read the case study",
+    status: "Enter password",
     background: "#E2FAFF",
   },
 ];
@@ -129,7 +125,7 @@ const Healthboard = () => {
                 justifyContent: "center",
               }}
             >
-              <PageFade>
+              <>
                 <img
                   src={data?.image}
                   alt="bannerImage"
@@ -143,7 +139,7 @@ const Healthboard = () => {
                     borderRadius: 6,
                   }}
                 />
-              </PageFade>
+              </>
             </Box>
             <Box
               sx={{
@@ -160,7 +156,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -171,9 +167,9 @@ const Healthboard = () => {
                   >
                     {data?.title}
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
-              <PageFadeEffect>
+              <>
                 <Box
                   sx={{
                     maxWidth: 840,
@@ -338,7 +334,7 @@ const Healthboard = () => {
                     </Stack>
                   )}
                 </Box>
-              </PageFadeEffect>
+              </>
               <Box
                 sx={{
                   maxWidth: 840,
@@ -346,7 +342,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -358,8 +354,8 @@ const Healthboard = () => {
                   >
                     About LYFnGO
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -374,7 +370,7 @@ const Healthboard = () => {
                     user-friendly interfaces, LYFnGO simplifies operations,
                     fostering better outcomes for businesses and clients alike.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -384,7 +380,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -396,8 +392,8 @@ const Healthboard = () => {
                   >
                     My Role
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -441,11 +437,12 @@ const Healthboard = () => {
                     >
                       Sathishkumar
                     </a>{" "}
-                    all actively involved throughout the implementation process
-                    of this feature in our product, LYFnGO.
+                    as the Business Analyst, all actively involved throughout
+                    the implementation process of this feature in our product,
+                    LYFnGO.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -456,7 +453,7 @@ const Healthboard = () => {
                     Works: User & Health data research, Wireframe, Prototypes &
                     Usability testing.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -466,7 +463,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -478,8 +475,8 @@ const Healthboard = () => {
                   >
                     Problem Statement
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -497,7 +494,7 @@ const Healthboard = () => {
                     leading to increased healthcare management costs and causing
                     worry for customers when they are outside hospital facility.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -507,7 +504,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -519,8 +516,8 @@ const Healthboard = () => {
                   >
                     Solution Overview
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -536,7 +533,7 @@ const Healthboard = () => {
                     user-generated data from
                     <b>Wearables</b> and IoT devices.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -545,7 +542,7 @@ const Healthboard = () => {
                   paddingBlockStart: 4,
                 }}
               >
-                <PageFade>
+                <>
                   <img
                     src={
                       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Solution_overview.png"
@@ -557,7 +554,7 @@ const Healthboard = () => {
                     }}
                     alt="bannerImage"
                   />
-                </PageFade>
+                </>
               </Box>
 
               <Box
@@ -567,7 +564,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -579,8 +576,8 @@ const Healthboard = () => {
                   >
                     How did I research to collect health data?
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -597,7 +594,7 @@ const Healthboard = () => {
                     the data collection process to meet their specific
                     requirements, confirming its importance to customer needs.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -607,7 +604,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFade>
+                <>
                   <img
                     src={
                       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/research_healthdata.png"
@@ -619,8 +616,8 @@ const Healthboard = () => {
                     }}
                     alt="bannerImage"
                   />
-                </PageFade>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -639,7 +636,7 @@ const Healthboard = () => {
                     for validation from <b>healthcare industry experts,</b>{" "}
                     incorporating their feedback into our process.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -649,7 +646,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -661,8 +658,8 @@ const Healthboard = () => {
                   >
                     Challenges Faced
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -674,8 +671,8 @@ const Healthboard = () => {
                   >
                     How can we share health data with selective specialists?
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -690,8 +687,8 @@ const Healthboard = () => {
                     enabling targeted access for specialists was a significant
                     obstacle.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -703,8 +700,8 @@ const Healthboard = () => {
                   >
                     How can customers integrate with wearables?
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -720,8 +717,8 @@ const Healthboard = () => {
                     platform, ensuring a smooth flow of data for personalized
                     health insights.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -733,8 +730,8 @@ const Healthboard = () => {
                   >
                     Decision Point
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -747,8 +744,8 @@ const Healthboard = () => {
                     data and insights and created the use cases and discussed
                     with the product lead and the stakeholders.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -760,8 +757,8 @@ const Healthboard = () => {
                   >
                     How spike connects with LYFnGO to Healthcare providers?
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -775,7 +772,7 @@ const Healthboard = () => {
                     brands like Apple HealthKit, Fitbit, Google Fit, Garmin,
                     Samsung Health, Bio Starp, and more.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -784,7 +781,7 @@ const Healthboard = () => {
                   paddingBlockStart: 4,
                 }}
               >
-                <PageFade>
+                <>
                   <img
                     src={
                       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Lyfngo_to_healthcareproviders.png"
@@ -796,7 +793,7 @@ const Healthboard = () => {
                     }}
                     alt="bannerImage"
                   />
-                </PageFade>
+                </>
               </Box>
 
               <Box
@@ -806,7 +803,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -821,8 +818,8 @@ const Healthboard = () => {
                     <b>choose</b> specific doctors or specialists who are
                     authorized to monitor and validate their information.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -836,7 +833,7 @@ const Healthboard = () => {
                     allowing them to benefit from monitoring their health with
                     wearable devices.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -846,7 +843,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -858,8 +855,8 @@ const Healthboard = () => {
                   >
                     Collaborated with LYFnGO Developers
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -876,7 +873,7 @@ const Healthboard = () => {
                     analysts to gather feedback and ensure alignment with{" "}
                     <b>project goals.</b>
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -886,7 +883,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -898,8 +895,8 @@ const Healthboard = () => {
                   >
                     Research Methodologies
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -920,7 +917,7 @@ const Healthboard = () => {
                     health data to end customers, and an analysis of key
                     features along with user feedback.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -930,7 +927,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -942,8 +939,8 @@ const Healthboard = () => {
                   >
                     From Paper to Perfected: Design Iteration Journey
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -958,8 +955,8 @@ const Healthboard = () => {
                     the Client Profile Health Board for web design, we finalized
                     the designs based on feedback and usability testing.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -971,7 +968,7 @@ const Healthboard = () => {
                     Finally, after the wireframe iteration, we finalized the
                     paper wireframes.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -1002,7 +999,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -1014,8 +1011,8 @@ const Healthboard = () => {
                   >
                     Design Iterations
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1026,8 +1023,8 @@ const Healthboard = () => {
                     <b>- 3 iterations</b> on the B2C Application : Wearable
                     Integration setup.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1038,8 +1035,8 @@ const Healthboard = () => {
                     <b>- 2 iterations</b> on the Client Profile Health Board :
                     Web Design
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1052,7 +1049,7 @@ const Healthboard = () => {
                     testing. Finally, we have completed the Wearable Integration
                     and the Healthboard.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -1062,7 +1059,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -1074,21 +1071,19 @@ const Healthboard = () => {
                   >
                     Final Designs
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                        ? themeConfig?.typography.h3
-                        : themeConfig.typography.h2,
+                      fontSize: themeConfig?.typography.h3,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
                   >
                     Customer Wearable Integration
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1104,7 +1099,7 @@ const Healthboard = () => {
                     sharing and even choose which custom health data to share
                     and with which doctors/specialists.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
               <Box
                 sx={{
@@ -1112,7 +1107,7 @@ const Healthboard = () => {
                   paddingBlockStart: 4,
                 }}
               >
-                <PageFade>
+                <>
                   <img
                     src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Customer_wearable_integration.png"
                     alt="Customer_wearable_integration"
@@ -1122,7 +1117,7 @@ const Healthboard = () => {
                       objectFit: "contain",
                     }}
                   />
-                </PageFade>
+                </>
               </Box>
             </Box>
           </Box>
@@ -1143,7 +1138,7 @@ const Healthboard = () => {
                 justifyContent: isTablet && "center",
               }}
             >
-              <PageFadeEffect>
+              <>
                 <Typography
                   sx={{
                     fontSize: themeConfig.typography.h3,
@@ -1153,8 +1148,8 @@ const Healthboard = () => {
                 >
                   Business Healthboard
                 </Typography>
-              </PageFadeEffect>
-              <PageFadeEffect>
+              </>
+              <>
                 <Typography
                   sx={{
                     fontSize: themeConfig.typography.p1,
@@ -1170,8 +1165,8 @@ const Healthboard = () => {
                   view allows doctors and nutritionists to track progress easily
                   without hesitation.
                 </Typography>
-              </PageFadeEffect>
-              <PageFade>
+              </>
+              <>
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Buisness_healthboard.png"
                   alt="Buisness_healthboard"
@@ -1181,7 +1176,7 @@ const Healthboard = () => {
                     objectFit: "contain",
                   }}
                 />
-              </PageFade>
+              </>
             </Box>
           </Box>
           <Box
@@ -1210,7 +1205,7 @@ const Healthboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -1222,8 +1217,8 @@ const Healthboard = () => {
                   >
                     Design Handoff
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1241,8 +1236,8 @@ const Healthboard = () => {
                     redesigned by our team. Finally, we will provide a design
                     handoff including assets.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -1254,8 +1249,8 @@ const Healthboard = () => {
                   >
                     After Done Design Handoff
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1270,8 +1265,8 @@ const Healthboard = () => {
                     processes are completed, the product is deployed to the{" "}
                     <b>secondary testing environment</b> for further evaluation.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1283,8 +1278,8 @@ const Healthboard = () => {
                     Finally, with the permission of CEO we have launched the
                     Wearable Integration & Healthboard.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -1296,8 +1291,8 @@ const Healthboard = () => {
                   >
                     Impacts
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1313,8 +1308,8 @@ const Healthboard = () => {
                     Integrations and Healthboard, we boosted our sales by{" "}
                     <b>10x.</b>
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -1326,8 +1321,8 @@ const Healthboard = () => {
                   >
                     Reflection and Learning
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1341,8 +1336,8 @@ const Healthboard = () => {
                     ability to adapt to <b>new technologies</b> and deliver
                     impactful solutions to complex problems.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -1354,8 +1349,8 @@ const Healthboard = () => {
                   >
                     Insights
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1368,7 +1363,7 @@ const Healthboard = () => {
                     <b>started from scratch</b> and collaborated with all the
                     teams, making impactful decisions along the way.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
             </Typography>
           </Box>
@@ -1394,7 +1389,7 @@ const Healthboard = () => {
                 paddingBlockStart: 4,
               }}
             >
-              <PageFadeEffect>
+              <>
                 <Typography
                   sx={{
                     fontSize: themeConfig.typography.p1,
@@ -1407,19 +1402,19 @@ const Healthboard = () => {
                   <b>amazing team at LYFnGO ! Huge kudos to our heroes</b> in
                   the Development Team , our QA team, and Backend Team.
                 </Typography>
-              </PageFadeEffect>
-              <PageFadeEffect>
+              </>
+              <>
                 <Typography
                   sx={{
                     fontSize: themeConfig.typography.p1,
                     fontWeight: 700,
-                    marginBlockEnd: 2,
+                    marginBlockEnd: 4,
                   }}
                 >
                   Thank you for reading through! Hope you enjoyed learning about
                   my design and thought process.
                 </Typography>
-              </PageFadeEffect>
+              </>
             </Box>
           </Box>
           <Footer />
@@ -1429,7 +1424,7 @@ const Healthboard = () => {
               paddingInline: isMobile ? 2 : 8,
             }}
           >
-            <PageFadeEffect>
+            <>
               <Typography
                 sx={{
                   fontSize: isMobile
@@ -1441,7 +1436,7 @@ const Healthboard = () => {
               >
                 Check out my other case studies
               </Typography>
-            </PageFadeEffect>
+            </>
 
             <Box
               sx={{
@@ -1470,13 +1465,13 @@ const Healthboard = () => {
                       alignItems: "center",
                       justifyContent: "center",
                       padding: 1,
-                      borderRadius: 4,
+                      borderRadius: 3,
                     }}
                   >
                     <motion.div
                       whileHover={{ scale: 1.1, transition: ".5s ease-in-out" }}
                     >
-                      <PageFade>
+                      <>
                         <img
                           src={item?.image}
                           alt="card_image"
@@ -1484,11 +1479,11 @@ const Healthboard = () => {
                           height={isMobile ? 200 : 330}
                           style={{ objectFit: "contain", padding: 12 }}
                         />
-                      </PageFade>
+                      </>
                     </motion.div>
                   </Box>
                   <Box sx={{ marginBlockStart: 4 }}>
-                    <PageFadeEffect>
+                    <>
                       <Typography
                         sx={{
                           fontSize: themeConfig.typography.p1,
@@ -1497,8 +1492,8 @@ const Healthboard = () => {
                       >
                         {item?.Author}
                       </Typography>
-                    </PageFadeEffect>
-                    <PageFadeEffect>
+                    </>
+                    <>
                       <Typography
                         sx={{
                           fontSize: isMobile
@@ -1511,8 +1506,8 @@ const Healthboard = () => {
                       >
                         {item?.title}
                       </Typography>
-                    </PageFadeEffect>
-                    <PageFadeEffect>
+                    </>
+                    <>
                       <Typography
                         onClick={() => handleClick(item)}
                         sx={{
@@ -1533,7 +1528,7 @@ const Healthboard = () => {
                       >
                         {item?.status} <TrendingFlatIcon />
                       </Typography>
-                    </PageFadeEffect>
+                    </>
                   </Box>
                 </Box>
               ))}

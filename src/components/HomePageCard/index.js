@@ -3,7 +3,6 @@ import React from "react";
 import TrendingFlatIcon from "@mui/icons-material/TrendingFlat";
 import { themeConfig } from "../../theme/theme";
 import { motion } from "framer-motion";
-import PageFadeEffect from "../FramerMotion/PageFadeEffect";
 import { useNavigate } from "react-router-dom";
 import { useMediaQuery, useTheme } from "@mui/system";
 
@@ -82,7 +81,7 @@ const HomePageCard = () => {
               alignItems: "center",
               justifyContent: "center",
               padding: 1,
-              borderRadius: 4,
+              borderRadius: 3,
             }}
           >
             <motion.div
@@ -100,49 +99,47 @@ const HomePageCard = () => {
               />
             </motion.div>
           </Box>
-          <PageFadeEffect>
-            <Box sx={{ marginBlockStart: 4 }}>
-              <Typography
-                sx={{
-                  fontSize: themeConfig.typography.p1,
-                  color: themeConfig.palette.secondaryColor,
-                }}
-              >
-                {item?.Author}
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: isMobile
-                    ? themeConfig.typography.h2
-                    : themeConfig.typography.h3,
-                  color: themeConfig.palette.primaryColor,
-                  fontWeight: 700,
-                  maxWidth: 550,
-                }}
-              >
-                {item?.title}
-              </Typography>
+          <Box sx={{ marginBlockStart: 4 }}>
+            <Typography
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                color: themeConfig.palette.secondaryColor,
+              }}
+            >
+              {item?.Author}
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: isMobile
+                  ? themeConfig.typography.h2
+                  : themeConfig.typography.h3,
+                color: themeConfig.palette.primaryColor,
+                fontWeight: 700,
+                maxWidth: 550,
+              }}
+            >
+              {item?.title}
+            </Typography>
 
-              <Typography
-                onClick={() => handleClick(item)}
-                sx={{
-                  fontSize: themeConfig.typography.p1,
-                  color: themeConfig.palette.primaryColor,
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 1,
-                  marginTop: isMobile ? 1 : 3,
-                  "&:hover": {
-                    cursor: "pointer",
-                    opacity: 0.3,
-                    transition: "0.3s ease-in-out",
-                  },
-                }}
-              >
-                {item?.status} <TrendingFlatIcon />
-              </Typography>
-            </Box>
-          </PageFadeEffect>
+            <Typography
+              onClick={() => handleClick(item)}
+              sx={{
+                fontSize: themeConfig.typography.p1,
+                color: themeConfig.palette.primaryColor,
+                display: "flex",
+                alignItems: "center",
+                gap: 1,
+                marginTop: isMobile ? 1 : 3,
+                "&:hover": {
+                  cursor: "pointer",
+                  opacity: 0.3,
+                  transition: "0.3s ease-in-out",
+                },
+              }}
+            >
+              {item?.status} <TrendingFlatIcon />
+            </Typography>
+          </Box>
         </Box>
       ))}
     </Box>

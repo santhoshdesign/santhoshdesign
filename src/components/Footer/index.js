@@ -2,8 +2,6 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import React from "react";
 import { themeConfig } from "../../theme/theme";
 import { motion } from "framer-motion";
-import PageFade from "../FramerMotion/PageFade";
-import PageFadeEffect from "../FramerMotion/PageFadeEffect";
 import { useMediaQuery, useTheme } from "@mui/system";
 
 const Footer = () => {
@@ -24,78 +22,79 @@ const Footer = () => {
         justifyContent: "center",
       }}
     >
-      <PageFade>
-        <Typography
-          sx={{
-            fontSize: isMobile
-              ? themeConfig.typography.h2
-              : themeConfig.typography.h1,
-            color: themeConfig.palette.primaryColor,
-            marginBlockEnd: 2,
-          }}
-        >
-          Let’s Connect
-        </Typography>
-      </PageFade>
-      <PageFade>
-        <Typography
-          sx={{
-            fontSize: isMobile
-              ? themeConfig.typography.p1
-              : themeConfig.typography.h2,
-            color: themeConfig.palette.primaryColor,
-            fontWeight: 600,
-            marginBlockEnd: 2,
-            textAlign: isMobile && "center",
-          }}
-        >
-          Feel free to reach out for collaborations or just a friendly hi
-        </Typography>
-      </PageFade>
-      <PageFade>
-        <Typography
-          sx={{
-            fontSize: isMobile
-              ? themeConfig.typography.h3
-              : themeConfig.typography.h2,
-            color: themeConfig.palette.ternaryColor,
-            fontWeight: 600,
-            marginBlockEnd: 2,
-          }}
-        >
-          hi<span style={{ fontFamily: "Inter" }}>@</span>
-          santhosh.design
-        </Typography>
-      </PageFade>
-      <PageFadeEffect>
-        <Stack direction={isMobile ? "column " : "row"} gap={2}>
-          <motion.div whileTap={{ scale: 0.95, transition: "0.3s ease" }}>
-            <Button
-              onClick={() => {
-                window.open(
-                  "https://drive.google.com/file/d/1YujcuAg1XW3oMvKMmzT8RvjwMHPX-0pW/view?usp=sharing",
-                  "_blank"
-                );
-              }}
-              sx={{
-                width: 240,
-                height: 45,
-                border: "1px solid #BCB2B2",
+      <Typography
+        sx={{
+          fontSize: isMobile
+            ? themeConfig.typography.h2
+            : themeConfig.typography.h1,
+          color: themeConfig.palette.primaryColor,
+          marginBlockEnd: 2,
+        }}
+      >
+        Let’s Connect
+      </Typography>
+
+      <Typography
+        sx={{
+          fontSize: isMobile
+            ? themeConfig.typography.p1
+            : themeConfig.typography.h2,
+          color: themeConfig.palette.primaryColor,
+          fontWeight: 600,
+          marginBlockEnd: 2,
+          textAlign: isMobile && "center",
+        }}
+      >
+        Feel free to reach out for collaborations or just a friendly hi
+      </Typography>
+
+      <Typography
+        sx={{
+          fontSize: isMobile
+            ? themeConfig.typography.h3
+            : themeConfig.typography.h2,
+          color: themeConfig.palette.ternaryColor,
+          fontWeight: 600,
+          textDecoration: "none",
+          marginBlockEnd: 2,
+        }}
+        component="a"
+        href="mailto:hi@santhosh.design"
+        // target="_blank"
+        // rel="noopener noreferrer"
+      >
+        hi<span style={{ fontFamily: "Inter" }}>@</span>
+        santhosh.design
+      </Typography>
+
+      <Stack direction={isMobile ? "column " : "row"} gap={2}>
+        <motion.div whileTap={{ scale: 0.95, transition: "0.3s ease" }}>
+          <Button
+            onClick={() => {
+              window.open(
+                "https://drive.google.com/file/d/1ptfIHWISXA0qKNleUAvt0oT8bJ7EZa-V/view?usp=sharing",
+                "_blank"
+              );
+            }}
+            sx={{
+              width: 240,
+              height: 45,
+              border: "1px solid #BCB2B2",
+              background: themeConfig.palette.whiteColor,
+              borderRadius: 30,
+              textTransform: "capitalize",
+              fontSize: themeConfig.typography.p1,
+              color: themeConfig.palette.primaryColor,
+              "&:hover": {
                 background: themeConfig.palette.whiteColor,
-                borderRadius: 30,
-                textTransform: "capitalize",
-                fontSize: themeConfig.typography.p1,
                 color: themeConfig.palette.primaryColor,
-                "&:hover": {
-                  background: themeConfig.palette.whiteColor,
-                  color: themeConfig.palette.primaryColor,
-                },
-              }}
-            >
-              Get my CV
-            </Button>
-          </motion.div>
-          {/* <motion.div whileTap={{ scale: 0.95, transition: "0.3s ease" }}>
+              },
+            }}
+          >
+            Get my CV
+          </Button>
+        </motion.div>
+        {/* <motion.div whileTap={{ scale: 0.95, transition: "0.3s ease" }}>
             <Button
               onClick={() => handleLinkedInClick()}
               sx={{
@@ -122,8 +121,7 @@ const Footer = () => {
               <span style={{ fontFamily: "Inter" }}>@</span>santhoshdesign
             </Button>
           </motion.div> */}
-        </Stack>
-      </PageFadeEffect>
+      </Stack>
     </Box>
   );
 };

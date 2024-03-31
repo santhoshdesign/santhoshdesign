@@ -5,8 +5,6 @@ import DrawerAppBar from "../AppBar/index";
 import { useLocation, useNavigate } from "react-router-dom";
 import { themeConfig } from "../../theme/theme";
 import { motion } from "framer-motion";
-import PageFadeContent from "../FramerMotion/PageFadeContent";
-import PageFade from "../FramerMotion/PageFade";
 import PageFadeEffect from "../FramerMotion/PageFadeEffect";
 import Footer from "../Footer";
 import PasswordPage from "../About/PasswordPage";
@@ -22,7 +20,7 @@ const cardList = [
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Microsite_banner_image_.png",
     Author: "LYFnGO",
     background: "#DFF3FF",
-    status: "Read the case study",
+    status: "Enter password",
   },
   {
     id: 1,
@@ -31,7 +29,7 @@ const cardList = [
     image:
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Healthboardbanner_image_s.png",
     Author: "LYFnGO",
-    status: "Read the case study",
+    status: "Enter password",
     background: "#D8E9FF",
   },
   {
@@ -41,7 +39,7 @@ const cardList = [
     image:
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/LYFnGO_patient_management.png",
     Author: "LYFnGO",
-    status: "Read the case study",
+    status: "Enter password",
     background: "#E2FAFF",
   },
 ];
@@ -110,7 +108,7 @@ const PatientDashboard = () => {
                 justifyContent: "center",
               }}
             >
-              <PageFade>
+              <>
                 <img
                   src={data?.image}
                   alt="bannerImage"
@@ -124,7 +122,7 @@ const PatientDashboard = () => {
                     borderRadius: 6,
                   }}
                 />
-              </PageFade>
+              </>
             </Box>
             <Box
               sx={{
@@ -141,7 +139,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: isMobile
@@ -152,9 +150,9 @@ const PatientDashboard = () => {
                   >
                     {data?.title}
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
-              <PageFadeEffect>
+              <>
                 <Box
                   sx={{
                     maxWidth: 840,
@@ -319,7 +317,7 @@ const PatientDashboard = () => {
                     </Stack>
                   )}
                 </Box>
-              </PageFadeEffect>
+              </>
               <Box
                 sx={{
                   maxWidth: 840,
@@ -327,7 +325,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -337,8 +335,8 @@ const PatientDashboard = () => {
                   >
                     About LYFnGO
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -353,7 +351,7 @@ const PatientDashboard = () => {
                     user-friendly interfaces, LYFnGO simplifies operations,
                     fostering better outcomes for businesses and clients alike.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -363,7 +361,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -373,8 +371,8 @@ const PatientDashboard = () => {
                   >
                     My Role
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -386,8 +384,8 @@ const PatientDashboard = () => {
                     founder of LYFnGO, the business analyst, and the frontend
                     developers.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -398,7 +396,7 @@ const PatientDashboard = () => {
                     Works: User Research, User Interface, Prototype & Usability
                     testing.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -408,7 +406,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -418,8 +416,8 @@ const PatientDashboard = () => {
                   >
                     Problem Identifications
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -431,7 +429,7 @@ const PatientDashboard = () => {
                     be more user-friendly. The existing version is complicated.
                     Let's see.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -441,7 +439,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -451,8 +449,8 @@ const PatientDashboard = () => {
                   >
                     Problem 1
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -467,7 +465,7 @@ const PatientDashboard = () => {
                     process for adding records and prescriptions is not
                     user-friendly for immediate utilization by doctors.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -476,7 +474,7 @@ const PatientDashboard = () => {
                   paddingBlockStart: 4,
                 }}
               >
-                <PageFade>
+                <>
                   <img
                     src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Problem1.png"
                     alt="Problem1"
@@ -486,7 +484,7 @@ const PatientDashboard = () => {
                       objectFit: "contain",
                     }}
                   />
-                </PageFade>
+                </>
               </Box>
 
               <Box
@@ -501,7 +499,7 @@ const PatientDashboard = () => {
                   gap={4}
                   alignItems={"center"}
                 >
-                  <PageFade>
+                  <>
                     <Stack>
                       <Typography
                         sx={{
@@ -514,8 +512,8 @@ const PatientDashboard = () => {
                         difficult to Doctors.
                       </Typography>
                     </Stack>
-                  </PageFade>
-                  <PageFade>
+                  </>
+                  <>
                     <Stack>
                       <img
                         src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/problem1.1.png"
@@ -527,7 +525,7 @@ const PatientDashboard = () => {
                         }}
                       />
                     </Stack>
-                  </PageFade>
+                  </>
                 </Stack>
               </Box>
 
@@ -538,7 +536,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -548,8 +546,8 @@ const PatientDashboard = () => {
                   >
                     Problem 2
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -563,7 +561,7 @@ const PatientDashboard = () => {
                     Problem 1 & Patients module, within the patient management
                     profile, along with other patient-related information.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -572,7 +570,7 @@ const PatientDashboard = () => {
                   paddingBlockStart: 4,
                 }}
               >
-                <PageFade>
+                <>
                   <img
                     src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Problem2.png"
                     alt="Problem1"
@@ -582,7 +580,7 @@ const PatientDashboard = () => {
                       objectFit: "contain",
                     }}
                   />
-                </PageFade>
+                </>
               </Box>
 
               <Box
@@ -592,7 +590,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -602,8 +600,8 @@ const PatientDashboard = () => {
                   >
                     Problem 3
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -617,7 +615,7 @@ const PatientDashboard = () => {
                     When clicked, the dropdown opens with options for adding a
                     patient or an appointment.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -627,7 +625,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -637,8 +635,8 @@ const PatientDashboard = () => {
                   >
                     Business Goals
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -648,8 +646,8 @@ const PatientDashboard = () => {
                   >
                     Improved Efficiency
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -660,13 +658,13 @@ const PatientDashboard = () => {
                     Make clinic and hospital operations smoother, reducing wait
                     times and increasing revenue.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography sx={{ fontSize: themeConfig.typography.h2 }}>
                     Enhanced User Adoption
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -677,13 +675,13 @@ const PatientDashboard = () => {
                     Ensure healthcare professionals perceive the platform as
                     user-friendly, fostering customer retention
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography sx={{ fontSize: themeConfig.typography.h2 }}>
                     Stand Out
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -696,7 +694,7 @@ const PatientDashboard = () => {
                     more clients and establishing LYFnGO as a leader in the
                     field.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -706,7 +704,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -716,8 +714,8 @@ const PatientDashboard = () => {
                   >
                     User Goals
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -726,8 +724,8 @@ const PatientDashboard = () => {
                   >
                     Simplified Workflow
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -741,8 +739,8 @@ const PatientDashboard = () => {
                     without encountering unnecessary complexity or redundancy in
                     the user interface.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -751,8 +749,8 @@ const PatientDashboard = () => {
                   >
                     Efficient Patient Care
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -765,8 +763,8 @@ const PatientDashboard = () => {
                     treatment plans, allowing doctors to make informed decisions
                     and provide high-quality care during appointments.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -775,8 +773,8 @@ const PatientDashboard = () => {
                   >
                     Impacts
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -791,7 +789,7 @@ const PatientDashboard = () => {
                     user-friendly interfaces, LYFnGO simplifies operations,
                     fostering better outcomes for businesses and clients alike.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -804,86 +802,42 @@ const PatientDashboard = () => {
                 <Stack
                   direction={isMobile ? "column" : "row"}
                   // gap={8}
+                  justifyContent={"center"}
                   alignItems={"center"}
                 >
                   <Stack>
-                    <PageFade>
+                    <>
                       <img
-                        src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Impacts1.png"
+                        src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Impacts0001.png"
                         alt="Impacts1"
                         style={{
-                          height: isMobile ? 200 : 450,
-                          width: isMobile ? 320 : 600,
-                          objectFit: "contain",
+                          height: isMobile ? 200 : 446,
+                          width: isMobile ? 320 : 950,
+                          // objectFit: "contain",
                         }}
                       />
-                    </PageFade>
+                    </>
                   </Stack>
-                  <PageFadeContent>
-                    <Stack>
-                      <Typography
-                        color={themeConfig.palette.secondaryColor}
-                        sx={{
-                          fontSize: themeConfig.typography.p1,
-                        }}
-                      >
-                        MONITERED CLIENT
-                      </Typography>
-
-                      <Typography
-                        sx={{
-                          fontSize: themeConfig.typography.p1,
-                          fontWeight: 400,
-                          lineHeight: 2,
-                        }}
-                      >
-                        <b>95%</b> of the specialists are using the{" "}
-                        <b>Quick Search</b> to view patient profile
-                      </Typography>
-                      <Typography
-                        sx={{
-                          fontSize: themeConfig.typography.p1,
-                          fontWeight: 400,
-                          lineHeight: 2,
-                        }}
-                      >
-                        <b>80%</b>of the specialists using <b>Quick Addons</b>
-                      </Typography>
-                    </Stack>
-                  </PageFadeContent>
                 </Stack>
                 <Stack
                   direction={isMobile ? "column" : "row-reverse"}
+                  justifyContent={"center"}
                   // gap={8}
                   alignItems={"center"}
                 >
                   <Stack>
-                    <PageFade>
+                    <>
                       <img
-                        src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Impact2.png"
+                        src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Impacts0002.png"
                         alt="Impacts1"
                         style={{
-                          height: isMobile ? 250 : 450,
-                          width: isMobile ? 320 : 600,
-                          objectFit: "contain",
+                          height: isMobile ? 250 : 457,
+                          width: isMobile ? 320 : 950,
+                          // objectFit: "contain",
                         }}
                       />
-                    </PageFade>
+                    </>
                   </Stack>
-                  <PageFadeContent>
-                    <Stack>
-                      <Typography
-                        sx={{
-                          fontSize: themeConfig.typography.p1,
-                          fontWeight: 400,
-                          lineHeight: 2,
-                        }}
-                      >
-                        <b>100%</b> of our clients use the newly clubbed side
-                        menu Because, All the patient records in one page
-                      </Typography>
-                    </Stack>
-                  </PageFadeContent>
                 </Stack>
               </Box>
 
@@ -894,7 +848,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -903,8 +857,8 @@ const PatientDashboard = () => {
                   >
                     Challenge Faced
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -922,8 +876,8 @@ const PatientDashboard = () => {
                     focus on prescriptions and instead include features such as
                     workout plans and diet plans.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -932,8 +886,8 @@ const PatientDashboard = () => {
                   >
                     User Research
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -950,7 +904,7 @@ const PatientDashboard = () => {
                     chatting with our own team members to gather valuable
                     feedback.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -960,7 +914,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -970,13 +924,13 @@ const PatientDashboard = () => {
                   >
                     Insights Gathered
                   </Typography>
-                </PageFadeEffect>
+                </>
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/usability1.svg"
                   style={{ height: 50, width: 50 }}
                   alt="usability1"
                 />
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -990,13 +944,13 @@ const PatientDashboard = () => {
                     scheduling processes, difficulty accessing patient records,
                     or impractical prescription management systems.
                   </Typography>
-                </PageFadeEffect>
+                </>
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Frame.svg"
                   style={{ height: 50, width: 50 }}
                   alt="usability1"
                 />
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1011,8 +965,8 @@ const PatientDashboard = () => {
                     tasks. These insights can inform improvements to the user
                     interface and overall user experience.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1023,7 +977,7 @@ const PatientDashboard = () => {
                     After analyzing all the data from the design process above,
                     I started working on the final designs.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -1033,7 +987,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -1043,8 +997,8 @@ const PatientDashboard = () => {
                   >
                     Sketches
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1056,8 +1010,8 @@ const PatientDashboard = () => {
                     My focus at this stage is to diverge first, converge later.
                     Here are some sketches for patient management
                   </Typography>
-                </PageFadeEffect>
-                <PageFade>
+                </>
+                <>
                   <img
                     src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Sketches.png"
                     style={{
@@ -1066,7 +1020,7 @@ const PatientDashboard = () => {
                     }}
                     alt="Sketches"
                   />
-                </PageFade>
+                </>
               </Box>
 
               <Box
@@ -1076,7 +1030,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -1086,8 +1040,8 @@ const PatientDashboard = () => {
                   >
                     Final Designs
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h3,
@@ -1097,8 +1051,8 @@ const PatientDashboard = () => {
                   >
                     Patient List
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1110,7 +1064,7 @@ const PatientDashboard = () => {
                     instant needs. so i have modified changes and verified with
                     our team.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box
@@ -1118,7 +1072,7 @@ const PatientDashboard = () => {
                   paddingBlockStart: isTablet && 4,
                 }}
               >
-                <PageFade>
+                <>
                   <img
                     src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/0.png"
                     style={{
@@ -1128,11 +1082,11 @@ const PatientDashboard = () => {
                     }}
                     alt="lyfngo_patientmanagement"
                   />
-                </PageFade>
+                </>
               </Box>
 
               <Box>
-                <PageFade>
+                <>
                   <img
                     src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/1.png"
                     style={{
@@ -1142,7 +1096,7 @@ const PatientDashboard = () => {
                     }}
                     alt="lyfngo_patientmanagement"
                   />
-                </PageFade>
+                </>
               </Box>
 
               <Box
@@ -1152,7 +1106,7 @@ const PatientDashboard = () => {
                   paddingInline: isMobile && 2,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -1162,8 +1116,8 @@ const PatientDashboard = () => {
                   >
                     Patient Infromation
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1177,11 +1131,11 @@ const PatientDashboard = () => {
                     below only the appointment. For all the menu i have done
                     with research.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
 
               <Box>
-                <PageFade>
+                <>
                   <img
                     src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/3.png"
                     style={{
@@ -1190,11 +1144,11 @@ const PatientDashboard = () => {
                     }}
                     alt="lyfngo_patientmanagement"
                   />
-                </PageFade>
+                </>
               </Box>
 
               <Box>
-                <PageFade>
+                <>
                   <img
                     src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/4.png"
                     style={{
@@ -1203,7 +1157,7 @@ const PatientDashboard = () => {
                     }}
                     alt="lyfngo_patientmanagement"
                   />
-                </PageFade>
+                </>
               </Box>
             </Box>
           </Box>
@@ -1231,7 +1185,7 @@ const PatientDashboard = () => {
                   paddingBlockStart: 4,
                 }}
               >
-                <PageFadeEffect>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -1241,8 +1195,8 @@ const PatientDashboard = () => {
                   >
                     Design Handoff
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1254,8 +1208,8 @@ const PatientDashboard = () => {
                     <b>Preparation</b> - Ensure all necessary preparations are
                     completed before starting the handoff process.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1267,8 +1221,8 @@ const PatientDashboard = () => {
                     <b>Meetings</b> - Schedule meetings with Product Leads and
                     Business Analysts to review and double-check everything.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1280,8 +1234,8 @@ const PatientDashboard = () => {
                     <b>Presentation</b> - Present designs to Developers, QA
                     Testers, and Backend Team for review and feedback.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1294,8 +1248,8 @@ const PatientDashboard = () => {
                     technical flaws identified by the team and redesign as
                     needed.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1307,8 +1261,8 @@ const PatientDashboard = () => {
                     <b>Handoff</b> - Provide assets and proper prototypes to the
                     development team for implementation.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -1318,8 +1272,8 @@ const PatientDashboard = () => {
                   >
                     After Done Design Handoff
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1334,8 +1288,8 @@ const PatientDashboard = () => {
                     processes are completed, the product is deployed to the{" "}
                     <b>secondary testing environment</b> for further evaluation.
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
@@ -1345,8 +1299,8 @@ const PatientDashboard = () => {
                   >
                     Insights Gained
                   </Typography>
-                </PageFadeEffect>
-                <PageFadeEffect>
+                </>
+                <>
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.p1,
@@ -1359,7 +1313,7 @@ const PatientDashboard = () => {
                     Enhanced user experience and alignment with business
                     objectives were key outcomes of the redesign.
                   </Typography>
-                </PageFadeEffect>
+                </>
               </Box>
             </Typography>
           </Box>
@@ -1378,7 +1332,7 @@ const PatientDashboard = () => {
                 paddingInline: isMobile && 2,
               }}
             >
-              <PageFadeEffect>
+              <>
                 <Typography
                   sx={{
                     fontSize: themeConfig.typography.h2,
@@ -1388,8 +1342,8 @@ const PatientDashboard = () => {
                 >
                   Conclusion
                 </Typography>
-              </PageFadeEffect>
-              <PageFadeEffect>
+              </>
+              <>
                 <Typography
                   sx={{
                     fontSize: themeConfig.typography.p1,
@@ -1404,7 +1358,7 @@ const PatientDashboard = () => {
                   the project, positioning LYFnGO as a leader in the Healthtech
                   industry.
                 </Typography>
-              </PageFadeEffect>
+              </>
             </Box>
           </Box>
           <Box
@@ -1438,19 +1392,19 @@ const PatientDashboard = () => {
                 paddingInline: isMobile && 2,
               }}
             >
-              <PageFadeEffect>
+              <>
                 <Typography
                   sx={{
                     fontSize: themeConfig.typography.p1,
                     fontWeight: 600,
-                    marginBlockEnd: 2,
+                    marginBlockEnd: 4,
                     textAlign: "center",
                   }}
                 >
                   Thank you for reading through! Hope you enjoyed learning about
                   my design and thought process.
                 </Typography>
-              </PageFadeEffect>
+              </>
             </Box>
             {/* </Typography> */}
           </Box>
@@ -1462,7 +1416,7 @@ const PatientDashboard = () => {
               paddingInline: isMobile ? 2 : 8,
             }}
           >
-            <PageFadeEffect>
+            <>
               <Typography
                 sx={{
                   fontSize: themeConfig.typography.h2,
@@ -1472,7 +1426,7 @@ const PatientDashboard = () => {
               >
                 Check out my other case studies
               </Typography>
-            </PageFadeEffect>
+            </>
 
             <Box
               sx={{
@@ -1501,13 +1455,13 @@ const PatientDashboard = () => {
                       alignItems: "center",
                       justifyContent: "center",
                       padding: 1,
-                      borderRadius: 4,
+                      borderRadius: 3,
                     }}
                   >
                     <motion.div
                       whileHover={{ scale: 1.1, transition: ".5s ease-in-out" }}
                     >
-                      <PageFade>
+                      <>
                         <img
                           src={item?.image}
                           alt="card_image"
@@ -1515,11 +1469,11 @@ const PatientDashboard = () => {
                           height={isMobile ? 200 : 330}
                           style={{ objectFit: "contain", padding: 12 }}
                         />
-                      </PageFade>
+                      </>
                     </motion.div>
                   </Box>
                   <Box sx={{ marginBlockStart: 4 }}>
-                    <PageFadeEffect>
+                    <>
                       <Typography
                         sx={{
                           fontSize: themeConfig.typography.p1,
@@ -1528,8 +1482,8 @@ const PatientDashboard = () => {
                       >
                         {item?.Author}
                       </Typography>
-                    </PageFadeEffect>
-                    <PageFadeEffect>
+                    </>
+                    <>
                       <Typography
                         sx={{
                           fontSize: isMobile
@@ -1542,8 +1496,8 @@ const PatientDashboard = () => {
                       >
                         {item?.title}
                       </Typography>
-                    </PageFadeEffect>
-                    <PageFadeEffect>
+                    </>
+                    <>
                       <Typography
                         onClick={() => handleClick(item)}
                         sx={{
@@ -1564,7 +1518,7 @@ const PatientDashboard = () => {
                       >
                         {item?.status} <TrendingFlatIcon />
                       </Typography>
-                    </PageFadeEffect>
+                    </>
                   </Box>
                 </Box>
               ))}

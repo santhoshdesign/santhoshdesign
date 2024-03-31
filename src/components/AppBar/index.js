@@ -101,7 +101,7 @@ function DrawerAppBar(props) {
               }}
               href={
                 item?.id === 2 &&
-                "https://drive.google.com/file/d/1E-yC9mU3vct3o6oE-s8t1IghSjsYBEiI/view?usp=sharing"
+                "https://drive.google.com/file/d/1ptfIHWISXA0qKNleUAvt0oT8bJ7EZa-V/view?usp=sharing"
               }
               target="_blank"
               sx={{
@@ -274,7 +274,7 @@ function DrawerAppBar(props) {
                 disableTouchRipple={true}
                 href={
                   item?.id === 2 &&
-                  "https://drive.google.com/file/d/1E-yC9mU3vct3o6oE-s8t1IghSjsYBEiI/view?usp=sharing"
+                  "https://drive.google.com/file/d/1ptfIHWISXA0qKNleUAvt0oT8bJ7EZa-V/view?usp=sharing"
                 }
                 target="_blank"
                 rel="noopener noreferrer"

@@ -2,7 +2,6 @@ import { Box, Typography } from "@mui/material";
 import { Stack, useMediaQuery, useTheme } from "@mui/system";
 import React from "react";
 import { themeConfig } from "../../theme/theme";
-import FadeVariantStart from "../FramerMotion/PageFade";
 
 const LandingDescrption = () => {
   const theme = useTheme();
@@ -45,7 +44,6 @@ const LandingDescrption = () => {
         className="image-container"
       >
         {/* display: { xs: "block", sm: "none" }, */}
-        <FadeVariantStart>
           <Stack direction={isMobile ? "column-reverse" : "row"} width={"100%"}>
             <Stack
               width={isMobile ? "100%" : "50%"}
@@ -97,7 +95,6 @@ const LandingDescrption = () => {
               />
             </Stack>
           </Stack>
-        </FadeVariantStart>
       </Box>
     </Box>
   );
