@@ -768,26 +768,9 @@ const PatientDashboard = () => {
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h2,
-                      marginBlockEnd: 1,
                     }}
                   >
                     Impacts
-                  </Typography>
-                </>
-                <>
-                  <Typography
-                    sx={{
-                      fontSize: themeConfig.typography.p1,
-                      fontWeight: 400,
-                      lineHeight: 2,
-                    }}
-                  >
-                    LYFnGO, an <b>Asian startup,</b> delivers <b>SaaS</b>{" "}
-                    solutions for <b>health and wellness.</b> Their{" "}
-                    <b>Clinic, Wellness, and Fitness management software</b>
-                    optimize productivity, finances, and client experience. With
-                    user-friendly interfaces, LYFnGO simplifies operations,
-                    fostering better outcomes for businesses and clients alike.
                   </Typography>
                 </>
               </Box>
@@ -805,7 +788,7 @@ const PatientDashboard = () => {
                   justifyContent={"center"}
                   alignItems={"center"}
                 >
-                  <Stack>
+                  <Stack sx={{ marginBlockEnd: 4 }}>
                     <>
                       <img
                         src="https://ik.imagekit.io/ht9dvktzw/Portfolio/lyfngo_patientmanagement/Impacts0001.png"
