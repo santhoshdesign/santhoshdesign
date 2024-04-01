@@ -20,7 +20,7 @@ const cardList = [
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Microsite_banner_image_.png",
     Author: "LYFnGO",
     background: "#DFF3FF",
-    status: "Enter password",
+    status: "Read the case study",
   },
   {
     id: 1,
@@ -39,7 +39,7 @@ const cardList = [
     image:
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/LYFnGO_patient_management.png",
     Author: "LYFnGO",
-    status: "Enter password",
+    status: "Read the case study",
     background: "#E2FAFF",
   },
 ];
@@ -47,7 +47,7 @@ const cardList = [
 const PatientDashboard = () => {
   const location = useLocation();
   const data = location.state;
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
   const navigate = useNavigate();
   const cardListFiltered = cardList.filter((card) => card.id !== data?.id);
   const theme = useTheme();
@@ -639,8 +639,10 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
-                      fontWeight: 600,
+                      fontSize: isMobile
+                        ? themeConfig.typography.h3
+                        : themeConfig.typography.h2,
+                      fontWeight: 400,
                       marginBlockEnd: 1,
                     }}
                   >
@@ -660,7 +662,13 @@ const PatientDashboard = () => {
                   </Typography>
                 </>
                 <>
-                  <Typography sx={{ fontSize: themeConfig.typography.h2 }}>
+                  <Typography
+                    sx={{
+                      fontSize: isMobile
+                        ? themeConfig.typography.h3
+                        : themeConfig.typography.h2,
+                    }}
+                  >
                     Enhanced User Adoption
                   </Typography>
                 </>
@@ -677,7 +685,13 @@ const PatientDashboard = () => {
                   </Typography>
                 </>
                 <>
-                  <Typography sx={{ fontSize: themeConfig.typography.h2 }}>
+                  <Typography
+                    sx={{
+                      fontSize: isMobile
+                        ? themeConfig.typography.h3
+                        : themeConfig.typography.h2,
+                    }}
+                  >
                     Stand Out
                   </Typography>
                 </>
@@ -707,7 +721,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                        ? themeConfig.typography.h3
+                        : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 1,
                     }}
@@ -718,7 +734,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                        ? themeConfig.typography.h3
+                        : themeConfig.typography.h2,
                       marginBlockEnd: 1,
                     }}
                   >
@@ -743,7 +761,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                      ? themeConfig.typography.h3
+                      : themeConfig.typography.h2,
                       marginBlockEnd: 1,
                     }}
                   >
@@ -767,7 +787,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                        ? themeConfig.typography.h3
+                        : themeConfig.typography.h2,
                     }}
                   >
                     Impacts
@@ -834,7 +856,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                      ? themeConfig.typography.h3
+                      : themeConfig.typography.h2,
                       lineHeight: 2,
                     }}
                   >
@@ -863,7 +887,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                      ? themeConfig.typography.h3
+                      : themeConfig.typography.h2,
                       lineHeight: 2,
                     }}
                   >
@@ -900,7 +926,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                      ? themeConfig.typography.h3
+                      : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -973,7 +1001,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                      ? themeConfig.typography.h3
+                      : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1016,7 +1046,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                      ? themeConfig.typography.h3
+                      : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1092,7 +1124,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                      ? themeConfig.typography.h3
+                      : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1156,7 +1190,9 @@ const PatientDashboard = () => {
           >
             <Typography
               sx={{
-                fontSize: themeConfig.typography.h2,
+                fontSize: isMobile
+                ? themeConfig.typography.h3
+                : themeConfig.typography.h2,
                 fontWeight: 600,
                 marginBlockEnd: 2,
               }}
@@ -1171,7 +1207,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                      ? themeConfig.typography.h3
+                      : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1248,7 +1286,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                      ? themeConfig.typography.h3
+                      : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1275,7 +1315,9 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: isMobile
+                      ? themeConfig.typography.h3
+                      : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1318,7 +1360,9 @@ const PatientDashboard = () => {
               <>
                 <Typography
                   sx={{
-                    fontSize: themeConfig.typography.h2,
+                    fontSize: isMobile
+                    ? themeConfig.typography.h3
+                    : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -1402,7 +1446,9 @@ const PatientDashboard = () => {
             <>
               <Typography
                 sx={{
-                  fontSize: themeConfig.typography.h2,
+                  fontSize: isMobile
+                  ? themeConfig.typography.h3
+                  : themeConfig.typography.h2,
                   fontWeight: 400,
                   marginBlockEnd: 2,
                 }}

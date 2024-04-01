@@ -19,7 +19,7 @@ const cardList = [
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Microsite_banner_image_.png",
     Author: "LYFnGO",
     background: "#DFF3FF",
-    status: "Enter password",
+    status: "Read the case study",
   },
   {
     id: 1,
@@ -38,7 +38,7 @@ const cardList = [
     image:
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/LYFnGO_patient_management.png",
     Author: "LYFnGO",
-    status: "Enter password",
+    status: "Read the case study",
     background: "#E2FAFF",
   },
 ];
@@ -1104,7 +1104,7 @@ const Healthboard = () => {
               <Box
                 sx={{
                   maxWidth: 990,
-                  paddingBlockStart: 4,
+                  paddingBlock: 4,
                 }}
               >
                 <>

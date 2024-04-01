@@ -19,7 +19,7 @@ const cardList = [
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/Microsite_banner_image_.png",
     Author: "LYFnGO",
     background: "#DFF3FF",
-    status: "Enter password",
+    status: "Read the case study",
   },
   {
     id: 1,
@@ -38,7 +38,7 @@ const cardList = [
     image:
       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Home/LYFnGO_patient_management.png",
     Author: "LYFnGO",
-    status: "Enter password",
+    status: "Read the case study",
     background: "#E2FAFF",
   },
 ];
@@ -69,7 +69,7 @@ const swiperImages = [
 const About = () => {
   const location = useLocation();
   const data = location.state;
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
   const cardListFiltered = cardList.filter((card) => card.id !== data?.id);
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -1208,7 +1208,7 @@ const About = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: themeConfig?.typography.p1,
+                    fontSize: themeConfig?.typography.h3,
                     color: themeConfig.palette.primaryColor,
                     // marginBlockEnd: 2,
                     lineHeight: 2,
@@ -1220,9 +1220,9 @@ const About = () => {
               </Box>
               <img
                 src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/User1_Step10.png"
-                width={958}
-                height={627}
-                // style={{ objectFit: "contain" }}
+                width={isMobile ? 320 : 958}
+                height={isMobile ? 220 : 627}
+                style={{ objectFit: isMobile && "contain" }}
                 alt="finla"
               />
               <Box
@@ -1234,7 +1234,7 @@ const About = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig?.typography.p1,
+                    fontSize: themeConfig?.typography.h3,
                     color: themeConfig.palette.primaryColor,
                     marginBlockEnd: 2,
                     lineHeight: 2,
@@ -1245,9 +1245,9 @@ const About = () => {
               </Box>
               <img
                 src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/User1_Step20.png"
-                width={959}
-                height={631}
-                // style={{ objectFit: "contain" }}
+                width={isMobile ? 320 : 959}
+                height={isMobile ? 220 : 631}
+                style={{ objectFit: isMobile && "contain" }}
                 alt="finla"
               />
 
@@ -1260,7 +1260,7 @@ const About = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig?.typography.p1,
+                    fontSize: themeConfig?.typography.h3,
                     color: themeConfig.palette.primaryColor,
                     marginBlockEnd: 2,
                     lineHeight: 2,
@@ -1272,16 +1272,17 @@ const About = () => {
               </Box>
               <img
                 src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/User1_Step30.png"
-                width={959}
-                height={703}
-                // style={{ objectFit: "contain" }}
+                width={isMobile ? 320 : 959}
+                height={isMobile ? 220 : 703}
+                style={{ objectFit: isMobile && "contain" }}
                 alt="finla"
               />
               <Box sx={{ marginBlockStart: 2 }}>
                 <img
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/User1_Step40.png"
-                  width={835}
-                  height={401}
+                  width={isMobile ? 320 : 835}
+                  height={isMobile ? 220 : 401}
+                  style={{ objectFit: isMobile && "contain" }}
                   alt="finla"
                 />
               </Box>
@@ -1306,7 +1307,9 @@ const About = () => {
             >
               <Typography
                 sx={{
-                  fontSize: themeConfig?.typography.h2,
+                  fontSize: isMobile
+                    ? themeConfig?.typography.h2
+                    : themeConfig?.typography.h3,
                   color: themeConfig.palette.ternaryColor,
                   fontWeight: 600,
                   marginBlockEnd: 2,
@@ -1341,8 +1344,9 @@ const About = () => {
             </Box>
             <img
               src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/User2_Step10.png"
-              width={958}
-              height={565}
+              width={isMobile ? 320 : 958}
+              height={isMobile ? 220 : 565}
+              style={{ objectFit: isMobile && "contain" }}
               alt="finla"
             />
             <Box
@@ -1360,14 +1364,15 @@ const About = () => {
                   lineHeight: 2,
                 }}
               >
-                Step 2 : About Clinic section to display on microsite.
+                Step 2 : Doctors can able to update their availability, pricing
+                & modes using calendar.{" "}
               </Typography>
             </Box>
             <img
               src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/User2_Step20.png"
-              width={959}
-              height={563}
-              // style={{ objectFit: "contain" }}
+              width={isMobile ? 320 : 959}
+              height={isMobile ? 220 : 563}
+              style={{ objectFit: isMobile && "contain" }}
               alt="finla"
             />
 
@@ -1386,15 +1391,15 @@ const About = () => {
                   lineHeight: 2,
                 }}
               >
-                Step 3 : Owner can able to customize theme & banner for their
-                microsite.
+                Step 3 : Doctors able to add their education, specialization &
+                awards.
               </Typography>
             </Box>
             <img
               src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/User2_Step300.png"
-              width={959}
-              height={543}
-              // style={{ objectFit: "contain" }}
+              width={isMobile ? 320 : 959}
+              height={isMobile ? 220 : 543}
+              style={{ objectFit: isMobile && "contain" }}
               alt="finla"
             />
             <Typography
@@ -1414,9 +1419,9 @@ const About = () => {
             </Typography>
             <img
               src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/User2_Step40.png"
-              width={956}
-              height={433}
-              // style={{ objectFit: "contain" }}
+              width={isMobile ? 320 : 956}
+              height={isMobile ? 220 : 433}
+              style={{ objectFit: isMobile && "contain" }}
               alt="finla"
             />
           </Box>
