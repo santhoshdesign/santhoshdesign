@@ -20,6 +20,11 @@ const themeConfig = {
       fontFamily: "Cabin",
       fontSize: 24,
     },
+    h4: {
+      fontFamily: "Cabin",
+      fontSize: 22,
+      fontWeight: 600,
+    },
     p1: {
       fontFamily: "Cabin",
       fontSize: 17,

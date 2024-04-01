@@ -442,7 +442,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h3,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -458,12 +458,13 @@ const PatientDashboard = () => {
                       lineHeight: 2,
                     }}
                   >
-                    In the EMR section, the patient list displays an
-                    inconsistent layout and buttons. On the patient info page,
-                    there is only one option to check add, upcoming, and past
-                    appointments, and to add bills and records. However, the
-                    process for adding records and prescriptions is not
-                    user-friendly for immediate utilization by doctors.
+                    In the <b>EMR</b> section, the patient list displays{" "}
+                    <b>an inconsistent layout</b> and buttons. On the patient
+                    info page, there is only one option to check add, upcoming,
+                    and past appointments, and to add bills and records.
+                    However, the process for adding records and prescriptions is
+                    <b>not user-friendly</b> for immediate utilization by
+                    doctors.
                   </Typography>
                 </>
               </Box>
@@ -539,7 +540,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h3,
                       fontWeight: 600,
                       marginBlockEnd: 1,
                     }}
@@ -554,12 +555,13 @@ const PatientDashboard = () => {
                       lineHeight: 2,
                     }}
                   >
-                    An undefined user experience often results in user
-                    frustration, consequently leading to increased drop-off
-                    rates. This issue is compounded by repetitive features,
-                    similar to those found in another module, such as the
-                    Problem 1 & Patients module, within the patient management
-                    profile, along with other patient-related information.
+                    An undefined user experience often results in{" "}
+                    <b>user frustration,</b> consequently leading to{" "}
+                    <b>increased drop-off rates.</b> This issue is compounded by
+                    repetitive features, similar to those found in another
+                    module, such as the Problem 1 & Patients module, within the
+                    patient management profile, along with other patient-related
+                    information.
                   </Typography>
                 </>
               </Box>
@@ -593,7 +595,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h3,
                       fontWeight: 600,
                       marginBlockEnd: 1,
                     }}
@@ -608,12 +610,12 @@ const PatientDashboard = () => {
                       lineHeight: 2,
                     }}
                   >
-                    Redesign the side menu and header menu navigation. Checked
-                    on all the other modules, and hospital name is not at a
-                    consistent place. The 'Add Patient' button at the top right
-                    corner creates user frustrations because of its dropdown.
-                    When clicked, the dropdown opens with options for adding a
-                    patient or an appointment.
+                    <b>Redesign the side menu and header menu navigation.</b>{" "}
+                    Checked on all the other modules, and hospital name is not
+                    at a consistent place. The 'Add Patient' button at the top
+                    right corner creates user frustrations because of its
+                    dropdown. When clicked, the dropdown opens with options for
+                    adding a patient or an appointment.
                   </Typography>
                 </>
               </Box>
@@ -639,9 +641,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                        ? themeConfig.typography.h3
-                        : themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h3,
                       fontWeight: 400,
                       marginBlockEnd: 1,
                     }}
@@ -664,9 +664,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                        ? themeConfig.typography.h3
-                        : themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h3,
                     }}
                   >
                     Enhanced User Adoption
@@ -687,9 +685,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                        ? themeConfig.typography.h3
-                        : themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h3,
                     }}
                   >
                     Stand Out
@@ -721,9 +717,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                        ? themeConfig.typography.h3
-                        : themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 1,
                     }}
@@ -734,9 +728,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                        ? themeConfig.typography.h3
-                        : themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h3,
                       marginBlockEnd: 1,
                     }}
                   >
@@ -761,9 +753,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                      ? themeConfig.typography.h3
-                      : themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h3,
                       marginBlockEnd: 1,
                     }}
                   >
@@ -787,9 +777,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                        ? themeConfig.typography.h3
-                        : themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h2,
                     }}
                   >
                     Impacts
@@ -818,7 +806,7 @@ const PatientDashboard = () => {
                         style={{
                           height: isMobile ? 200 : 446,
                           width: isMobile ? 320 : 950,
-                          // objectFit: "contain",
+                          objectFit: isMobile && "contain",
                         }}
                       />
                     </>
@@ -838,7 +826,7 @@ const PatientDashboard = () => {
                         style={{
                           height: isMobile ? 250 : 457,
                           width: isMobile ? 320 : 950,
-                          // objectFit: "contain",
+                          objectFit: isMobile && "contain",
                         }}
                       />
                     </>
@@ -856,9 +844,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                      ? themeConfig.typography.h3
-                      : themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h2,
                       lineHeight: 2,
                     }}
                   >
@@ -887,9 +873,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                      ? themeConfig.typography.h3
-                      : themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h2,
                       lineHeight: 2,
                     }}
                   >
@@ -926,9 +910,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                      ? themeConfig.typography.h3
-                      : themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -967,7 +949,7 @@ const PatientDashboard = () => {
                       fontSize: themeConfig.typography.p1,
                       fontWeight: "300",
                       lineHeight: 2,
-                      marginBlockEnd: 4,
+                      marginBlockEnd: 2,
                     }}
                   >
                     Uncovering <b>usability issues</b> and pain points in the
@@ -1002,8 +984,8 @@ const PatientDashboard = () => {
                   <Typography
                     sx={{
                       fontSize: isMobile
-                      ? themeConfig.typography.h3
-                      : themeConfig.typography.h2,
+                        ? themeConfig.typography.h3
+                        : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1017,11 +999,12 @@ const PatientDashboard = () => {
                       fontSize: themeConfig.typography.p1,
                       fontWeight: "300",
                       lineHeight: 2,
+                      marginBlockEnd: 3,
                     }}
                   >
                     I sketched multiple user flows to visualize ideas quickly.
                     My focus at this stage is to diverge first, converge later.
-                    Here are some sketches for patient management
+                    Here are some sketches for patient management.
                   </Typography>
                 </>
                 <>
@@ -1046,9 +1029,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                      ? themeConfig.typography.h3
-                      : themeConfig.typography.h2,
+                      fontSize: themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1060,7 +1041,6 @@ const PatientDashboard = () => {
                   <Typography
                     sx={{
                       fontSize: themeConfig.typography.h3,
-                      fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
                   >
@@ -1124,10 +1104,7 @@ const PatientDashboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                      ? themeConfig.typography.h3
-                      : themeConfig.typography.h2,
-                      fontWeight: 600,
+                      fontSize: themeConfig.typography.h3,
                       marginBlockEnd: 2,
                     }}
                   >
@@ -1191,8 +1168,8 @@ const PatientDashboard = () => {
             <Typography
               sx={{
                 fontSize: isMobile
-                ? themeConfig.typography.h3
-                : themeConfig.typography.h2,
+                  ? themeConfig.typography.h3
+                  : themeConfig.typography.h2,
                 fontWeight: 600,
                 marginBlockEnd: 2,
               }}
@@ -1208,8 +1185,8 @@ const PatientDashboard = () => {
                   <Typography
                     sx={{
                       fontSize: isMobile
-                      ? themeConfig.typography.h3
-                      : themeConfig.typography.h2,
+                        ? themeConfig.typography.h3
+                        : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1287,8 +1264,8 @@ const PatientDashboard = () => {
                   <Typography
                     sx={{
                       fontSize: isMobile
-                      ? themeConfig.typography.h3
-                      : themeConfig.typography.h2,
+                        ? themeConfig.typography.h3
+                        : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1316,8 +1293,8 @@ const PatientDashboard = () => {
                   <Typography
                     sx={{
                       fontSize: isMobile
-                      ? themeConfig.typography.h3
-                      : themeConfig.typography.h2,
+                        ? themeConfig.typography.h3
+                        : themeConfig.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1330,7 +1307,7 @@ const PatientDashboard = () => {
                     sx={{
                       fontSize: themeConfig.typography.p1,
                       fontWeight: "300",
-                      lineHeight: isMobile ? 2 : 3,
+                      lineHeight: 2,
                     }}
                   >
                     Iterative design approach and collaboration with
@@ -1353,7 +1330,7 @@ const PatientDashboard = () => {
             <Box
               sx={{
                 maxWidth: 770,
-                paddingBlockStart: 4,
+                paddingBlockStart: 2,
                 paddingInline: isMobile && 2,
               }}
             >
@@ -1361,8 +1338,8 @@ const PatientDashboard = () => {
                 <Typography
                   sx={{
                     fontSize: isMobile
-                    ? themeConfig.typography.h3
-                    : themeConfig.typography.h2,
+                      ? themeConfig.typography.h3
+                      : themeConfig.typography.h2,
                     fontWeight: 600,
                     marginBlockEnd: 2,
                   }}
@@ -1425,6 +1402,7 @@ const PatientDashboard = () => {
                     fontSize: themeConfig.typography.p1,
                     fontWeight: 600,
                     marginBlockEnd: 4,
+                    lineHeight: 2,
                     textAlign: "center",
                   }}
                 >
@@ -1447,8 +1425,8 @@ const PatientDashboard = () => {
               <Typography
                 sx={{
                   fontSize: isMobile
-                  ? themeConfig.typography.h3
-                  : themeConfig.typography.h2,
+                    ? themeConfig.typography.h3
+                    : themeConfig.typography.h2,
                   fontWeight: 400,
                   marginBlockEnd: 2,
                 }}

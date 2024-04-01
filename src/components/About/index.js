@@ -394,7 +394,7 @@ const About = () => {
                   }}
                 >
                   As a Product Designer, I have taken the lead for the design
-                  team.
+                  team.{" "}
                   <a
                     style={{
                       color: themeConfig.palette.primaryColor,
@@ -439,7 +439,7 @@ const About = () => {
                   sx={{
                     fontSize: themeConfig.typography.p1,
                     fontWeight: "300",
-                    lineHeight: 3,
+                    marginBlockStart: 2,
                   }}
                 >
                   Works: Research plan, wireframe, prototyping, Interaction
@@ -469,7 +469,7 @@ const About = () => {
                   sx={{
                     fontSize: themeConfig.typography.p1,
                     fontWeight: "300",
-                    lineHeight: 3,
+                    marginBottom: 2,
                   }}
                 >
                   Our team identified this problem while the doctor managed the
@@ -520,7 +520,8 @@ const About = () => {
                   }}
                 >
                   Disorganized appointment scheduling leads to
-                  <br /> longer waits and rushed appointments in the clinic.
+                  {isTablet && <br />}longer waits and rushed appointments in
+                  the clinic.
                 </Typography>
               </Box>
 
@@ -690,7 +691,7 @@ const About = () => {
                 >
                   <Stack>
                     <img
-                      src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/doctor.png"
+                      src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/doctor1.png"
                       alt="doctor"
                       style={{ height: 90, width: 90, objectFit: "contain" }}
                     />
@@ -739,15 +740,6 @@ const About = () => {
                         <b>revenue</b> with LYFnGO.
                       </Typography>
                     </Stack>
-                    <Stack>
-                      <Typography
-                        sx={{
-                          fontSize: themeConfig?.typography.h3,
-                        }}
-                      >
-                        Patients engagements
-                      </Typography>
-                    </Stack>
                   </Stack>
                 </Stack>
               </Box>
@@ -783,7 +775,7 @@ const About = () => {
                 >
                   <Stack>
                     <img
-                      src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/customer.png"
+                      src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/customer1.png"
                       alt="customer"
                       style={{ height: 90, width: 90, objectFit: "contain" }}
                     />
@@ -855,6 +847,7 @@ const About = () => {
                 <Typography
                   sx={{
                     fontSize: themeConfig.typography.h3,
+                    marginBlockStart: isMobile && 3,
                     lineHeight: isMobile ? 1 : 3,
                     fontWeight: 600,
                   }}
@@ -948,7 +941,10 @@ const About = () => {
                 >
                   Insights gained while analysis
                 </Typography>
-                <Stack direction={isMobile ? "column" : "row"} gap={6}>
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  gap={isMobile ? 3 : 6}
+                >
                   <Stack>
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/insights1.png"
@@ -1197,7 +1193,6 @@ const About = () => {
                     fontSize: themeConfig?.typography.p1,
                     color: themeConfig.palette.primaryColor,
                     marginBlockEnd: 2,
-                    lineHeight: 2,
                   }}
                 >
                   Enable clinic owners to effortlessly create microsites on our
@@ -1208,10 +1203,9 @@ const About = () => {
                 </Typography>
                 <Typography
                   sx={{
-                    fontSize: themeConfig?.typography.h3,
+                    fontSize: themeConfig?.typography.h4,
                     color: themeConfig.palette.primaryColor,
                     // marginBlockEnd: 2,
-                    lineHeight: 2,
                   }}
                 >
                   Step 1 : Clinic owner can setup their domain, Social accounts
@@ -1234,10 +1228,9 @@ const About = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig?.typography.h3,
+                    fontSize: themeConfig?.typography.h4,
                     color: themeConfig.palette.primaryColor,
                     marginBlockEnd: 2,
-                    lineHeight: 2,
                   }}
                 >
                   Step 2 : About Clinic section to display on microsite.
@@ -1260,10 +1253,9 @@ const About = () => {
               >
                 <Typography
                   sx={{
-                    fontSize: themeConfig?.typography.h3,
+                    fontSize: themeConfig?.typography.h4,
                     color: themeConfig.palette.primaryColor,
                     marginBlockEnd: 2,
-                    lineHeight: 2,
                   }}
                 >
                   Step 3 : Owner can able to customize theme & banner for their
@@ -1301,7 +1293,7 @@ const About = () => {
             <Box
               sx={{
                 maxWidth: 770,
-                paddingBlockStart: 4,
+                // paddingBlockStart: 4,
                 paddingInline: isMobile && 2,
               }}
             >
@@ -1322,7 +1314,6 @@ const About = () => {
                   fontSize: themeConfig?.typography.p1,
                   color: themeConfig.palette.primaryColor,
                   marginBlockEnd: 2,
-                  lineHeight: 2,
                 }}
               >
                 Doctors can create their profiles and set their availability
@@ -1333,9 +1324,8 @@ const About = () => {
               </Typography>
               <Typography
                 sx={{
-                  fontSize: themeConfig?.typography.h3,
+                  fontSize: themeConfig?.typography.h4,
                   color: themeConfig.palette.primaryColor,
-                  lineHeight: 2,
                 }}
               >
                 Step 1 : Doctors can able to update their personal details,
@@ -1358,10 +1348,9 @@ const About = () => {
             >
               <Typography
                 sx={{
-                  fontSize: themeConfig?.typography.h3,
+                  fontSize: themeConfig?.typography.h4,
                   color: themeConfig.palette.primaryColor,
                   marginBlockEnd: 2,
-                  lineHeight: 2,
                 }}
               >
                 Step 2 : Doctors can able to update their availability, pricing
@@ -1385,10 +1374,9 @@ const About = () => {
             >
               <Typography
                 sx={{
-                  fontSize: themeConfig?.typography.h3,
+                  fontSize: themeConfig?.typography.h4,
                   color: themeConfig.palette.primaryColor,
                   marginBlockEnd: 2,
-                  lineHeight: 2,
                 }}
               >
                 Step 3 : Doctors able to add their education, specialization &
@@ -1404,10 +1392,9 @@ const About = () => {
             />
             <Typography
               sx={{
-                fontSize: themeConfig?.typography.h3,
+                fontSize: themeConfig?.typography.h4,
                 color: themeConfig.palette.primaryColor,
                 marginBlock: 4,
-                lineHeight: 2,
               }}
             >
               Now,{" "}
@@ -1448,7 +1435,7 @@ const About = () => {
               <Box
                 sx={{
                   maxWidth: 770,
-                  paddingBlockStart: 4,
+                  // paddingBlockStart: 4,
                   paddingInline: isMobile && 2,
                 }}
               >
@@ -1649,7 +1636,10 @@ const About = () => {
                 >
                   Insights gained
                 </Typography>
-                <Stack direction={isMobile ? "column" : "row"} gap={8}>
+                <Stack
+                  direction={isMobile ? "column" : "row"}
+                  gap={isMobile ? 6 : 8}
+                >
                   <Stack>
                     {" "}
                     <img
@@ -1682,7 +1672,7 @@ const About = () => {
           <Box
             sx={{
               // maxWidth: 770,
-              paddingBlockStart: 4,
+              // paddingBlockStart: 4,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -1707,6 +1697,7 @@ const About = () => {
                 sx={{
                   fontSize: themeConfig.typography.p1,
                   fontWeight: 400,
+                  lineHeight: 2,
                   marginBlockEnd: 3,
                 }}
               >
@@ -1719,6 +1710,7 @@ const About = () => {
                 sx={{
                   fontSize: themeConfig.typography.p1,
                   fontWeight: 700,
+                  lineHeight: 2,
                   marginBlockEnd: 4,
                 }}
               >

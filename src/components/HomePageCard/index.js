@@ -60,7 +60,7 @@ const HomePageCard = () => {
         gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
         columnGap: 4,
         rowGap: 4,
-        marginBlock: 6,
+        marginBlock: 5,
       }}
     >
       {cardList.map((item, index) => (

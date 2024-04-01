@@ -447,7 +447,8 @@ const Healthboard = () => {
                     sx={{
                       fontSize: themeConfig.typography.p1,
                       fontWeight: "300",
-                      lineHeight: 3,
+                      // lineHeight: 3,
+                      marginBlockStart: 3,
                     }}
                   >
                     Works: User & Health data research, Wireframe, Prototypes &
@@ -610,8 +611,8 @@ const Healthboard = () => {
                       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/research_healthdata.png"
                     }
                     style={{
-                      width: isMobile ? 300 : 770,
-                      height: isMobile ? 300 : 370,
+                      width: isMobile ? 320 : 770,
+                      height: isMobile ? 320 : 370,
                       objectFit: "contain",
                     }}
                     alt="bannerImage"
@@ -787,7 +788,7 @@ const Healthboard = () => {
                       "https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Lyfngo_to_healthcareproviders.png"
                     }
                     style={{
-                      width: isMobile ? 300 : 970,
+                      width: isMobile ? 320 : 970,
                       height: isMobile ? 200 : 320,
                       objectFit: "contain",
                     }}
@@ -1062,9 +1063,7 @@ const Healthboard = () => {
                 <>
                   <Typography
                     sx={{
-                      fontSize: isMobile
-                        ? themeConfig?.typography.h3
-                        : themeConfig.typography.h2,
+                      fontSize: themeConfig?.typography.h2,
                       fontWeight: 600,
                       marginBlockEnd: 2,
                     }}
@@ -1104,7 +1103,7 @@ const Healthboard = () => {
               <Box
                 sx={{
                   maxWidth: 990,
-                  paddingBlock: 4,
+                  paddingBlock: isTablet && 4,
                 }}
               >
                 <>
@@ -1171,7 +1170,7 @@ const Healthboard = () => {
                   src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Healthboard/Buisness_healthboard.png"
                   alt="Buisness_healthboard"
                   style={{
-                    width: isMobile ? 300 : 1185,
+                    width: isMobile ? 350 : 1185,
                     height: isMobile ? 300 : 900,
                     objectFit: "contain",
                   }}
@@ -1232,8 +1231,8 @@ const Healthboard = () => {
                     <b>scheduled meetings</b> with Product Leads and Business
                     Analysts to recheck all aspects. Additionally, we will
                     present to the Developer, QA Testers, and Backend Team. Any
-                    <b>improvements</b> and <b>technical flaws</b> noted will be
-                    redesigned by our team. Finally, we will provide a design
+                    <b> improvements</b> and <b>technical flaws</b> noted will
+                    be redesigned by our team. Finally, we will provide a design
                     handoff including assets.
                   </Typography>
                 </>
@@ -1395,6 +1394,7 @@ const Healthboard = () => {
                     fontSize: themeConfig.typography.p1,
                     fontWeight: 400,
                     marginBlockEnd: 2,
+                    lineHeight: 2,
                   }}
                 >
                   This has been <b>my proudest contribution at LYFnGO.</b>{" "}
@@ -1409,6 +1409,7 @@ const Healthboard = () => {
                     fontSize: themeConfig.typography.p1,
                     fontWeight: 700,
                     marginBlockEnd: 4,
+                    lineHeight: 2,
                   }}
                 >
                   Thank you for reading through! Hope you enjoyed learning about
