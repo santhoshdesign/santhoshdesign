@@ -963,7 +963,7 @@ const Healthboard = () => {
                       fontSize: themeConfig.typography.p1,
                       fontWeight: "300",
                       lineHeight: 2,
-                      marginTop: 4,
+                      marginTop: 2,
                     }}
                   >
                     Finally, after the wireframe iteration, we finalized the

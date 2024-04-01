@@ -390,7 +390,8 @@ const PatientDashboard = () => {
                     sx={{
                       fontSize: themeConfig.typography.p1,
                       fontWeight: "300",
-                      lineHeight: 3,
+                      // lineHeight: 3,
+                      marginBlockStart: 2,
                     }}
                   >
                     Works: User Research, User Interface, Prototype & Usability

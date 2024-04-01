@@ -948,14 +948,22 @@ const About = () => {
                   <Stack>
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/insights1.png"
-                      style={{ width: isMobile ? 300 : 350, height: 150 }}
+                      style={{
+                        width: isMobile ? 300 : 350,
+                        height: 150,
+                        objectFit: isMobile && "contain",
+                      }}
                       alt="insights1"
                     />
                   </Stack>
                   <Stack>
                     <img
                       src="https://ik.imagekit.io/ht9dvktzw/Portfolio/Microsite/insights2.png"
-                      style={{ width: isMobile ? 300 : 350, height: 150 }}
+                      style={{
+                        width: isMobile ? 300 : 350,
+                        height: 150,
+                        objectFit: isMobile && "contain",
+                      }}
                       alt="insights2"
                     />
                   </Stack>
@@ -1193,6 +1201,7 @@ const About = () => {
                     fontSize: themeConfig?.typography.p1,
                     color: themeConfig.palette.primaryColor,
                     marginBlockEnd: 2,
+                    lineHeight: 2,
                   }}
                 >
                   Enable clinic owners to effortlessly create microsites on our
@@ -1314,6 +1323,7 @@ const About = () => {
                   fontSize: themeConfig?.typography.p1,
                   color: themeConfig.palette.primaryColor,
                   marginBlockEnd: 2,
+                  lineHeight: 2,
                 }}
               >
                 Doctors can create their profiles and set their availability
